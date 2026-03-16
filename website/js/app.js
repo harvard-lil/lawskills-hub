@@ -122,10 +122,15 @@ function renderPersona(inv) {
         const callout = document.createElement('div');
         callout.className = 'meta-callout';
         callout.style.borderColor = color;
+        const metaStatus = inv.meta_skill.status || 'preview';
+        const metaStatusBadge = `<span class="skill-status-badge skill-status-${metaStatus}">${metaStatus.charAt(0).toUpperCase() + metaStatus.slice(1)}</span>`;
         callout.innerHTML = `
             <div class="meta-callout-body">
                 <div class="meta-callout-text">
-                    <h3>${headline}</h3>
+                    <div class="meta-callout-heading">
+                        <h3>${headline}</h3>
+                        ${metaStatusBadge}
+                    </div>
                     ${objective ? `<p class="meta-objective">${objective}</p>` : ''}
                     <p class="meta-desc">${pitch}</p>
                     <div class="meta-links">${metaTracesLink}${metaEditLink}</div>
@@ -160,9 +165,12 @@ function renderSkillCard(skill, personaLabel, color) {
     const editLink = repoUrl && skill.source_path
         ? `<a href="${repoUrl}tree/main/${skill.source_path}" class="edit-link" target="_blank">edit</a>` : '';
 
+    const status = skill.status || 'preview';
+    const statusBadge = `<span class="skill-status-badge skill-status-${status}">${status.charAt(0).toUpperCase() + status.slice(1)}</span>`;
     card.innerHTML = `
         <div class="skill-header">
             <span class="skill-category" style="background-color: ${color}">${label}</span>
+            ${statusBadge}
         </div>
         <h3 class="skill-title">${formatTitle(skill.name)}</h3>
         <p class="skill-desc">${truncate(skill.description, 180)}</p>

@@ -1,6 +1,7 @@
 ---
 name: skill-reviewer
 description: Reviews and evaluates an existing SKILL.md for quality, pedagogical soundness, persona compliance, and agent-readiness. Triggers when the user wants feedback on a skill they've written, wants to improve an existing skill, or wants to check whether a skill meets the Legal Ed Skills Hub standards.
+status: preview
 metadata:
   version: 0.1.0
 ---

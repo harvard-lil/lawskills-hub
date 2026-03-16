@@ -1,6 +1,7 @@
 ---
 name: syllabus-evidence-based
 description: Creates a modern, evidence-based law school course syllabus from provided content (uploaded PDFs, book table of contents images, pasted text). Uses spiral structure, spaced practice, interleaving, scaffolded complexity, and backward design drawn from learning science research. Use when the user wants a research-informed syllabus, an evidence-based course plan, or a learning-science-driven syllabus.
+status: preview
 metadata:
   version: 0.1.0
 ---

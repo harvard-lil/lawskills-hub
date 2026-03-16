@@ -1,6 +1,7 @@
 ---
 name: skill-developer-meta
 description: Always-on assistant for creating, reviewing, and testing pedagogical AI skills for the Legal Ed Skills Hub. Triggers on writing new skills, reviewing skill quality, evaluating skill pedagogy, testing skills against rubrics, defining evaluation criteria, or any task related to building and improving agent skills for legal education.
+status: preview
 metadata:
   version: 0.1.0
 ---

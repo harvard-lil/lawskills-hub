@@ -1,6 +1,7 @@
 ---
 name: skill-creator
 description: Helps someone create a new pedagogical AI skill from scratch. Triggers when the user wants to write a SKILL.md, build a new skill for the Legal Ed Skills Hub, design an AI-assisted learning experience, or turn a teaching approach into an agent skill. No technical expertise required.
+status: preview
 metadata:
   version: 0.1.0
 ---

@@ -92,7 +92,9 @@ def parse_meta_sections(path: Path) -> dict[str, str]:
     }
 
 
-def render_meta_skill(template: str, sections: dict[str, str], replacements: dict[str, str]) -> str:
+def render_meta_skill(
+    template: str, sections: dict[str, str], replacements: dict[str, str]
+) -> str:
     """Render a meta skill by filling the template with sections and build-time values."""
     content = template
     for key, value in {**sections, **replacements}.items():
@@ -122,13 +124,16 @@ def discover_personas() -> dict[str, dict]:
             if not skill_md.exists():
                 continue
             fm = parse_frontmatter(skill_md)
-            skills.append({
-                "name": fm.get("name", skill_dir.name),
-                "description": fm.get("description", ""),
-                "version": fm.get("version", "0.0.0"),
-                "dir": skill_dir,
-                "is_meta": skill_dir.name.endswith("-meta"),
-            })
+            skills.append(
+                {
+                    "name": fm.get("name", skill_dir.name),
+                    "description": fm.get("description", ""),
+                    "version": fm.get("version", "0.0.0"),
+                    "status": fm.get("status", "preview"),
+                    "dir": skill_dir,
+                    "is_meta": skill_dir.name.endswith("-meta"),
+                }
+            )
         if skills:
             personas[persona_id] = {"meta": entry, "skills": skills}
     return personas
@@ -184,14 +189,17 @@ def build_bundled_skills_text(skills: list[dict]) -> str:
     lines = []
     for s in skills:
         ref_path = f"references/{s['name']}/subskill.md"
+        status_label = s["status"].capitalize()
         lines.append(
-            f"- **{s['name']}** (v{s['version']}): {s['description']}  \n"
+            f"- **{s['name']}** (v{s['version']}, {status_label}): {s['description']}  \n"
             f"  Full instructions: `{ref_path}`"
         )
     return "\n".join(lines)
 
 
-def build_inventory(personas: dict[str, dict], base_url: str, repo_url: str = "") -> dict:
+def build_inventory(
+    personas: dict[str, dict], base_url: str, repo_url: str = ""
+) -> dict:
     """Generate per-persona inventories and the persona index.
 
     Inventory JSON is kept for the website even though meta skills no
@@ -212,6 +220,7 @@ def build_inventory(personas: dict[str, dict], base_url: str, repo_url: str = ""
                 "description": s["description"],
                 "install_url": f"{base_url}skills/{persona_id}/{s['name']}.skill",
                 "version": s["version"],
+                "status": s["status"],
                 "source_path": f"skills/{persona_id}/{s['name']}",
             }
             if s["is_meta"]:
@@ -230,14 +239,16 @@ def build_inventory(personas: dict[str, dict], base_url: str, repo_url: str = ""
         }
         inventories[persona_id] = inventory
 
-        persona_index.append({
-            "id": persona_id,
-            "label": pm.get("label", persona_id.replace("-", " ").title()),
-            "headline": pm.get("headline", ""),
-            "inventory_url": f"{base_url}inventory/{persona_id}.json",
-            "meta_skill_url": meta_skill["install_url"] if meta_skill else None,
-            "skill_count": len(regular_skills),
-        })
+        persona_index.append(
+            {
+                "id": persona_id,
+                "label": pm.get("label", persona_id.replace("-", " ").title()),
+                "headline": pm.get("headline", ""),
+                "inventory_url": f"{base_url}inventory/{persona_id}.json",
+                "meta_skill_url": meta_skill["install_url"] if meta_skill else None,
+                "skill_count": len(regular_skills),
+            }
+        )
 
     return {
         "personas": {"personas": persona_index, "repo_url": repo_url},
@@ -309,14 +320,20 @@ def build(base_url: str, *, repo_url: str = "", custom_gpt_url: str = ""):
             sections = parse_meta_sections(meta_skill["dir"] / "SKILL.md")
             repo_skills = f"{repo_url}tree/main/skills/{persona_id}" if repo_url else ""
             issues = f"{repo_url}issues" if repo_url else ""
-            rendered = render_meta_skill(meta_template, sections, {
-                "bundled_skills": build_bundled_skills_text(regular_skills),
-                "hub_url": base_url or "",
-                "inventory_url": f"{base_url}inventory/{persona_id}.json",
-                "repo_skills_url": repo_skills,
-                "issues_url": issues,
-            })
-            output_path = OUTPUT_DIR / "skills" / persona_id / f"{meta_skill['name']}.skill"
+            rendered = render_meta_skill(
+                meta_template,
+                sections,
+                {
+                    "bundled_skills": build_bundled_skills_text(regular_skills),
+                    "hub_url": base_url or "",
+                    "inventory_url": f"{base_url}inventory/{persona_id}.json",
+                    "repo_skills_url": repo_skills,
+                    "issues_url": issues,
+                },
+            )
+            output_path = (
+                OUTPUT_DIR / "skills" / persona_id / f"{meta_skill['name']}.skill"
+            )
             zip_meta_skill(
                 meta_skill["dir"],
                 [s["dir"] for s in regular_skills],
@@ -367,6 +384,7 @@ def build(base_url: str, *, repo_url: str = "", custom_gpt_url: str = ""):
 
     # Claude Desktop Extension (.mcpb)
     from build_mcpb import build_mcpb
+
     build_mcpb(base_url, output_dir=OUTPUT_DIR / "packages" / "mcpb")
 
     # Summary
@@ -383,20 +401,20 @@ def main():
         "--base-url",
         default=os.environ.get("BASE_URL", ""),
         help="Base URL prefix for all links (e.g. https://x.github.io/repo/). "
-             "Defaults to BASE_URL from .env or empty string for relative paths.",
+        "Defaults to BASE_URL from .env or empty string for relative paths.",
     )
     parser.add_argument(
         "--repo-url",
         default=os.environ.get("REPO_URL", ""),
         help="GitHub repo URL (e.g. https://github.com/org/repo/). "
-             "Used for 'edit' links on the website. "
-             "Defaults to REPO_URL from .env or empty string.",
+        "Used for 'edit' links on the website. "
+        "Defaults to REPO_URL from .env or empty string.",
     )
     parser.add_argument(
         "--custom-gpt-url",
         default=os.environ.get("CUSTOM_GPT_URL", ""),
         help="URL of the ChatGPT Custom GPT. "
-             "Defaults to CUSTOM_GPT_URL from .env or empty string (shows 'coming soon').",
+        "Defaults to CUSTOM_GPT_URL from .env or empty string (shows 'coming soon').",
     )
     args = parser.parse_args()
 

@@ -1,6 +1,7 @@
 ---
 name: skill-tester
 description: Helps create rubrics and test scenarios for evaluating AI skills, and evaluates conversation traces against those rubrics. Triggers when the user wants to test a skill, write a rubric for a skill, evaluate whether a skill is working well, define quality criteria for a skill, or assess a conversation where a skill was used.
+status: preview
 metadata:
   version: 0.1.0
 ---
