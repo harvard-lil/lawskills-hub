@@ -160,6 +160,12 @@ uv run python -m http.server -d traces
 
 The viewer groups traces by skill and scenario, shows sparkline score trends over time, and lets you click into any run to see the full conversation and per-criterion evaluations. Compare skilled vs. null runs to see where the skill is making a difference and where the bare model already does fine.
 
+## Contributing
+
+We welcome contributions from experienced practitioners, clinical faculty, academic labs, and law firms. Skills are markdown files -- writing one is closer to writing a lesson plan than writing code -- so you do not need to be a software engineer to contribute.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for a full guide: how to create or improve a skill, how to write a rubric and run the test harness locally, and how to submit a pull request.
+
 ## License
 
 TBD
