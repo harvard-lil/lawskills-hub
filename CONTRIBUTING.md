@@ -382,6 +382,8 @@ In your PR description, please include:
 
 PRs that change existing skills should explain the motivation for the change and describe how behavior before and after differs.
 
+We genuinely appreciate every contribution and will do our best to give thoughtful feedback and work with you through revisions. That said, we may decline contributions that don't align with LIL's values, don't meet our pedagogical quality bar, or aren't a good fit for the collection at this time. If we close a PR, we will explain why and, where possible, suggest a path forward.
+
 ---
 
 ## Personas and their constraints
