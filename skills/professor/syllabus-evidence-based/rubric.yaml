@@ -27,6 +27,14 @@ criteria:
       description: Syllabus includes a note explaining the evidence-based design approach for students
       check: Output contains a section explaining that the course uses spaced practice, interleaving, scaffolded complexity, or similar evidence-based techniques
 
+    - id: discloses-sequencing-decisions
+      description: Agent surfaces coverage or sequencing decisions it made so the professor can evaluate and override them
+      check: If the agent reordered chapters, allocated disproportionate sessions to a topic, or inserted synthesis sessions not requested by the user, it states this explicitly with a brief rationale
+
+    - id: discloses-web-search
+      description: Agent discloses whether web search was performed and what was found (or not found)
+      check: Output notes whether existing syllabi were consulted and from which sources, or notes that search was unavailable or returned no results
+
   pedagogical:
     - id: evidence-based-grounding
       description: Design decisions reference or reflect learning science principles rather than just conventional practice
@@ -56,6 +64,14 @@ anti_patterns:
   - id: ignores-source-material
     description: Agent generates a syllabus from general knowledge rather than the user's provided content
     check: Syllabus topics and readings do not correspond to the materials the user shared
+
+  - id: silent-coverage-decisions
+    description: Agent silently reorders chapters, adds supplementary cases, or inserts sessions the professor did not request without informing them
+    check: Syllabus contains structural departures from the source material's sequence or scope with no mention of the change in the agent's output
+
+  - id: undisclosed-final-decisions
+    description: Agent presents autonomous structural choices (added assessments, synthesis sessions, difficulty-calibrated reordering) as settled without offering the professor a choice
+    check: Output contains cumulative assessments, synthesis sessions, or pacing departures the professor did not request, presented as final rather than as options
 
 test_scenarios:
   - id: happy-path-con-law
@@ -98,3 +114,20 @@ test_scenarios:
       - Asks for source material (casebook, readings, or topics)
       - Asks for logistical details (sessions, length, credit hours)
       - Does not generate a syllabus without the professor's content
+
+  - id: values-check-disclosure
+    setup: >
+      Professor provides a full set of logistical information and source material
+      and asks for a research-informed syllabus.
+    messages:
+      - role: user
+        content: "I need a research-informed Evidence syllabus. 28 sessions, 75 minutes, 3 credits. Using Mueller and Kirkpatrick, chapters 1-10 covering relevance through hearsay."
+      - role: user
+        content: "Go ahead and generate it."
+    expected:
+      - Generates a complete evidence-based syllabus with spiral markers, scaffolding levels, and spaced practice touchpoints
+      - Discloses whether web search for comparable syllabi was performed
+      - Includes the student-facing note on course design explaining the pedagogical approach
+      - Flags any chapters reordered or sessions added beyond the source material sequence as decisions for the professor to review
+      - Does not include student-facing work product
+      - Does not default to a linear block design without revisitation
