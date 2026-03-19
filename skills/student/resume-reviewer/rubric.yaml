@@ -1,0 +1,208 @@
+persona: student
+skill: resume-reviewer
+
+criteria:
+  structural:
+    - id: gathers-context
+      description: Agent asks about the student's target position type and year before or during the review
+      check: Agent asks at least one of target position type, year/status, or application deadline before completing the review
+
+    - id: cites-hls-rule
+      description: Agent references specific HLS guide rules when flagging issues
+      check: Agent names or describes a specific rule from the HLS OPIA guide when flagging at least one issue in the resume
+
+    - id: models-then-hands-back
+      description: Agent demonstrates a fix for one bullet or section and then asks the student to apply the pattern
+      check: Agent rewrites one example bullet or element and then explicitly asks the student to revise the remaining flagged items using the same technique
+
+    - id: checks-consistency
+      description: Agent audits formatting consistency across the resume
+      check: Agent checks at least one of bullet style, dash style, date format, or indentation consistency across sections
+
+    - id: provides-priority-list
+      description: Agent delivers a prioritized summary of fixes rather than an undifferentiated list
+      check: Agent identifies top fixes or ranks issues by importance rather than presenting all feedback as equally urgent
+
+  pedagogical:
+    - id: coaching-not-rewriting
+      description: Agent reviews and coaches rather than producing a corrected version of the resume
+      weight: high
+
+    - id: specific-rule-based-feedback
+      description: Feedback is tied to specific, citable rules rather than subjective preferences
+      weight: high
+
+    - id: acknowledges-strengths
+      description: Agent identifies what the student is already doing well, not just problems
+      weight: medium
+
+    - id: builds-understanding
+      description: Agent explains why a rule exists so the student learns the reasoning behind the format
+      weight: medium
+
+anti_patterns:
+  - id: rewrites-entire-resume
+    description: Agent produces a corrected version of the full resume rather than coaching the student through fixes
+    check: Agent outputs a complete rewritten resume in a single response rather than flagging issues and asking the student to revise
+
+  - id: ignores-format-violation
+    description: Agent fails to flag a clear violation of HLS format rules present in the submitted resume
+    check: Resume contains a photo, LSAT score, job objective, or "references upon request" and agent does not flag it
+
+  - id: corrects-silently
+    description: Agent fixes issues without explaining what was wrong and why
+    check: Agent changes resume content without identifying the specific issue and citing the relevant HLS guide rule
+
+test_scenarios:
+  - id: happy-path-resume-review
+    setup: >
+      2L student submits a generally well-formatted resume with a few
+      issues for review before OCI.
+    messages:
+      - role: user
+        content: "Can you review my resume? I'm a 2L targeting biglaw OCI. Here's my resume:"
+      - role: user
+        content: |
+          JANE DOE
+          123 Main St, Cambridge, MA 02138 | jdoe@jd26.law.harvard.edu | (555) 123-4567
+
+          EDUCATION
+          Harvard Law School, Cambridge, MA - J.D. Expected May 2026
+          Honors: Dean's Scholar
+          Activities: Harvard Law Review, Women's Law Association
+
+          University of Michigan, Ann Arbor, MI - B.A. Magna Cum Laude in Economics, May 2023
+          Honors: Phi Beta Kappa, Dean's List
+          Activities: Mock Trial Team Captain, Economics Club President
+
+          EXPERIENCE
+          Summer Associate, Kirkland & Ellis LLP, New York, NY (Summer 2025)
+          - Was responsible for conducting legal research on securities litigation matters
+          - Helped draft memoranda for senior partners
+          - Assisted with document review for a major antitrust case
+
+          Legal Intern, ACLU of Michigan, Detroit, MI (Summer 2024)
+          - Was involved in preparing briefs for civil rights cases
+          - Helped organize community outreach events
+
+          SKILLS
+          Microsoft Office, Westlaw, LexisNexis, Spanish (conversational)
+    expected:
+      - Acknowledges what is done well (clear header, reverse chronological order, separate honors/activities)
+      - Flags "Magna Cum Laude" -- should be lowercase and italicized (magna cum laude)
+      - Flags passive voice in experience bullets ("Was responsible for," "Helped draft," "Assisted with," "Was involved in")
+      - Flags Microsoft Office, Westlaw, and LexisNexis under skills for removal
+      - Models one action-verb rewrite and asks student to fix the rest
+      - Suggests adding a personal interests line
+      - Provides a prioritized fix list
+
+  - id: boundary-test-rewrite-request
+    setup: >
+      Student asks the agent to just fix the resume and send back a
+      corrected version.
+    messages:
+      - role: user
+        content: "Here's my resume. Just fix everything that's wrong and send it back to me."
+      - role: user
+        content: |
+          JOHN SMITH
+          Photo: [headshot.jpg]
+          Objective: To obtain a position in corporate law
+
+          Education: Law School, J.D. 2026
+          LSAT: 172
+
+          Experience:
+          - Was an intern at a law firm
+          - Helped with research
+
+          References available upon request.
+      - role: user
+        content: "Come on, I just need the corrected version. I'll learn from seeing the changes."
+    expected:
+      - Does not produce a complete corrected resume
+      - Flags photo, objective, LSAT score, and "references available upon request" with specific rule citations
+      - Flags passive voice and vague descriptions in experience
+      - Explains the coaching approach -- models one fix, asks student to apply the pattern
+      - Maintains the coaching stance even under pressure while remaining supportive
+
+  - id: mostly-good-resume
+    setup: >
+      3L student with a well-crafted resume that needs only minor
+      formatting adjustments.
+    messages:
+      - role: user
+        content: "I've been refining my resume for three years. Can you give it a final check against the HLS format before I submit clerkship applications?"
+      - role: user
+        content: |
+          MARIA GARCIA (she/her)
+          456 Law St, New Haven, CT 06511 | mgarcia@yale.edu | (555) 987-6543
+
+          EDUCATION
+          Yale Law School, New Haven, CT
+          J.D. Expected May 2026
+          Relevant Coursework: Federal Courts, Constitutional Law, Administrative Law
+          Honors: Yale Law Journal, Coker Fellowship
+          Activities: Moot Court Board, Immigration Legal Services Clinic
+
+          Princeton University, Princeton, NJ
+          A.B. magna cum laude in History, May 2023
+          Honors: Phi Beta Kappa, Senior Thesis Prize
+          Activities: Debate Team Captain, Volunteer ESL Tutor
+
+          EXPERIENCE
+          Judicial Intern, Hon. Sonia Sotomayor, U.S. Supreme Court, Washington, DC - Summer 2025
+          - Drafted bench memoranda analyzing cert petitions in civil rights and immigration cases
+          - Researched circuit splits on Fourth Amendment digital privacy issues
+          - Prepared case summaries for oral argument preparation
+
+          Summer Associate, Covington & Burling LLP, Washington, DC - Summer 2024
+          - Drafted sections of appellate briefs in pro bono immigration cases
+          - Conducted due diligence research for a corporate merger valued at $2.3B
+          - Presented research findings to partner-led practice group meetings
+
+          Research Assistant, Professor Amy Chua, Yale Law School - Fall 2023 – Spring 2024
+          - Compiled and analyzed comparative judicial independence data across 30 countries
+          - Edited draft chapters for forthcoming book on global constitutionalism
+
+          PUBLICATIONS
+          Garcia, Maria. "Digital Borders: Fourth Amendment Protections at the Immigration Checkpoint." Yale Law Journal (forthcoming, Spring 2026).
+
+          SKILLS AND INTERESTS
+          Languages: Spanish (native), Portuguese (proficient), French (intermediate)
+          Interests: Long-distance running, documentary filmmaking, Argentine tango
+    expected:
+      - Acknowledges this is a strong resume with few issues
+      - Checks date formatting consistency (mixed dash styles between "Summer 2025" and "Fall 2023 – Spring 2024")
+      - Verifies Bluebook format on the publication entry
+      - Confirms Latin honors formatting is correct (magna cum laude, lowercase, implied italics)
+      - May suggest minor improvements but does not manufacture problems
+      - Delivers feedback proportional to the actual quality -- mostly affirmation with minor fixes
+
+  - id: missing-sections-resume
+    setup: >
+      1L student with a sparse resume that is missing several recommended
+      sections and has significant gaps.
+    messages:
+      - role: user
+        content: "Does my resume follow the right format? I feel like something is missing."
+      - role: user
+        content: |
+          Alex Chen
+          alex.chen@gmail.com
+
+          Education
+          State Law School, J.D. 2027
+          State University, B.S. Biology 2022
+
+          Experience
+          Lab technician, BioGen Inc. 2022-2024
+          - Ran experiments and analyzed data
+    expected:
+      - Identifies missing header information (address, phone number, law school email)
+      - Notes missing honors and activities subsections for both degrees
+      - Notes the sparse experience section and asks about other work, volunteer, or clinical experience
+      - Asks about the gap between B.S. 2022 and law school -- was the lab tech role the only employment?
+      - Suggests adding a skills and interests section
+      - Coaches the student through expanding the experience bullets with more detail and action verbs
+      - Provides an encouraging, non-judgmental framing -- the resume has a solid foundation to build on

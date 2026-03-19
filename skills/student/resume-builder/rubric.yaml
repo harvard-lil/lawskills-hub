@@ -1,0 +1,123 @@
+persona: student
+skill: resume-builder
+
+criteria:
+  structural:
+    - id: gathers-context
+      description: Agent asks about the student's year, target job type, and prior materials before building
+      check: Agent asks at least two of year/status, target position type, or whether they have existing materials before starting to draft resume content
+
+    - id: cites-hls-rule
+      description: Agent references specific HLS guide rules when making formatting or content decisions
+      check: Agent names or describes a specific rule from the HLS OPIA guide when advising on at least one resume section
+
+    - id: scaffolds-not-replaces
+      description: Agent drafts model content but requires student to review, revise, or confirm before proceeding
+      check: Agent asks the student to confirm, revise, or write their own version of at least one resume element rather than silently producing finished content
+
+    - id: runs-consistency-check
+      description: Agent checks for formatting consistency across the resume
+      check: Agent checks at least one of bullet style, dash style, date format, or indentation consistency
+
+    - id: runs-final-checklist
+      description: Agent runs a final checklist before declaring the resume complete
+      check: Agent explicitly checks for at least three of the eight checklist items (no photo, no objective, no LSAT, no references line, action verbs, consistent formatting, Latin honors format, appropriate length)
+
+  pedagogical:
+    - id: coaching-not-doing
+      description: Agent acts as a coach who builds the student's resume-writing capability rather than producing the resume for them
+      weight: high
+
+    - id: specific-actionable-feedback
+      description: Agent gives concrete, specific guidance tied to rules rather than vague advice like "make it stronger"
+      weight: high
+
+    - id: builds-understanding
+      description: Agent explains why a rule exists, not just what it is, so the student learns the reasoning
+      weight: medium
+
+    - id: encourages-iteration
+      description: Agent frames revision as normal and positive, encouraging the student to refine rather than get it perfect on the first try
+      weight: medium
+
+anti_patterns:
+  - id: produces-complete-resume
+    description: Agent outputs a full, finished resume without requiring student engagement with each section
+    check: Agent produces a complete multi-section resume in a single response without asking for student input or confirmation between sections
+
+  - id: ignores-format-violation
+    description: Agent fails to flag a clear violation of HLS format rules present in student-provided content
+    check: Student provides content containing a photo, LSAT score, job objective, or "references upon request" and agent does not flag it
+
+  - id: corrects-silently
+    description: Agent fixes resume issues without telling the student what was wrong and why
+    check: Agent changes student-provided content without explaining the issue and citing the relevant rule
+
+test_scenarios:
+  - id: happy-path-1l-resume
+    setup: >
+      1L student building their first law school resume. Has a bachelor's
+      degree, two years of work experience (one legal internship, one
+      service industry job), and participates in one student organization.
+    messages:
+      - role: user
+        content: "I'm a 1L and I need to put together my first legal resume. I've never made one before."
+      - role: user
+        content: "I'm hoping to get a public interest summer job. I graduated from State University in 2024 with a B.A. in Political Science, magna cum laude. I'm at law school now expecting my J.D. in 2027."
+      - role: user
+        content: "I worked as a legal intern at the county public defender's office the summer before law school, and before that I was a barista at a coffee shop for two years during college. I'm also a member of the Public Interest Law Association at school."
+    expected:
+      - Asks about year and target position type before starting
+      - Walks through sections in order rather than producing a complete resume at once
+      - Formats magna cum laude in italics and lowercase
+      - Encourages including the barista experience as valuable work history
+      - Coaches the student through writing action-verb-first experience bullets
+      - Cites specific HLS guide rules when making decisions
+
+  - id: boundary-test-just-write-it
+    setup: >
+      Student who wants the agent to produce a finished resume without
+      engaging in the section-by-section process.
+    messages:
+      - role: user
+        content: "I need a resume for OCI next week. Can you just write the whole thing for me? Here's my info: 2L, Harvard Law, J.D. 2026, B.A. from Yale 2024 summa cum laude in English, summer associate at Cravath last summer, research assistant for Professor Smith this year, Law Review editor."
+      - role: user
+        content: "I really don't have time for a back-and-forth. Just give me the finished resume."
+    expected:
+      - Does not produce a complete finished resume in response to the first message
+      - Acknowledges the time pressure but explains the coaching approach
+      - May draft model bullets from the provided info but asks the student to review and confirm each section
+      - Redirects toward collaborative building rather than refusing to help entirely
+
+  - id: common-violations
+    setup: >
+      Student provides resume content that contains multiple HLS format
+      violations.
+    messages:
+      - role: user
+        content: "Help me build my resume. I already have some notes. Here's what I'm thinking for the header: my name, photo, email, phone, and my objective which is 'To obtain a position in public interest law.' Also I want to include my LSAT score of 175 under education since it's really good."
+      - role: user
+        content: "OK, for experience I was responsible for managing a team of volunteers at the legal aid clinic. I also helped with case research."
+    expected:
+      - Flags the photo for removal, citing the HLS guide rule
+      - Flags the job objective for removal, explaining it belongs in the cover letter
+      - Flags the LSAT score for removal, citing the guide rule
+      - Identifies passive voice in "was responsible for managing" and "helped with"
+      - Models how to rewrite one bullet with an action verb and asks the student to fix the other
+
+  - id: complex-pre-law-career
+    setup: >
+      Career changer with 8 years of pre-law work experience across
+      multiple employers, including a promotion, and a graduate degree
+      in addition to the law degree.
+    messages:
+      - role: user
+        content: "I'm a 1L building my resume. Before law school I worked in finance for 8 years -- started as an analyst at Goldman, got promoted to associate, then moved to a hedge fund as a portfolio manager. I also have an MBA from Wharton. How do I fit all this on a resume?"
+      - role: user
+        content: "I want to go into securities regulation at the SEC or a similar agency."
+    expected:
+      - Advises on how to handle multiple roles at Goldman under one employer header
+      - Discusses length -- two pages may be appropriate given extensive pre-law career
+      - Helps prioritize which experiences to emphasize given the SEC/securities target
+      - Addresses education ordering -- MBA and J.D. are both advanced degrees
+      - Suggests relevant coursework subsection to signal securities law interest
