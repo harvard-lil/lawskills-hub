@@ -1,7 +1,6 @@
 ---
 name: syllabus-traditional
-description: Creates a traditional Socratic law school course syllabus from provided content (uploaded PDFs, book table of contents images, pasted text). Uses linear, block-based doctrinal sequencing with canonical casebook ordering. Use when the user wants a conventional law school syllabus, a Socratic method syllabus, or a traditional course plan.
-status: preview
+description: Creates a traditional Socratic law school course syllabus from provided content (uploaded PDFs, book table of contents images, pasted text). Uses linear, block-based doctrinal sequencing with canonical casebook ordering. Use when the user says "build a syllabus from this casebook table of contents," "create a syllabus that follows the book chapter by chapter," "I need a standard 1L Contracts syllabus with case assignments," "map out 28 class sessions covering this Torts material," or "generate a Socratic method course plan from these readings."
 metadata:
   version: 0.1.0
 ---
@@ -16,9 +15,22 @@ Before generating anything, carefully review all content the user has shared:
 - Identify the subject matter, doctrinal areas, and scope
 - Note the ordering and structure of the source material (casebook chapters, topics, case names)
 - Identify the total volume of material to be covered
-- Ask the user for any missing information you need: number of class sessions, session length, semester duration, credit hours, or whether this is a survey course vs. an advanced seminar
+
+Then gather any missing structural information using the tiers below. Do not re-ask for information the user has already provided. Phrase questions conversationally -- this is a collegial exchange, not an intake form.
+
+### Always ask (if not already provided)
+- **Number of class sessions** -- the total meetings available for instruction (excluding any exam period)
+- **Session length** -- in minutes (e.g., 50, 75, 90)
+- **Credit hours** -- typically 2, 3, or 4; this sets institutional expectations for coverage depth and out-of-class workload
+
+### Ask if contextually relevant
+- **Multi-semester sequence** -- ask if the source material is clearly larger than one semester can cover, if the user mentions "Part 1," "first semester," "we pick up in the spring," or similar; if so, establish what this semester must end with and what carries over
+- **Prerequisites or co-requisites** -- ask if the course appears upper-level or specialized (e.g., an advanced seminar building on 1L foundations); skip for standard 1L courses where prerequisites are institutional
+- **Mandatory coverage constraints** -- ask if there are bar-exam coverage expectations, faculty committee requirements, or accreditation-driven topics the syllabus must include regardless of the source material's emphasis
 
 ## Step 1.5: Research Existing Syllabi
+
+If the user has indicated they do not want external syllabi consulted -- whether by explicit request ("don't look at other syllabi," "skip the research") or by signaling they want to work only from the materials they provided ("just use what I gave you," "I've already reviewed other syllabi") -- skip this step entirely and proceed to Step 2.
 
 If the course topic and/or casebook can be identified from Step 1, search for existing syllabi from comparable law school courses before generating the syllabus.
 
@@ -89,3 +101,21 @@ After presenting the syllabus, ask the user:
 - Whether the coverage matches their expectations
 - Whether any topics need more or fewer sessions
 - Whether they want to add participation requirements, attendance policies, or other standard syllabus components
+
+## Step 5: Values and Design Cross-Check
+
+Before delivering the final version of the syllabus, run the following seven checks internally. For each check that fails, correct the issue before presenting output. If a check reveals a decision that belongs to the professor rather than to you, flag it explicitly rather than silently resolving it.
+
+1. **Provenance** -- Does every reading assignment trace back to content the user provided or to sources identified during the research step (Step 1.5)? You must not assign cases or readings drawn from your general knowledge without disclosing this and confirming with the user.
+
+2. **Traditional methodology** -- Does any session contain spiral return markers, interleaving notes, spaced practice prompts, or scaffolding levels? These are evidence-based design elements that do not belong in a traditional Socratic syllabus. If found, remove them.
+
+3. **Work product scope** -- Does the output contain student-facing materials (study guides, case briefs, practice outlines, exam prep summaries) rather than an instructor's syllabus? If so, remove those materials; they are not part of this skill's scope.
+
+4. **Explainability** -- Did you make any coverage or sequencing decisions that the professor has not seen the reasoning for? If you skipped casebook material, reordered chapters, or added supplementary cases, state that explicitly in the output with a one-sentence rationale. The professor should be able to evaluate and override every structural choice.
+
+5. **Source fidelity** -- Does the session-by-session schedule draw readings from the user's provided content? If sessions reference topics or cases not present in the user's source material and not surfaced during research, flag this as a gap rather than silently filling it.
+
+6. **Transparency about system access** -- Did you perform web searches (Step 1.5) or access external sources during this session? If so, confirm this was disclosed in the output. If web search was unavailable or returned no results, confirm that limitation was noted.
+
+7. **Human agency** -- Does the syllabus contain final pedagogical decisions that should belong to the professor -- dropping a required topic, weighting one doctrinal area heavily over another, adding assessments the user did not request? If so, surface these as options or questions rather than presenting them as settled choices.

@@ -12,6 +12,9 @@ Conduct this step whenever you can identify at least one of:
 - A specific course topic (e.g., "Constitutional Law," "Evidence," "Torts")
 - A specific law school or professor
 
+If the user has indicated they do not want external syllabi consulted, skip this
+research protocol entirely.
+
 If the user has provided only raw text without identifying the course or
 casebook, ask before searching.
 

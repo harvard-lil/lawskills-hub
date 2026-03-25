@@ -7,9 +7,13 @@ criteria:
       description: Agent reviews the user's source material before generating the syllabus
       check: Agent references specific elements from the user's provided content (casebook chapters, case names, topic areas) in its analysis or output
 
-    - id: asks-missing-info
-      description: Agent asks for missing logistical information needed to build the syllabus
-      check: Agent asks about session count, session length, semester duration, or credit hours if not provided by the user
+    - id: asks-required-logistics
+      description: Agent asks for session count, session length, and credit hours if not already provided
+      check: Agent explicitly asks about (or confirms) all three required logistics -- number of sessions, session length, and credit hours -- before generating the syllabus
+
+    - id: asks-multi-semester-when-relevant
+      description: Agent asks about multi-semester sequence when source material volume or user language suggests it
+      check: When the casebook covers substantially more material than a single semester could address, agent asks whether this is part of a sequence and what must be covered this term
 
     - id: produces-complete-syllabus
       description: Output includes all required sections of a complete syllabus
@@ -22,6 +26,14 @@ criteria:
     - id: includes-discussion-questions
       description: Sessions include Socratic discussion questions
       check: At least some sessions include 2-3 key questions for Socratic discussion
+
+    - id: discloses-sequencing-decisions
+      description: Agent surfaces coverage or sequencing decisions it made so the professor can evaluate and override them
+      check: If the agent skipped material, reordered chapters, or added supplementary cases, it states this explicitly with a brief rationale
+
+    - id: discloses-web-search
+      description: Agent discloses whether web search was performed and what was found (or not found)
+      check: Output notes whether existing syllabi were consulted and from which sources, or notes that search was unavailable or returned no results
 
   pedagogical:
     - id: follows-source-ordering
@@ -52,6 +64,18 @@ anti_patterns:
   - id: ignores-source-material
     description: Agent generates a syllabus from general knowledge rather than the user's provided content
     check: Syllabus topics and readings do not correspond to the materials the user shared
+
+  - id: silent-coverage-decisions
+    description: Agent silently drops, reorders, or adds material without informing the professor
+    check: Syllabus omits or reorders source material chapters without any mention of the change in the agent's output
+
+  - id: skips-required-logistics
+    description: Agent generates a syllabus without asking for session count, session length, or credit hours
+    check: Agent produces a full syllabus without confirming or requesting the three required logistical inputs when they were not provided by the user
+
+  - id: undisclosed-final-decisions
+    description: Agent presents pedagogical choices (assessment types, topic weights, added readings) as settled without offering the professor a choice
+    check: Output contains assessments, supplementary readings, or topic emphasis choices the professor did not request, presented as final rather than as options
 
 test_scenarios:
   - id: happy-path-torts
@@ -94,4 +118,44 @@ test_scenarios:
       - Respects the professor's scoping decision to skip structural content
       - Builds the syllabus from the specified chapters
       - Allocates 42 sessions across the individual rights topics
+      - Asks for credit hours since they were not provided
       - Asks for confirmation and offers to iterate
+
+  - id: logistics-questioning
+    setup: >
+      Professor provides source material but no logistical details at all.
+    messages:
+      - role: user
+        content: "I want to build a traditional Contracts syllabus using the Knapp, Crystal, and Prince casebook."
+    expected:
+      - Asks for number of class sessions
+      - Asks for session length
+      - Asks for credit hours
+      - Does not generate a syllabus before receiving at least the session count
+      - Does not ask about prerequisites (standard 1L course)
+
+  - id: multi-semester-detection
+    setup: >
+      Professor implies this is a two-semester Contracts sequence but does not say so explicitly.
+    messages:
+      - role: user
+        content: "I need a syllabus for Contracts I. 26 sessions, 75 minutes, 4 credits. Using the full Knapp casebook which covers formation, performance, breach, and remedies across 900 pages."
+    expected:
+      - Asks whether this is part of a two-semester sequence and what must be covered in the first semester
+      - Does not attempt to compress all 900 pages into 26 sessions without clarifying scope
+      - After scope is clarified, generates a syllabus covering only the agreed portion
+
+  - id: values-check-disclosure
+    setup: >
+      Professor provides a full set of logistical information and source material.
+    messages:
+      - role: user
+        content: "I need a traditional Torts syllabus. 28 sessions, 75 minutes, 4 credits. Using Dobbs, Hayden, and Bublick. Chapters 1-12 cover intentional torts through products liability."
+      - role: user
+        content: "Go ahead and generate it."
+    expected:
+      - Generates a complete syllabus
+      - Discloses whether web search for comparable syllabi was performed
+      - Notes any sequencing or coverage decisions made (e.g., if any chapters were compressed or supplementary cases added)
+      - Does not include student-facing work product
+      - Does not include spiral returns or evidence-based design elements
