@@ -55,33 +55,35 @@ Each skill is a folder with a `SKILL.md` file and optional reference material. T
 
 ## Skills in This Collection
 
+Skills are labeled **Official** (tested and stable) or **Preview** (experimental/in development, may change).
+
 ### Professor
 
-- **Syllabus Traditional** -- Creates a conventional Socratic law school syllabus from provided course materials, using linear doctrinal sequencing and casebook ordering.
-- **Syllabus Evidence-Based** -- Creates a modern syllabus using spiral structure, spaced practice, interleaving, and backward design drawn from learning science research.
+- **Syllabus Traditional** `Official` -- Creates a conventional Socratic law school syllabus from provided course materials, using linear doctrinal sequencing and casebook ordering.
+- **Syllabus Evidence-Based** `Preview` -- Creates a modern syllabus using spiral structure, spaced practice, interleaving, and backward design drawn from learning science research.
 
 ### Student
 
-- **Understanding Check** -- Conducts a structured diagnostic to identify gaps and misconceptions halfway through a course.
-- **Exam Answer Eval** -- Evaluates a practice exam answer along standard law school dimensions (issue-spotting, analysis, counterarguments) with specific, actionable feedback.
-- **Socratic Tutor** -- Conducts a Socratic dialogue on assigned readings to prepare for class.
+- **Understanding Check** `Preview` -- Conducts a structured diagnostic to identify gaps and misconceptions halfway through a course.
+- **Exam Answer Eval** `Preview` -- Evaluates a practice exam answer along standard law school dimensions (issue-spotting, analysis, counterarguments) with specific, actionable feedback.
+- **Socratic Tutor** `Preview` -- Conducts a Socratic dialogue on assigned readings to prepare for class.
 
 ### Pro Se
 
-- **Issue Interview** -- A structured intake interview that helps someone understand their legal issue in plain language and prepare to seek help.
-- **Research Coach** -- Teaches how to find and read relevant law, rather than doing the research for them.
+- **Issue Interview** `Preview` -- A structured intake interview that helps someone understand their legal issue in plain language and prepare to seek help.
+- **Research Coach** `Preview` -- Teaches how to find and read relevant law, rather than doing the research for them.
 
 ### CLE
 
-- **Development Plan** -- Creates a structured professional development plan with quarterly milestones.
-- **Topic Curriculum** -- Builds a self-study curriculum for transitioning into a new practice area.
-- **Client Email Coach** -- Reviews draft client emails with specific feedback on clarity, tone, and risk management.
+- **Development Plan** `Preview` -- Creates a structured professional development plan with quarterly milestones.
+- **Topic Curriculum** `Preview` -- Builds a self-study curriculum for transitioning into a new practice area.
+- **Client Email Coach** `Preview` -- Reviews draft client emails with specific feedback on clarity, tone, and risk management.
 
 ### Skill Developer
 
-- **Skill Creator** -- Walks a subject matter expert through authoring a new SKILL.md, handling format and conventions while the user supplies the educational judgment.
-- **Skill Reviewer** -- Evaluates an existing skill for format compliance, persona alignment, pedagogical quality, and agent-readiness.
-- **Skill Tester** -- Helps define rubrics and test scenarios for a skill, and evaluates conversation traces against those rubrics.
+- **Skill Creator** `Preview` -- Walks a subject matter expert through authoring a new SKILL.md, handling format and conventions while the user supplies the educational judgment.
+- **Skill Reviewer** `Preview` -- Evaluates an existing skill for format compliance, persona alignment, pedagogical quality, and agent-readiness.
+- **Skill Tester** `Preview` -- Helps define rubrics and test scenarios for a skill, and evaluates conversation traces against those rubrics.
 
 ## Delivery
 
@@ -155,10 +157,16 @@ Trace files accumulate in `traces/` with a `traces/index.json` manifest that the
 
 ```bash
 uv run python -m http.server -d traces
-# Open http://localhost:8000/viewer.html
+# Open http://localhost:8000/
 ```
 
 The viewer groups traces by skill and scenario, shows sparkline score trends over time, and lets you click into any run to see the full conversation and per-criterion evaluations. Compare skilled vs. null runs to see where the skill is making a difference and where the bare model already does fine.
+
+## Contributing
+
+We welcome contributions from experienced practitioners, clinical faculty, academic labs, and law firms. Skills are markdown files -- writing one is closer to writing a lesson plan than writing code -- so you do not need to be a software engineer to contribute.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for a full guide: how to create or improve a skill, how to write a rubric and run the test harness locally, and how to submit a pull request.
 
 ## License
 

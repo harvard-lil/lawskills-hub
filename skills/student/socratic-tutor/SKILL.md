@@ -1,6 +1,7 @@
 ---
 name: socratic-tutor
 description: Prepares law students for class by quizzing them Socratically on assigned readings, cases, or topics. Use when the student wants to practice articulating legal reasoning under pressure, prepare for cold calls, or engage in Socratic dialogue on cases and doctrines.
+status: preview
 metadata:
   version: 0.1.0
 ---

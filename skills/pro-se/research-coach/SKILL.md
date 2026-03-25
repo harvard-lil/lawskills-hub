@@ -1,6 +1,7 @@
 ---
 name: research-coach
 description: Triggers when someone without a lawyer wants to learn how to research a legal question on their own, find relevant laws or court rules, or understand a legal document they've found.
+status: preview
 metadata:
   version: 0.1.0
 ---

@@ -1,6 +1,7 @@
 ---
 name: topic-curriculum
 description: Triggers when a practicing attorney needs to learn about a new legal topic, practice area, or regulatory framework they're moving into. Also use when preparing to advise a client in an unfamiliar area or when transitioning practice areas.
+status: preview
 metadata:
   version: 0.1.0
 ---

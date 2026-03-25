@@ -1,6 +1,7 @@
 ---
 name: understanding-check
 description: Helps law students check their understanding of course material, test whether they grasp key concepts, identify gaps in their knowledge, or review what they've learned so far in a class. Use when the student wants to verify comprehension, diagnose weak spots, or assess readiness before an exam or the next class.
+status: preview
 metadata:
   version: 0.1.0
 ---

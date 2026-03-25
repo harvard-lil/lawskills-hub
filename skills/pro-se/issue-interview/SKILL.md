@@ -1,6 +1,7 @@
 ---
 name: issue-interview
 description: Triggers when someone without a lawyer needs help understanding a legal problem, wants to identify what kind of legal issue they're facing, or wants to prepare for a conversation with a lawyer or legal aid organization.
+status: preview
 metadata:
   version: 0.1.0
 ---
