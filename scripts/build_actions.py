@@ -61,10 +61,12 @@ def _discover_references(skill_dir: Path) -> list[dict[str, str]]:
     refs = []
     for f in sorted(refs_dir.iterdir()):
         if f.suffix == ".md" and f.is_file():
-            refs.append({
-                "name": f.stem,
-                "filename": f.name,
-            })
+            refs.append(
+                {
+                    "name": f.stem,
+                    "filename": f.name,
+                }
+            )
     return refs
 
 
@@ -105,23 +107,28 @@ def build_actions(
         regular = [s for s in pdata["skills"] if not s["is_meta"]]
         meta_skills = [s for s in pdata["skills"] if s["is_meta"]]
         meta_description = meta_skills[0]["description"] if meta_skills else ""
-        persona_index.append({
-            "id": persona_id,
-            "label": pm.get("label", persona_id.replace("-", " ").title()),
-            "description": meta_description,
-            "objective": design.get("objective", ""),
-            "skill_count": len(regular),
-        })
+        persona_index.append(
+            {
+                "id": persona_id,
+                "label": pm.get("label", persona_id.replace("-", " ").title()),
+                "description": meta_description,
+                "objective": design.get("objective", ""),
+                "skill_count": len(regular),
+            }
+        )
 
-    _write_json(actions_dir / "personas.json", {
-        "personas": persona_index,
-        "description": (
-            "Legal Ed Skills Hub persona index. Each persona targets a specific "
-            "type of user and educational objective. Read the description and "
-            "objective fields to decide which persona matches the user's needs, "
-            "then fetch full detail at /actions/personas/{id}.json."
-        ),
-    })
+    _write_json(
+        actions_dir / "personas.json",
+        {
+            "personas": persona_index,
+            "description": (
+                "Legal Ed Skills Hub persona index. Each persona targets a specific "
+                "type of user and educational objective. Read the description and "
+                "objective fields to decide which persona matches the user's needs, "
+                "then fetch full detail at /actions/personas/{id}.json."
+            ),
+        },
+    )
 
     # ------------------------------------------------------------------
     # 2. Per-persona detail
@@ -138,26 +145,32 @@ def build_actions(
         for s in regular:
             skill_dir = s["dir"]
             refs = _discover_references(skill_dir)
-            skills_summary.append({
-                "name": s["name"],
-                "description": s["description"],
-                "version": s["version"],
-                "has_references": len(refs) > 0,
-                "reference_count": len(refs),
-            })
+            skills_summary.append(
+                {
+                    "name": s["name"],
+                    "description": s["description"],
+                    "version": s["version"],
+                    "status": s["status"],
+                    "has_references": len(refs) > 0,
+                    "reference_count": len(refs),
+                }
+            )
 
-        _write_json(personas_out / f"{persona_id}.json", {
-            "id": persona_id,
-            "label": pm.get("label", persona_id.replace("-", " ").title()),
-            "headline": pm.get("headline", ""),
-            "pitch": pm.get("pitch", ""),
-            "design": design,
-            "skills": skills_summary,
-            "usage_hint": (
-                "Pick a skill by name, then fetch its full instructions at "
-                f"/actions/skills/{persona_id}/{{skill_name}}."
-            ),
-        })
+        _write_json(
+            personas_out / f"{persona_id}.json",
+            {
+                "id": persona_id,
+                "label": pm.get("label", persona_id.replace("-", " ").title()),
+                "headline": pm.get("headline", ""),
+                "pitch": pm.get("pitch", ""),
+                "design": design,
+                "skills": skills_summary,
+                "usage_hint": (
+                    "Pick a skill by name, then fetch its full instructions at "
+                    f"/actions/skills/{persona_id}/{{skill_name}}."
+                ),
+            },
+        )
 
     # ------------------------------------------------------------------
     # 3. Per-skill full content
@@ -177,27 +190,35 @@ def build_actions(
 
             ref_entries = []
             for r in refs:
-                ref_entries.append({
-                    "name": r["name"],
-                    "fetch_path": f"/actions/skills/{persona_id}/{s['name']}/references/{r['name']}",
-                })
+                ref_entries.append(
+                    {
+                        "name": r["name"],
+                        "fetch_path": f"/actions/skills/{persona_id}/{s['name']}/references/{r['name']}",
+                    }
+                )
 
-            _write_json(persona_skills_out / f"{s['name']}.json", {
-                "name": s["name"],
-                "description": s["description"],
-                "version": s["version"],
-                "persona": persona_id,
-                "skill_body": parsed["body"],
-                "references": ref_entries,
-                "usage_hint": (
-                    "The skill_body field contains the full skill instructions. "
-                    "Follow them to assist the user. "
-                    "If references are listed, fetch them as needed for additional context."
-                ) if ref_entries else (
-                    "The skill_body field contains the full skill instructions. "
-                    "Follow them to assist the user."
-                ),
-            })
+            _write_json(
+                persona_skills_out / f"{s['name']}.json",
+                {
+                    "name": s["name"],
+                    "description": s["description"],
+                    "version": s["version"],
+                    "status": s["status"],
+                    "persona": persona_id,
+                    "skill_body": parsed["body"],
+                    "references": ref_entries,
+                    "usage_hint": (
+                        "The skill_body field contains the full skill instructions. "
+                        "Follow them to assist the user. "
+                        "If references are listed, fetch them as needed for additional context."
+                    )
+                    if ref_entries
+                    else (
+                        "The skill_body field contains the full skill instructions. "
+                        "Follow them to assist the user."
+                    ),
+                },
+            )
 
     # ------------------------------------------------------------------
     # 4. Reference documents (nested under skills/, mirroring on-disk layout)
@@ -215,13 +236,18 @@ def build_actions(
             ref_dir_out.mkdir(parents=True, exist_ok=True)
 
             for r in refs:
-                content = (skill_dir / "references" / r["filename"]).read_text(encoding="utf-8")
-                _write_json(ref_dir_out / f"{r['name']}.json", {
-                    "name": r["name"],
-                    "skill": s["name"],
-                    "persona": persona_id,
-                    "content": content,
-                })
+                content = (skill_dir / "references" / r["filename"]).read_text(
+                    encoding="utf-8"
+                )
+                _write_json(
+                    ref_dir_out / f"{r['name']}.json",
+                    {
+                        "name": r["name"],
+                        "skill": s["name"],
+                        "persona": persona_id,
+                        "content": content,
+                    },
+                )
 
     # ------------------------------------------------------------------
     # 5. OpenAPI spec
@@ -233,8 +259,7 @@ def build_actions(
     _write_openapi_yaml(actions_dir / "openapi.yaml", spec)
 
     skill_count = sum(
-        len([s for s in p["skills"] if not s["is_meta"]])
-        for p in personas.values()
+        len([s for s in p["skills"] if not s["is_meta"]]) for p in personas.values()
     )
     print(f"Built GPT Actions: {len(personas)} personas, {skill_count} skills")
     print(f"OpenAPI spec: {actions_dir / 'openapi.json'}")
@@ -255,7 +280,11 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
             if refs:
                 all_refs[pid][s["name"]] = [r["name"] for r in refs]
 
-    server_url = base_url.rstrip("/") if base_url else "https://example.github.io/skills-hub-demo"
+    server_url = (
+        base_url.rstrip("/")
+        if base_url
+        else "https://example.github.io/skills-hub-demo"
+    )
 
     return {
         "openapi": "3.1.0",
@@ -282,9 +311,13 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                     "responses": {
                         "200": {
                             "description": "Persona index",
-                            "content": {"application/json": {"schema": {
-                                "$ref": "#/components/schemas/PersonaIndex",
-                            }}},
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "$ref": "#/components/schemas/PersonaIndex",
+                                    }
+                                }
+                            },
                         },
                     },
                 },
@@ -302,9 +335,13 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                     "responses": {
                         "200": {
                             "description": "Persona detail with skill listing",
-                            "content": {"application/json": {"schema": {
-                                "$ref": "#/components/schemas/PersonaDetail",
-                            }}},
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "$ref": "#/components/schemas/PersonaDetail",
+                                    }
+                                }
+                            },
                         },
                     },
                 },
@@ -325,9 +362,13 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                     "responses": {
                         "200": {
                             "description": "Full skill content",
-                            "content": {"application/json": {"schema": {
-                                "$ref": "#/components/schemas/SkillDetail",
-                            }}},
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "$ref": "#/components/schemas/SkillDetail",
+                                    }
+                                }
+                            },
                         },
                     },
                 },
@@ -348,9 +389,13 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                     "responses": {
                         "200": {
                             "description": "Reference document content",
-                            "content": {"application/json": {"schema": {
-                                "$ref": "#/components/schemas/ReferenceDetail",
-                            }}},
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "$ref": "#/components/schemas/ReferenceDetail",
+                                    }
+                                }
+                            },
                         },
                     },
                 },
@@ -367,8 +412,14 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                             "items": {
                                 "type": "object",
                                 "properties": {
-                                    "id": {"type": "string", "description": "Persona identifier"},
-                                    "label": {"type": "string", "description": "Display name"},
+                                    "id": {
+                                        "type": "string",
+                                        "description": "Persona identifier",
+                                    },
+                                    "label": {
+                                        "type": "string",
+                                        "description": "Display name",
+                                    },
                                     "description": {
                                         "type": "string",
                                         "description": (
@@ -381,7 +432,10 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                                         "type": "string",
                                         "description": "The persona's core pedagogical objective and constraint",
                                     },
-                                    "skill_count": {"type": "integer", "description": "Number of available skills"},
+                                    "skill_count": {
+                                        "type": "integer",
+                                        "description": "Number of available skills",
+                                    },
                                 },
                             },
                         },
@@ -399,7 +453,10 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                             "description": "Pedagogical design: objective, principles, tone, success criteria",
                             "properties": {
                                 "objective": {"type": "string"},
-                                "principles": {"type": "array", "items": {"type": "string"}},
+                                "principles": {
+                                    "type": "array",
+                                    "items": {"type": "string"},
+                                },
                                 "tone": {"type": "string"},
                                 "success": {"type": "string"},
                             },
@@ -413,6 +470,11 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                                     "name": {"type": "string"},
                                     "description": {"type": "string"},
                                     "version": {"type": "string"},
+                                    "status": {
+                                        "type": "string",
+                                        "enum": ["preview", "official"],
+                                        "description": "Release status of the skill",
+                                    },
                                     "has_references": {"type": "boolean"},
                                     "reference_count": {"type": "integer"},
                                 },
@@ -427,6 +489,11 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                         "name": {"type": "string"},
                         "description": {"type": "string"},
                         "version": {"type": "string"},
+                        "status": {
+                            "type": "string",
+                            "enum": ["preview", "official"],
+                            "description": "Release status of the skill",
+                        },
                         "persona": {"type": "string"},
                         "skill_body": {
                             "type": "string",
@@ -439,7 +506,10 @@ def _build_openapi_spec(personas: dict[str, dict], base_url: str) -> dict[str, A
                                 "type": "object",
                                 "properties": {
                                     "name": {"type": "string"},
-                                    "fetch_path": {"type": "string", "description": "Path to fetch reference content"},
+                                    "fetch_path": {
+                                        "type": "string",
+                                        "description": "Path to fetch reference content",
+                                    },
                                 },
                             },
                         },
@@ -485,12 +555,14 @@ def _skill_name_param(all_skills: dict[str, list[str]]) -> dict[str, Any]:
 
 
 def _ref_name_param(all_refs: dict[str, dict[str, list[str]]]) -> dict[str, Any]:
-    flat = sorted({
-        name
-        for skills in all_refs.values()
-        for names in skills.values()
-        for name in names
-    })
+    flat = sorted(
+        {
+            name
+            for skills in all_refs.values()
+            for names in skills.values()
+            for name in names
+        }
+    )
     return {
         "name": "ref_name",
         "in": "path",
@@ -502,7 +574,9 @@ def _ref_name_param(all_refs: dict[str, dict[str, list[str]]]) -> dict[str, Any]
 
 def _write_json(path: Path, data: Any):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
 
 
 def _write_openapi_yaml(path: Path, spec: dict[str, Any]):
@@ -514,8 +588,11 @@ def _write_openapi_yaml(path: Path, spec: dict[str, Any]):
     """
     try:
         import yaml as _yaml
+
         path.write_text(
-            _yaml.dump(spec, default_flow_style=False, sort_keys=False, allow_unicode=True),
+            _yaml.dump(
+                spec, default_flow_style=False, sort_keys=False, allow_unicode=True
+            ),
             encoding="utf-8",
         )
     except ImportError:

@@ -1,6 +1,7 @@
 ---
 name: development-plan
 description: Triggers when a practicing attorney wants to create a professional development plan, set career goals, identify skill gaps, plan their CLE activities for the year, or think strategically about their career trajectory.
+status: preview
 metadata:
   version: 0.1.0
 ---

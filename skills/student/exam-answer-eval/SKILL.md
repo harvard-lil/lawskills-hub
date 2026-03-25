@@ -1,6 +1,7 @@
 ---
 name: exam-answer-eval
 description: Provides feedback on practice exam answers, sample essays, or issue-spotter responses. Use when a law student wants to review a practice exam answer, get feedback on an essay, improve exam performance, or prepare for future exams.
+status: preview
 metadata:
   version: 0.1.0
 ---

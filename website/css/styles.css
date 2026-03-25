@@ -344,6 +344,39 @@ section {
     font-weight: 500;
 }
 
+.skill-status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+}
+
+.skill-status-preview {
+    color: #888;
+    border-color: #ccc;
+}
+
+.skill-status-official {
+    color: #1a6b3c;
+    border-color: #1a6b3c;
+    background-color: #edf7f1;
+}
+
+.meta-callout-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.meta-callout-heading h3 {
+    margin-bottom: 0;
+}
+
 .skill-title {
     font-size: 1.5rem;
     margin-bottom: 0.75rem;

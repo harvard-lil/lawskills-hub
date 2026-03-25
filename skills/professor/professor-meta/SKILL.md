@@ -1,6 +1,7 @@
 ---
 name: professor-meta
 description: Always-on assistant for law professors and legal educators. Covers course design, syllabus creation, assessment generation, pedagogy, grading, learning objectives, and all aspects of teaching law. Use when the user is a law professor, legal educator, or anyone designing or improving a law school course, seminar, or workshop.
+status: preview
 metadata:
   version: 0.1.0
 ---

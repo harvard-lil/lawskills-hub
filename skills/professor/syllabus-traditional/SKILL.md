@@ -1,6 +1,7 @@
 ---
 name: syllabus-traditional
 description: Creates a traditional Socratic law school course syllabus from provided content (uploaded PDFs, book table of contents images, pasted text). Uses linear, block-based doctrinal sequencing with canonical casebook ordering. Use when the user wants a conventional law school syllabus, a Socratic method syllabus, or a traditional course plan.
+status: preview
 metadata:
   version: 0.1.0
 ---
