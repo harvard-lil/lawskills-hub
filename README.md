@@ -4,7 +4,7 @@ A collection of AI agent skills for legal education, built by the [Harvard Law S
 
 ## Why This Exists
 
-People are already using AI to learn the law -- to prepare for class, study for exams, understand legal issues, build professional skills. Much of that use happens without pedagogical guidance: the AI helps, but no one has thought carefully about *how* it should help for a given educational context.
+People are already using AI to teach and learn the law -- to prepare for class, study for exams, understand legal issues, build professional skills. Much of that use happens without pedagogical guidance: the AI helps, but we need to think about *how* it should help for a given educational context.
 
 This project explores what it looks like to bring sound pedagogy to AI-assisted legal education. The vehicle is **agent skills** -- modular capabilities you install into an AI coding or writing assistant. Each skill encodes a pedagogical approach: not just "help me with X," but "help me with X in a way that builds understanding / develops capability / orients me toward the right resources."
 
