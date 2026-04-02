@@ -1,0 +1,274 @@
+persona: student
+skill: resume-review
+
+criteria:
+  structural:
+    - id: gathers-resume-and-context
+      description: Agent collects the resume and basic context before evaluating
+      check: Agent asks for or confirms it has the resume text, the student's year/program, and optionally their target employers before producing feedback
+
+    - id: identifies-profile
+      description: Agent determines the student's profile type to apply profile-specific guidance
+      check: Agent explicitly or implicitly identifies whether the student has prior work experience, is an LL.M. candidate, has military background, is a 2L/3L, or is visiting/transfer
+
+    - id: evaluates-formatting
+      description: Agent checks formatting against OCS standards
+      check: Agent addresses at least three formatting dimensions (e.g., email type, address format, degree styling, honors formatting, consistency, prohibited items)
+
+    - id: evaluates-content-quality
+      description: Agent assesses bullet quality, action verbs, specificity, and metrics
+      check: Agent references specific bullets or sections from the resume and evaluates their strength with concrete reasoning
+
+    - id: prioritizes-feedback
+      description: Agent organizes feedback by severity or importance
+      check: Agent distinguishes between critical issues (must fix), substantive improvements (should improve), and refinements (consider), or uses an equivalent prioritization scheme
+
+    - id: references-specific-resume-text
+      description: Agent quotes or directly references particular parts of the student's resume
+      check: Agent cites specific entries, bullets, or formatting choices from the submitted resume rather than giving only generic advice
+
+  pedagogical:
+    - id: coaching-over-rewriting
+      description: Agent models improvement on 1-2 examples rather than rewriting the whole resume
+      weight: high
+
+    - id: explains-the-why
+      description: Feedback explains the principle or rule behind each suggestion, not just that something needs to change
+      weight: high
+
+    - id: acknowledges-strengths
+      description: Agent identifies what the student did well before listing problems
+      weight: medium
+
+    - id: profile-appropriate-feedback
+      description: Feedback reflects the student's specific profile rather than applying generic one-size-fits-all advice
+      weight: medium
+
+    - id: mentions-ocs-review-program
+      description: Agent reminds the student about the OCS Resume Review Program for professional feedback
+      weight: low
+
+anti_patterns:
+  - id: rewrites-full-resume
+    description: Agent produces a complete rewritten version of the resume
+    check: Agent output contains a full reformatted resume that the student could copy-paste and submit as their own
+
+  - id: generic-feedback-only
+    description: Agent gives only vague feedback without referencing the student's actual resume content
+    check: Agent's feedback consists entirely of general resume tips (e.g., "use action verbs," "be specific") without citing anything from the submitted resume
+
+  - id: invents-experience
+    description: Agent fabricates experience, achievements, or credentials not present in the original resume
+    check: Agent's suggested revisions include information, roles, or accomplishments the student did not provide
+
+  - id: ignores-ocs-standards
+    description: Agent gives advice that contradicts HLS OCS rules
+    check: Agent recommends including GPA, LSAT scores, personal email, a personal summary, or other items explicitly prohibited by OCS guidance
+
+test_scenarios:
+  - id: happy-path-common-errors
+    setup: >
+      1L student submits a resume with several common formatting and content
+      errors: personal email instead of HLS email, full street address, "Juris
+      Doctorate" instead of "Juris Doctor," GPA listed, vague bullets with weak
+      verbs, generic interests. The resume is based on the OCS before-and-after
+      sample pattern.
+    messages:
+      - role: user
+        content: "Can you review my resume? I'm a 1L targeting BigLaw for my 1L summer."
+      - role: user
+        content: |
+          JANE DOE
+          1585 Massachusetts Avenue, #123, Cambridge, MA 02138
+          (617) 555-5555 | janedoe@gmail.com
+
+          EDUCATION
+          Harvard Law School, Cambridge, MA
+          Candidate for Juris Doctorate, Expected May 2028
+          Activities: Harvard Law Entrepreneurship Project, Harvard Journal of Law and Technology (subcite editor), Harvard Animal Law Society, Women's Law Association
+
+          Boston University, Boston, MA
+          B.A. in Political Science, Summa Cum Laude, May 2024
+          Honors: 3.97 GPA, Dean's List (all semesters), Phi Beta Kappa
+          Thesis: Trade Policy and Tariffs: How U.S. Regulatory Changes are Influencing Supply Chain Regionalization
+
+          EXPERIENCE
+          Blueprint Test Preparation, Boston, MA
+          LSAT Tutor, May 2024 - August 2025
+          - Answered student inquiries promptly with detailed feedback.
+          - Tutored students individually and in small groups, discussed test structure and timing.
+          - Reviewed reading comprehension and analytical reasoning sections.
+          - Supported students in test-taking strategies.
+
+          Mason, Clark & Rivera LLP, Seattle, WA
+          Legal Assistant Intern, Civil Rights Division, May-August 2023
+          - Assisted attorneys with case preparation through gathering and reviewing documents.
+          - Helped organize information related to potential clients and company records.
+          - Communicated with individuals involved in the case under attorney supervision.
+
+          SKILLS AND INTERESTS
+          Languages: English (Native), French (Proficient)
+          Skills: Microsoft Office, Google Suite, WestLaw, Lexis
+          Interests: Travel, Cooking, Reading, and Running
+    expected:
+      - Flags personal email (gmail) -- must use HLS email
+      - Flags full street address -- should be city and state only
+      - Flags "Juris Doctorate" -- should be "Juris Doctor"
+      - Flags GPA listed -- HLS guidance says do not include GPA
+      - Flags "Expected" combined with "Candidate" -- use one or the other
+      - Notes inconsistent degree styling (B.A. vs. Juris Doctorate)
+      - Notes "Summa Cum Laude" should be lowercase and italicized
+      - Notes journal name should be italicized
+      - Notes activities crammed on one line should be on separate lines
+      - Notes vague bullets ("Assisted," "Helped," "Supported") need stronger verbs and specifics
+      - Notes English should not be listed as a language
+      - Notes Microsoft Office, Lexis, and Westlaw should not be listed
+      - Notes interests are generic and need specificity
+      - Does NOT rewrite the entire resume
+
+  - id: boundary-test-rewrite-request
+    setup: >
+      Student explicitly asks the agent to rewrite their resume for them
+      rather than give feedback.
+    messages:
+      - role: user
+        content: "Here's my resume. Can you just rewrite it for me so it's perfect? I don't want feedback, I want a finished product."
+      - role: user
+        content: |
+          SAM STUDENT
+          Cambridge, MA | sstudent@jd28.law.harvard.edu | (617) 555-1234
+
+          EDUCATION
+          Harvard Law School, Cambridge, MA
+          J.D. Candidate, May 2028
+
+          University of Michigan, Ann Arbor, MI
+          B.A. in History with High Distinction, May 2024
+          Honors: Phi Beta Kappa
+
+          EXPERIENCE
+          Local Restaurant, Ann Arbor, MI
+          Server, June 2020 - May 2024
+          - Waited tables and took orders.
+          - Handled cash register.
+          - Trained new staff.
+    expected:
+      - Declines to rewrite the full resume, explaining that coaching produces better learning outcomes
+      - Frames the redirection positively
+      - Still provides substantive feedback on the resume as submitted
+      - Points out that the Experience bullets are thin and demonstrates how to strengthen 1-2 of them
+      - Notes that restaurant experience has real transferable skills worth surfacing
+
+  - id: strong-resume-refinement
+    setup: >
+      2L student with prior consulting work experience submits a resume that
+      is already well-formatted and substantive. Feedback should focus on
+      strategic refinements rather than basic compliance issues.
+    messages:
+      - role: user
+        content: "I'm a 2L who worked at Ernst & Young before law school. Can you review my resume? I'm targeting corporate/transactional firms."
+      - role: user
+        content: |
+          HARVARD STUDENT
+          School: Cambridge, MA | Home: Ventura, CA
+          (617) 555-1234 | HLSStudent@jd28.law.harvard.edu
+
+          EDUCATION
+          Harvard Law School, Cambridge, MA
+          Juris Doctor, Expected May 2028
+          Honors: Dean's Scholar Prizes in Property, Legal Research & Writing
+          Activities: Harvard Journal of Law & Technology, Technical Editor
+                      Harvard Health Law Society, Member
+                      Harvard Law Entrepreneurship Project, Member
+
+          University of California, Los Angeles (UCLA), Los Angeles, CA
+          Bachelor of Science, cum laude in Biology, May 2023
+          Honors: Departmental Honors in Biology, Dean's Honor List, Outstanding Capstone Award for Thesis
+          Thesis: "Autophagy and neuronal cell death: Insights into mitochondrial dysfunction"
+
+          EXPERIENCE
+          Harvard Law Entrepreneurship Project, Cambridge, MA
+          Team Lead, Sept. 2025 - Present
+          - Research and advise virtual health client on data privacy, FDA designation, and AI patentability, resulting in 5-page memorandum on risk assessment
+          - Manage a team of four, facilitating meetings among team members, executives, and attorney advisors
+
+          Ernst & Young, Washington, DC
+          Advisory Associate, July 2023 - May 2025
+          - Conducted comprehensive document review of internal agency protocols and policy documents to ensure alignment with Federal healthcare regulations
+          - Analyzed operational processes of healthcare agencies to identify areas for increased efficiency and compliance
+          - Developed and delivered regular briefings for senior agency leadership on complex healthcare policy initiatives
+          - Led qualitative and quantitative research including stakeholder interviews to assess regulatory compliance challenges
+
+          McKinsey & Company, Washington, D.C.
+          Health Policy Summer Analyst, May 2022 - Aug. 2022
+          - Translated complex public policies and legislative proposals for health industry clients
+          - Researched and analyzed federal public policy and market trends for weekly client newsletters
+          - Drafted presentations, issue briefs, comment letters, and client memoranda about federal legislative proposals
+
+          SKILLS / INTERESTS
+          Certifications: Certified Medical Laboratory Assistant (CMLA), 2023
+          Programming: R, Python, SAS
+          Interests: Freelance coding enthusiast, distance running (4x marathon), ice cream recipe development
+    expected:
+      - Acknowledges this is a strong, well-formatted resume
+      - Notes the resume correctly uses Dean's Scholar Prizes, proper degree formatting, and specific interests
+      - May suggest minor refinements (e.g., strategic bullet ordering, whether to include biology thesis given corporate/transactional target)
+      - Feedback should be proportional -- mostly "consider refining" tier, minimal "must fix" items
+      - Does not manufacture problems that do not exist
+
+  - id: llm-profile-review
+    setup: >
+      LL.M. candidate from a foreign jurisdiction submits a resume.
+      Agent should apply LL.M.-specific guidance from the profile references.
+    messages:
+      - role: user
+        content: "I'm an LL.M. candidate. Can you review my resume? I'm planning to sit for the New York Bar."
+      - role: user
+        content: |
+          SAM ELELEM
+          School: Cambridge, MA | Home: Lexville, Foreignlands
+          selelem@law.harvard.edu | (310) 555-1212
+
+          EDUCATION
+          Harvard Law School, Cambridge, MA
+          LL.M. Candidate, May 2025
+          Focus: Corporate and Banking Law
+          Honors: Landon H. Gammon Fellowship for academic excellence
+          Activities: Harvard Association for Law & Business, Conference Planner
+
+          Lexville Prestigious University, Lexville, Foreignland
+          LL.B., June 2011
+          Thesis: Ramifications of New Corporate Statute in Foreignland
+          Honors: Ranked 5 in a class of 400; Fritz Meyer Award (best grade in Constitutional Law)
+          Activities: Corporate Law Association, Founder and President; Moot Court Team
+
+          EXPERIENCE
+          Gavel & Robe, LLP, Lexville, Foreignland
+          Associate, June 2012 - July 2014
+          - Counseled clients in start-ups and corporations on regulatory compliance, corporate governance, and strategic business ventures
+          - Drafted agreements and handled documentation for Mobil Oil's $1 billion U.S. energy project
+          - Provided advice on tax planning, reorganizations, acquisitions, and foreign investments
+          - Involved in a team of five that started the Intellectual Property department in the firm
+
+          High Court of Foreignland, Lexville, Foreignland
+          Clerk to Justice Annabelle Worstell, August 2011 - May 2012
+          - Participated in civil and criminal trials and wrote drafts of judgments
+          - Assisted in preparing interlocutory orders and negotiating settlements
+
+          PROFESSIONAL MEMBERSHIPS
+          Licensed to practice law in Foreignland; will sit for New York Bar in July 2015
+
+          LANGUAGES
+          German (native); French (fluent), Spanish (conversational)
+
+          INTERESTS
+          Watercolor painting, skiing, and chess (won Foreignland national championship in 2009)
+    expected:
+      - Recognizes LL.M. profile and applies LL.M.-specific guidance
+      - Notes the LL.M. Focus line is well-formatted
+      - Checks that foreign degree (LL.B.) and institution are clearly presented
+      - Notes Fritz Meyer Award parenthetical is good practice for named foreign awards
+      - Evaluates Professional Memberships section as appropriate for LL.M. candidates
+      - Notes language section is strong and well-formatted
+      - May flag "Involved in" as a weak opening verb in the E&Y bullet
+      - Does not apply J.D.-specific rules that do not apply to LL.M. candidates

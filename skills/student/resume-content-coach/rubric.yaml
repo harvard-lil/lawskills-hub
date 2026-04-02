@@ -1,0 +1,137 @@
+persona: student
+skill: resume-content-coach
+
+criteria:
+  structural:
+    - id: interviews-about-background
+      description: Agent asks about the student's background before building content
+      check: Agent asks about year/program, work history, education, activities, or target employers before starting to build resume content
+
+    - id: identifies-profile
+      description: Agent determines the student's profile type to tailor guidance
+      check: Agent explicitly or implicitly identifies whether the student has prior work experience, is coming straight from undergrad, has military background, is an LL.M. candidate, etc.
+
+    - id: surfaces-transferable-skills
+      description: Agent helps the student see transferable skills in their existing experience
+      check: Agent asks follow-up questions about specific experiences to draw out skills legal employers value (research, writing, leadership, client interaction, attention to detail)
+
+    - id: teaches-bullet-pattern
+      description: Agent explains the anatomy of a strong bullet point before having the student draft
+      check: Agent describes or demonstrates the pattern of strong action verb + specific task + context/scope + result/metric
+
+    - id: has-student-draft-content
+      description: Agent prompts the student to write their own bullet points rather than writing for them
+      check: Agent asks the student to draft at least one bullet and provides feedback on the student's draft
+
+    - id: addresses-section-decisions
+      description: Agent guides decisions about what to include, cut, or reorganize
+      check: Agent discusses at least two of: what honors to list, what experience to include/exclude, how to handle interests, what skills to omit, or how to order entries
+
+  pedagogical:
+    - id: coaching-over-writing
+      description: Agent guides the student to draft their own content rather than producing it for them
+      weight: high
+
+    - id: reframes-experience-positively
+      description: Agent helps students see the value in non-legal experience without dismissing their concerns
+      weight: high
+
+    - id: specific-follow-up-questions
+      description: Agent asks targeted follow-up questions to draw out details the student has not volunteered
+      weight: medium
+
+    - id: builds-confidence
+      description: Agent acknowledges the student's strengths and frames the process as learnable, not intimidating
+      weight: medium
+
+    - id: mentions-ocs-review-program
+      description: Agent reminds the student to submit their draft to the OCS Resume Review Program
+      weight: low
+
+anti_patterns:
+  - id: writes-full-resume
+    description: Agent produces a complete resume or full set of bullet points for the student
+    check: Agent output contains a ready-to-use resume or writes all the bullet points for the student's experience without having the student draft first
+
+  - id: skips-interview-phase
+    description: Agent starts building content without understanding the student's background
+    check: Agent begins suggesting bullet points or resume structure before asking about the student's year, experience, or goals
+
+  - id: invents-experience
+    description: Agent fabricates achievements, metrics, or credentials the student did not mention
+    check: Agent's suggested content includes specific numbers, roles, or accomplishments the student never provided
+
+  - id: dismisses-non-legal-experience
+    description: Agent treats non-legal experience as irrelevant instead of surfacing transferable skills
+    check: Agent tells the student their experience is not relevant or fails to help them see value in non-legal work
+
+test_scenarios:
+  - id: happy-path-no-experience
+    setup: >
+      1L student who came to law school straight from undergrad with no
+      full-time work experience. Has tutoring, restaurant, and student
+      activity experience but thinks they have "nothing to put on a resume."
+    messages:
+      - role: user
+        content: "I need help building my resume. I'm a 1L and I honestly don't have any real experience. I came straight from undergrad."
+      - role: user
+        content: "I studied political science at Tufts. I was president of our a cappella group and also a tour guide for admissions. I worked part-time at a restaurant during school. That's basically it."
+      - role: user
+        content: "I guess I also did some grant writing for Engineers Without Borders, and I studied abroad in Greece and France. But I don't think any of that matters for law firms."
+    expected:
+      - Reassures the student that all of this experience is valuable and relevant
+      - Asks follow-up questions to draw out specifics (How many people in the a cappella group? What did grant writing involve? What were the restaurant responsibilities?)
+      - Helps the student see transferable skills in each experience (leadership, budget management, contract negotiation, written communication, client service)
+      - Suggests promoting a cappella president or grant writing to the Experience section
+      - Teaches the bullet-point pattern and has the student draft their own bullets
+      - Does NOT write the bullets for the student
+
+  - id: career-changer-with-consulting
+    setup: >
+      1L student who worked at a consulting firm for two years before law
+      school. Has substantive professional experience but does not know how
+      to translate it for legal employers.
+    messages:
+      - role: user
+        content: "I'm a 1L. I worked at a consulting firm before law school doing health policy work. How do I make my resume work for law firms?"
+      - role: user
+        content: "I was at a healthcare consulting firm in DC for two years. I did a lot of research and writing -- policy briefs, client memos, presentations. I also did a summer analyst role at another firm before that. I have a biology degree from UCLA."
+    expected:
+      - Recognizes this as a prior-work-experience profile
+      - Asks follow-up questions about scope, deliverables, and client types
+      - Helps frame consulting work in terms legal employers value (client advisory, document drafting, regulatory analysis, stakeholder management)
+      - Coaches on bullet drafting with emphasis on specificity and metrics
+      - Discusses how to allocate space between consulting roles (more recent = more bullets)
+      - Notes the biology degree and asks about IP/tech interest as a potential strategic angle
+
+  - id: boundary-test-write-for-me
+    setup: >
+      Student who wants the agent to just produce the resume content
+      without doing the work themselves.
+    messages:
+      - role: user
+        content: "I worked as a legal assistant at a civil rights firm, an intern at a legal aid org, and a research intern at a nonprofit. Can you just write me good bullets for all three?"
+      - role: user
+        content: "I don't really want to go back and forth. Can you just give me strong bullets I can paste in? I trust you."
+    expected:
+      - Declines to write all the bullets, explaining that the student's own voice and specific details will produce a stronger resume
+      - Offers a compromise -- models one strong bullet from one experience, then asks the student to try the next one
+      - Asks follow-up questions about the specific work to draw out details needed for good bullets
+      - Frames the coaching process as efficient and worthwhile, not tedious
+
+  - id: military-to-law
+    setup: >
+      Student with military experience who needs help translating service
+      into resume content legal employers will understand.
+    messages:
+      - role: user
+        content: "I'm a 1L. I was in the Marines for six years before law school. I need help putting my military experience on my resume."
+      - role: user
+        content: "I was a Captain. I commanded a platoon, then a logistics battalion section. Two deployments to Afghanistan. I also worked at a finance firm for a year between the military and law school."
+    expected:
+      - Recognizes military profile and asks about specific roles, accomplishments, and awards
+      - Helps translate military terminology into civilian/legal language
+      - Asks about scope (how many people commanded, what operations involved, what documents/briefings produced)
+      - Discusses how to structure multiple military positions under one employer heading
+      - Coaches on balancing military and post-military experience on one page
+      - Does NOT write the content -- has the student draft and provides feedback
