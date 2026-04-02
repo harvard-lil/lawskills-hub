@@ -2,6 +2,12 @@
 
 A collection of AI agent skills for legal education, built by the [Harvard Law School Library Innovation Lab](https://lil.law.harvard.edu/).
 
+## Quickstart
+
+All skills in this repo are in the [Agent Skills](https://agentskills.org/) format and are compatible with AI agents through [Claude Code Desktop](https://code.claude.com/docs/en/desktop-quickstart), [OpenAI's Codex](https://chatgpt.com/codex), and the [Google Gemini CLI](https://geminicli.com/), among other options (see [Delivery](#Delivery) below for more information). 
+
+Skills will be triggered automatically based on the language in your prompts -- just describe your desired task as you normally would, and the skill or [meta-skill](#Meta-skills:-making-the-collection-sticky) will contextually load, depending on your preferences. For example, if you have the Instructor meta-skill invoked or have installe the *Syllabus Traditional* skill, if you describe "creating an environmental law syllabus with updated Supreme Court decisions" the appropriate skill will be employed. 
+
 ## Why This Exists
 
 People are already using AI to teach and learn the law -- to prepare for class, study for exams, understand legal issues, build professional skills. Much of that use, especially for students, happens without pedagogical guidance: the AI helps, but we need to think about *how* it should help for a given educational context.
