@@ -2,11 +2,11 @@
 
 This reference distills the authoritative resume guidance from the Harvard Law School Office of Career Services (OCS). Use it as the evaluation baseline for any HLS student resume.
 
-Source: HLS OCS "Resumes for the Private Sector" page and the 1L Resume Tutorial by OCS Adviser Yih-hsien Shen.
+Source: HLS OCS "Resumes for the Private Sector" page and the 1L Resume Tutorial.
 
 ## Context: How Resumes Are Read
 
-- First-round reviewers spend 5-10 seconds scanning a resume. AI screening may also be involved.
+- First-round resume reviewers spend 5-10 seconds scanning a resume. AI screening may also be involved.
 - Interviewers skim the resume during conversation, looking for specific talking points.
 - The resume is a marketing tool. Its sole purpose is to persuade the reader to call the student for an interview.
 
@@ -23,7 +23,7 @@ Source: HLS OCS "Resumes for the Private Sector" page and the 1L Resume Tutorial
 ## Header
 
 - **Name:** Can be larger than body text. Nicknames in parentheses or quotes are acceptable. Pronouns are optional.
-- **Email:** HLS email only (e.g., `name@jd28.law.harvard.edu`). Never a personal email (Gmail, Yahoo, etc.). Remove hyperlink formatting.
+- **Email:** School email only (e.g., `name@jd28.law.harvard.edu`). Never a personal email (Gmail, Yahoo, etc.). Remove hyperlink formatting.
 - **Phone:** Include cell number. Ensure voicemail is professional.
 - **Address:** City and state only. No full street address. A second "home" city is appropriate when signaling ties to a regional market.
 - English is assumed; do not list it as a language.

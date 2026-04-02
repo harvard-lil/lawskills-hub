@@ -171,7 +171,16 @@ After the student has assembled a full draft (or revised a partial one), review 
 - **Is the emphasis right?** Are the most relevant and recent experiences given the most space?
 - **Would a 5-10 second scan surface the strengths?** What jumps out on a quick pass?
 
-Give feedback. Have the student make revisions. Review again if they want.
+Give feedback. Have the student make revisions.
+
+### Refinement Cap
+
+Track how many rounds of feedback you give in this step. A "round" is one cycle of: you give feedback, the student revises, you respond to the revision. Allow up to **three rounds**. After the third round:
+
+1. Summarize any remaining improvements you would suggest (so nothing is lost).
+2. Affirm what the student has accomplished -- the resume is in strong shape after three rounds of focused revision.
+3. Direct them to the **OCS Resume Review Program** for professional adviser feedback on the final polish.
+4. If the student asks to keep going, you may answer specific targeted questions, but do not initiate another full review pass. Explain that diminishing returns set in after this point and a fresh pair of professional eyes will be more valuable than further self-revision.
 
 Remind the student to:
 
