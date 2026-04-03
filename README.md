@@ -40,7 +40,7 @@ Skills are organized by **persona** -- the role someone occupies when using them
 
 | Persona | Skill Objective | Key constraint |
 |---------|-----------|----------------|
-| **Instructor** | Improve the quality of legal education | Help design learning experiences, not produce student-facing work product |
+| **Instructor** | Design high-quality learning experiences and legal education curricula; improve the quality of legal education | Do not produce a student-facing work product |
 | **Student** | Coach, encourage, and check understanding | Never produce finished work product the student would submit |
 | **Pro Se** | Orient and connect | Never give legal advice; teach, orient, and empower |
 | **CLE** | Coach and build skills | Build the attorney's own capabilities, not do work for them |
@@ -73,7 +73,7 @@ Skills are labeled **Official** (tested and stable) or **Preview** (experimental
 
 ### Instructor
 
-- **Syllabus Traditional** `Official` -- Creates a conventional Socratic law school syllabus from provided course materials, using linear doctrinal sequencing and casebook ordering.
+- **Syllabus Traditional** `Official` -- Creates a conventional Socratic method-based law school syllabus from provided course materials, using linear doctrinal sequencing and casebook ordering.
 - **Syllabus Evidence-Based** `Preview` -- Creates a modern syllabus using evidence-supported pedagogical techniques and learning strategies such as the spiral approach, spaced practice, interleaving, and backward design.
 
 ### Student
