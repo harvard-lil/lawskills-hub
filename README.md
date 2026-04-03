@@ -2,9 +2,23 @@
 
 A collection of AI agent skills for legal education, built by the [Harvard Law School Library Innovation Lab](https://lil.law.harvard.edu/).
 
+## Quickstart
+
+All skills in this repo are in the [Agent Skills](https://agentskills.org/) format and are compatible with the following:
+
+* [Claude Code Desktop](https://code.claude.com/docs/en/desktop-quickstart)
+* [OpenAI's Codex](https://chatgpt.com/codex)
+* [Google Gemini CLI](https://geminicli.com/)
+
+For additional options, see [Delivery](#delivery) below for more information. 
+
+Skills will be triggered automatically based on the language in your prompts to any AI agent -- just describe your desired task as you normally would, and the [skill](#skills-in-this-collection) or [meta-skill](#meta-skills-making-the-collection-sticky) will contextually load, depending on your preferences. 
+
+For example, if you have the Instructor meta-skill invoked or have installed the *Syllabus Traditional* skill, prompting "creating an environmental law syllabus with updated Supreme Court decisions" will cause the appropriate skill to be employed. 
+
 ## Why This Exists
 
-People are already using AI to learn the law -- to prepare for class, study for exams, understand legal issues, build professional skills. Much of that use happens without pedagogical guidance: the AI helps, but no one has thought carefully about *how* it should help for a given educational context.
+People are already using AI to teach and learn the law -- to prepare for class, study for exams, understand legal issues, build professional skills. Much of that use, especially for students, happens without pedagogical guidance: the AI helps, but we need to think about *how* it should help for a given educational context.
 
 This project explores what it looks like to bring sound pedagogy to AI-assisted legal education. The vehicle is **agent skills** -- modular capabilities you install into an AI coding or writing assistant. Each skill encodes a pedagogical approach: not just "help me with X," but "help me with X in a way that builds understanding / develops capability / orients me toward the right resources."
 
@@ -22,11 +36,11 @@ Each skill is a self-contained experiment in AI-assisted pedagogy. You can write
 
 ### Personas
 
-Skills are organized by **persona** -- the role someone occupies when using them. Each persona has a **pedagogical objective** that shapes every skill in the collection: not just what the skills do, but how they do it.
+Skills are organized by **persona** -- the role someone occupies when using them. Each persona is associated with a **pedagogical objective** that shapes every skill in the collection: not just what the skills do, but how they do it.
 
-| Persona | Objective | Key constraint |
+| Persona | Skill Objective | Key constraint |
 |---------|-----------|----------------|
-| **Professor** | Improve the quality of legal education | Help design learning experiences, not produce student-facing work product |
+| **Instructor** | Design high-quality learning experiences and legal education curricula; improve the quality of legal education | Do not produce a student-facing work product |
 | **Student** | Coach, encourage, and check understanding | Never produce finished work product the student would submit |
 | **Pro Se** | Orient and connect | Never give legal advice; teach, orient, and empower |
 | **CLE** | Coach and build skills | Build the attorney's own capabilities, not do work for them |
@@ -57,10 +71,10 @@ Each skill is a folder with a `SKILL.md` file and optional reference material. T
 
 Skills are labeled **Official** (tested and stable) or **Preview** (experimental/in development, may change).
 
-### Professor
+### Instructor
 
-- **Syllabus Traditional** `Official` -- Creates a conventional Socratic law school syllabus from provided course materials, using linear doctrinal sequencing and casebook ordering.
-- **Syllabus Evidence-Based** `Preview` -- Creates a modern syllabus using spiral structure, spaced practice, interleaving, and backward design drawn from learning science research.
+- **Syllabus Traditional** `Official` -- Creates a conventional Socratic method-based law school syllabus from provided course materials, using linear doctrinal sequencing and casebook ordering.
+- **Syllabus Evidence-Based** `Preview` -- Creates a modern syllabus using evidence-supported pedagogical techniques and learning strategies such as the spiral approach, spaced practice, interleaving, and backward design.
 
 ### Student
 
