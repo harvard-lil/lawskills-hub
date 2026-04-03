@@ -10,9 +10,9 @@ All skills in this repo are in the [Agent Skills](https://agentskills.org/) form
 * [OpenAI's Codex](https://chatgpt.com/codex)
 * [Google Gemini CLI](https://geminicli.com/)
 
-For additional options, see [Delivery](#Delivery) below for more information. 
+For additional options, see [Delivery](#delivery) below for more information. 
 
-Skills will be triggered automatically based on the language in your prompts to any AI agent -- just describe your desired task as you normally would, and the skill or [meta-skill](#Meta-skills:-making-the-collection-sticky) will contextually load, depending on your preferences. 
+Skills will be triggered automatically based on the language in your prompts to any AI agent -- just describe your desired task as you normally would, and the skill or [meta-skill](#meta-skills-making-the-collection-sticky) will contextually load, depending on your preferences. 
 
 For example, if you have the Instructor meta-skill invoked or have installed the *Syllabus Traditional* skill, prompting "creating an environmental law syllabus with updated Supreme Court decisions" will cause the appropriate skill to be employed. 
 
