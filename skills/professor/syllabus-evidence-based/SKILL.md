@@ -1,16 +1,6 @@
 ---
 name: syllabus-evidence-based
-description: >-
-  Creates a modern, evidence-based law school course syllabus from provided
-  content (uploaded PDFs, book table of contents images, pasted text). Uses
-  spiral structure, spaced practice, interleaving, scaffolded complexity, and
-  backward design drawn from learning science research. Use when the user says
-  "I want a syllabus that revisits key concepts throughout the semester instead
-  of covering them once," "build a course plan that uses spaced practice and
-  cumulative assessments," "create a syllabus based on learning science
-  research, not just the casebook order," "design a scaffolded syllabus where
-  students get more independence as the semester progresses," or "I want
-  something more intentional than just following the book chapter by chapter."
+description: Creates a modern, evidence-based law school course syllabus from provided content (uploaded PDFs, book table of contents images, pasted text). Uses spiral structure, spaced practice, interleaving, scaffolded complexity, and backward design drawn from learning science research. Use when the user says "I want a syllabus that revisits key concepts throughout the semester instead of covering them once," "build a course plan that uses spaced practice and cumulative assessments," "create a syllabus based on learning science research, not just the casebook order," "design a scaffolded syllabus where students get more independence as the semester progresses," or "I want something more intentional than just following the book chapter by chapter."
 metadata:
   version: 0.1.0
 ---
