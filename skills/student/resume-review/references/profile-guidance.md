@@ -155,3 +155,34 @@ Students whose home institution is not HLS but who are studying at HLS, or who t
 - Omitting the home institution or making it unclear where the degree will be conferred.
 - Not leveraging a technical undergraduate degree when targeting IP or patent law employers.
 - Failing to list activities and honors under the correct institution.
+
+## Public Interest / OPIA
+
+Students targeting public interest organizations, government agencies, nonprofits, legal aid, public defender offices, or policy positions. This profile is identified by the review pathway determination in Step 1 and applies alongside any other matching profile (e.g., a 2L on the OPIA pathway, or a military student targeting government service).
+
+### Key Challenges
+
+- Communicating a credible "public interest heart" -- a visible, sustained commitment to a cause or community.
+- Deciding where to place clinical work and SPOs for maximum impact.
+- Calibrating resume length: knowing when a second page is justified vs. when it dilutes focus.
+- Using advocacy-oriented language that resonates with public interest employers rather than defaulting to private sector verb choices.
+
+### Guidance
+
+- **Clinics and SPOs belong under Experience.** Unlike OCS resumes where clinics may appear under Activities, OPIA resumes should feature clinical work as full experience entries with 3-5 bullets. These entries demonstrate exactly what public interest employers want to see: direct client interaction, advocacy, and substantive legal work.
+- **Add a "Relevant Coursework" line** under HLS Education if the student has taken courses that signal expertise in their target area (e.g., "Immigration Law, Criminal Justice Reform, Disability Rights"). This is strategically valuable for OPIA resumes even though OCS generally discourages it.
+- **Two pages are acceptable** when the student has substantial pre-law public interest or community service experience. The test is whether the second-page content is directly relevant to the target position and demonstrates commitment. Filler does not justify a second page.
+- **Audit the commitment narrative.** Review the resume holistically: does it tell a coherent story of dedication to public service? Look across sections -- coursework, experience, activities, pro bono, community service. If the narrative is not visible, suggest structural changes in the companion document (e.g., adding a Pro Bono section, reordering entries, adding a relevant coursework line).
+- **Use advocacy-oriented action verbs.** Favor "Advocated," "Represented," "Counseled," "Organized," "Empowered," "Mobilized," "Mediated," and "Facilitated." See `hls-action-verbs.md` for the full OPIA verb list. OCS-style verbs ("Analyzed," "Researched") are still appropriate for analytical tasks but should not dominate the resume.
+- **A "Pro Bono" or "Community Service" section** is appropriate when the student has substantive volunteer work that does not fit under Experience or Activities. This section header signals mission alignment to public interest employers.
+- **Language skills are a strategic asset.** For students targeting organizations serving multilingual communities, language proficiency should be listed prominently with levels.
+- **Permanent address for geographic signaling.** If the student has ties to a specific public interest market (e.g., grew up in the community served by the target organization), the two-address format helps signal this.
+
+### Common Mistakes
+
+- Formatting the resume identically to an OCS/private sector resume and missing OPIA-specific opportunities (relevant coursework, clinic placement, commitment narrative).
+- Burying clinical and SPO work under Activities instead of featuring it as Experience.
+- Using exclusively private sector verb choices ("Managed," "Analyzed") without advocacy-oriented alternatives.
+- Including a second page with thin or irrelevant content. The second page must earn its space with substantive public interest experience.
+- Omitting a commitment narrative entirely, leaving the employer to guess whether the student is genuinely interested in public interest work.
+- Neglecting to list language skills that are directly relevant to the target population.

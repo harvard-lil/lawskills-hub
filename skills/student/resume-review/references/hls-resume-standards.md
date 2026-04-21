@@ -1,8 +1,8 @@
-# HLS OCS Resume Standards
+# HLS Resume Standards
 
-This reference distills the authoritative resume guidance from the Harvard Law School Office of Career Services (OCS). Use it as the evaluation baseline for any HLS student resume.
+This reference distills the authoritative resume guidance from the Harvard Law School Office of Career Services (OCS) and the Office of Public Interest Advising (OPIA). The main body covers the shared HLS baseline and OCS-specific rules. The final section covers OPIA-specific overrides for students targeting public interest, government, or nonprofit positions.
 
-Source: HLS OCS "Resumes for the Private Sector" page and the 1L Resume Tutorial.
+Source: HLS OCS "Resumes for the Private Sector" page, the 1L Resume Tutorial, and OPIA public interest resume guidance.
 
 ## Context: How Resumes Are Read
 
@@ -151,3 +151,57 @@ Source: HLS OCS "Resumes for the Private Sector" page and the 1L Resume Tutorial
 - AI may be used to brainstorm language edits, formatting improvements, or fine-tune narrative.
 - AI should **not** draft the resume. All content must reflect the student's true experience and voice.
 - Some employers may screen for AI-generated materials.
+
+---
+
+## OPIA Overrides (Public Interest / Government Pathway)
+
+The rules above represent the shared HLS baseline and OCS-specific standards. When reviewing a resume for a student on the **OPIA pathway** (targeting public interest organizations, government agencies, nonprofits, or policy positions), apply the following overrides. Where an override contradicts an OCS rule above, the OPIA override takes precedence for OPIA pathway students.
+
+### Page Length
+
+- **Two pages are acceptable** if the candidate has substantial pre-law public interest, government, or community service experience that is directly relevant to their target positions. Do not flag a resume longer than one page as a critical error when the additional content demonstrates a meaningful commitment narrative.
+- If the student's experience does not justify two pages, one page remains the standard.
+
+### Header
+
+- A **permanent/home address** may be included alongside the school address to signal geographic ties to a specific public interest market (e.g., "Home: Detroit, MI" for a student targeting Michigan Legal Aid). This is more common and more strategically valuable on OPIA resumes than OCS resumes.
+
+### Clinics and Student Practice Organizations (SPOs)
+
+- Clinical work and SPOs should be listed under **Experience**, not under Activities, to maximize their impact. These entries demonstrate hands-on advocacy, client interaction, and substantive legal work -- all of which are central to public interest hiring.
+- Give clinical entries the same bullet-point treatment as any other experience entry (3-5 bullets with action verbs, specificity, and outcomes).
+
+### Relevant Coursework
+
+- A **"Relevant Coursework" line** is recommended under the HLS Education entry to signal specific expertise to public interest employers (e.g., "Relevant Coursework: Immigration Law, Criminal Justice Reform, Disability Rights").
+- This line is generally discouraged on OCS resumes but is strategically valuable on OPIA resumes where employers want to see substantive alignment with their mission.
+
+### Action Verbs
+
+- Favor verbs that demonstrate **advocacy, client service, and community engagement**: "Advocated," "Represented," "Counseled," "Organized," "Empowered," "Mobilized," "Mediated," "Facilitated."
+- OCS-oriented verbs like "Analyzed," "Researched," and "Managed" are still appropriate for analytical tasks but should be supplemented with advocacy-oriented language where the work involved direct service or policy impact.
+- See `hls-action-verbs.md` for the full verb list organized by pathway.
+
+### Skills Section
+
+- **Language proficiency** is particularly valued by public interest employers serving multilingual communities. List languages prominently with proficiency levels.
+- **Community outreach tools** and relevant technical skills (e.g., data analysis for policy work, community organizing platforms) are worth including.
+- The OCS prohibition on listing Westlaw/Lexis and basic office software still applies.
+
+### Commitment Narrative
+
+- The overall resume must visibly communicate the student's **"public interest heart"** -- a sustained dedication to a cause, community, or type of service. This is the OPIA equivalent of the OCS emphasis on professional polish.
+- Look for evidence of commitment across sections: relevant coursework, pro bono work, community service, volunteer experience, clinical work, and policy-related activities.
+- If the commitment narrative is weak or invisible, flag it as a substantive suggestion in the companion document. Do not manufacture one.
+
+### Pro Bono / Community Service Section
+
+- A dedicated **"Pro Bono" or "Community Service"** section header is appropriate on OPIA resumes when the student has substantive volunteer legal or community work that does not fit neatly into Experience or Activities.
+- This section is uncommon on OCS resumes but signals mission alignment on OPIA resumes.
+
+### Primary Goal Difference
+
+- OCS resumes demonstrate **efficiency, analytical rigor, and professional polish** for firm/corporate environments.
+- OPIA resumes demonstrate **substantive commitment to a cause, advocacy skills, and client-centered service** for public interest employers.
+- This difference in primary goal should inform how you evaluate strategic positioning and how you frame suggestions in the companion document.
