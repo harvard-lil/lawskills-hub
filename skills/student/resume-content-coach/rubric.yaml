@@ -25,7 +25,15 @@ criteria:
 
     - id: addresses-section-decisions
       description: Agent guides decisions about what to include, cut, or reorganize
-      check: Agent discusses at least two of: what honors to list, what experience to include/exclude, how to handle interests, what skills to omit, or how to order entries
+      check: "Agent discusses at least two of: what honors to list, what experience to include/exclude, how to handle interests, what skills to omit, or how to order entries"
+
+    - id: states-mechanical-rules-as-requirements
+      description: Agent states OCS formatting and prohibited-item rules as non-negotiable requirements, not coaching topics or suggestions
+      check: "When mechanical rules arise (prohibited items, formatting standards, terminology, section ordering), agent presents them as requirements ('OCS standards require...' or 'Do not include...') rather than as choices or discussion topics"
+
+    - id: separates-mechanical-from-substantive
+      description: Agent treats mechanical OCS rules differently from substantive content coaching
+      check: Agent states formatting rules, prohibited items, and terminology standards directly while using coaching techniques (questions, guided drafting, feedback) for bullet quality, strategic positioning, and content decisions
 
   pedagogical:
     - id: coaching-over-writing
@@ -59,11 +67,15 @@ anti_patterns:
 
   - id: invents-experience
     description: Agent fabricates achievements, metrics, or credentials the student did not mention
-    check: Agent's suggested content includes specific numbers, roles, or accomplishments the student never provided
+    check: "Agent's suggested content includes specific numbers, roles, or accomplishments the student never provided"
 
   - id: dismisses-non-legal-experience
     description: Agent treats non-legal experience as irrelevant instead of surfacing transferable skills
     check: Agent tells the student their experience is not relevant or fails to help them see value in non-legal work
+
+  - id: coaches-on-mechanical-rules
+    description: Agent treats OCS mechanical rules as coaching topics or optional suggestions instead of non-negotiable requirements
+    check: "Agent asks the student to decide on prohibited items (e.g., 'Would you like to include your GPA?'), presents formatting standards as suggestions (e.g., 'You might want to italicize Latin honors'), or invites discussion on items that have exactly one correct answer per OCS standards"
 
 test_scenarios:
   - id: happy-path-no-experience
@@ -84,6 +96,7 @@ test_scenarios:
       - Helps the student see transferable skills in each experience (leadership, budget management, contract negotiation, written communication, client service)
       - Suggests promoting a cappella president or grant writing to the Experience section
       - Teaches the bullet-point pattern and has the student draft their own bullets
+      - States mechanical rules as requirements when they arise (e.g., do not include GPA, do not list English as a language, do not list basic computer skills)
       - Does NOT write the bullets for the student
 
   - id: career-changer-with-consulting
@@ -118,6 +131,28 @@ test_scenarios:
       - Offers a compromise -- models one strong bullet from one experience, then asks the student to try the next one
       - Asks follow-up questions about the specific work to draw out details needed for good bullets
       - Frames the coaching process as efficient and worthwhile, not tedious
+
+  - id: mechanical-vs-substantive
+    setup: >
+      Student building a resume from scratch who asks about several items
+      that are mechanical OCS rules (GPA, LSAT, basic computer skills,
+      English as a language) mixed with substantive decisions. Tests whether
+      the agent states rules as requirements vs. coaching on content choices.
+    messages:
+      - role: user
+        content: "I'm a 1L building my resume from scratch. I'm targeting BigLaw. I graduated magna cum laude from Georgetown with a 3.91 GPA. Should I include my GPA and LSAT score? They're both really strong."
+      - role: user
+        content: "Ok got it. What about skills? I'm proficient in Microsoft Office, Python, R, and Stata. I also speak Spanish fluently and English is my native language. And I have my LSAT tutoring certification."
+      - role: user
+        content: "For my interests section, I was thinking of putting 'travel, cooking, and reading.' Is that fine?"
+    expected:
+      - States clearly that GPA and LSAT are prohibited per OCS standards -- does NOT frame as a suggestion or choice
+      - States clearly that Microsoft Office must not be listed -- this is a rule, not a coaching decision
+      - States clearly that English must not be listed as a language -- this is a rule
+      - Coaches on the interests section substantively -- helps the student develop more specific, distinctive interests (this IS a coaching topic)
+      - Coaches on which technical skills to include as a substantive decision (Python, R, Stata may be worth including depending on target employers)
+      - Coaches on how to format the magna cum laude honor (may state the mechanical rule about italicization and lowercase)
+      - Does NOT ask "would you like to include your GPA?" or "do you think the LSAT score helps?"
 
   - id: military-to-law
     setup: >

@@ -4,66 +4,86 @@ skill: resume-review
 criteria:
   structural:
     - id: gathers-resume-and-context
-      description: Agent collects the resume and basic context before evaluating
-      check: Agent asks for or confirms it has the resume text, the student's year/program, and optionally their target employers before producing feedback
+      description: Agent collects the resume and basic context before producing output
+      check: Agent asks for or confirms it has the resume text, the student's year/program, and optionally their target employers before producing the corrected resume and companion document
 
     - id: identifies-profile
       description: Agent determines the student's profile type to apply profile-specific guidance
       check: Agent explicitly or implicitly identifies whether the student has prior work experience, is an LL.M. candidate, has military background, is a 2L/3L, or is visiting/transfer
 
-    - id: evaluates-formatting
-      description: Agent checks formatting against OCS standards
-      check: Agent addresses at least three formatting dimensions (e.g., email type, address format, degree styling, honors formatting, consistency, prohibited items)
+    - id: produces-corrected-resume
+      description: Agent outputs a corrected resume with mechanical fixes applied
+      check: Agent delivers a formatted resume document with formatting, structural, and terminology corrections applied directly
 
-    - id: evaluates-content-quality
-      description: Agent assesses bullet quality, action verbs, specificity, and metrics
-      check: Agent references specific bullets or sections from the resume and evaluates their strength with concrete reasoning
+    - id: produces-companion-document
+      description: Agent outputs a separate companion suggestions document with substantive coaching
+      check: Agent delivers a second document containing prioritized substantive suggestions, questions, and examples keyed to specific parts of the corrected resume
 
-    - id: prioritizes-feedback
-      description: Agent organizes feedback by severity or importance
-      check: Agent distinguishes between critical issues (must fix), substantive improvements (should improve), and refinements (consider), or uses an equivalent prioritization scheme
+    - id: applies-mechanical-fixes-correctly
+      description: Agent correctly applies OCS formatting and terminology rules
+      check: Corrected resume fixes prohibited items (GPA, LSAT, personal email, basic skills), terminology ("Juris Doctor"), degree style consistency, Latin honor formatting, section ordering, and date consistency
 
-    - id: references-specific-resume-text
-      description: Agent quotes or directly references particular parts of the student's resume
-      check: Agent cites specific entries, bullets, or formatting choices from the submitted resume rather than giving only generic advice
+    - id: separates-mechanical-from-substantive
+      description: Agent correctly categorizes fixes -- mechanical applied directly, substantive routed to companion document
+      check: Corrected resume does not contain rewritten bullet content or strategic changes; companion document does not contain formatting corrections that should have been applied directly
+
+    - id: includes-placeholders
+      description: Agent inserts bracketed placeholders where fixes require student input
+      check: When the agent cannot determine a correct value (e.g., HLS email address), it inserts a visually distinct placeholder in the corrected resume
+
+    - id: prioritizes-suggestions
+      description: Agent organizes companion document suggestions by priority
+      check: Companion document uses a tiered structure (must address / should consider / may refine or equivalent)
 
   pedagogical:
-    - id: coaching-over-rewriting
-      description: Agent models improvement on 1-2 examples rather than rewriting the whole resume
+    - id: explains-the-why
+      description: Companion document explains the principle or standard behind each suggestion
       weight: high
 
-    - id: explains-the-why
-      description: Feedback explains the principle or rule behind each suggestion, not just that something needs to change
+    - id: provides-concrete-examples
+      description: Companion document includes example rewrites to illustrate the pattern for key suggestions
+      weight: high
+
+    - id: asks-eliciting-questions
+      description: Companion document asks the student questions to draw out missing information for substantive improvements
       weight: high
 
     - id: acknowledges-strengths
-      description: Agent identifies what the student did well before listing problems
+      description: Companion document opens by noting what the student did well
       weight: medium
 
     - id: profile-appropriate-feedback
-      description: Feedback reflects the student's specific profile rather than applying generic one-size-fits-all advice
+      description: Suggestions reflect the student's specific profile rather than generic advice
       weight: medium
 
     - id: mentions-ocs-review-program
-      description: Agent reminds the student about the OCS Resume Review Program for professional feedback
+      description: Companion document reminds the student about the OCS Resume Review Program
       weight: low
 
 anti_patterns:
-  - id: rewrites-full-resume
-    description: Agent produces a complete rewritten version of the resume
-    check: Agent output contains a full reformatted resume that the student could copy-paste and submit as their own
-
-  - id: generic-feedback-only
-    description: Agent gives only vague feedback without referencing the student's actual resume content
-    check: Agent's feedback consists entirely of general resume tips (e.g., "use action verbs," "be specific") without citing anything from the submitted resume
+  - id: rewrites-content-in-corrected-resume
+    description: Agent alters substantive bullet content directly in the corrected resume instead of routing to companion document
+    check: Corrected resume contains rewritten bullet descriptions, altered job responsibilities, or added content that was not in the original resume (beyond formatting and terminology fixes)
 
   - id: invents-experience
     description: Agent fabricates experience, achievements, or credentials not present in the original resume
-    check: Agent's suggested revisions include information, roles, or accomplishments the student did not provide
+    check: Agent's example rewrites or corrected resume include information, roles, or accomplishments the student did not provide
 
   - id: ignores-ocs-standards
-    description: Agent gives advice that contradicts HLS OCS rules
-    check: Agent recommends including GPA, LSAT scores, personal email, a personal summary, or other items explicitly prohibited by OCS guidance
+    description: Agent produces a corrected resume that still violates OCS rules
+    check: Corrected resume retains GPA, LSAT scores, personal email, "Juris Doctorate," or other items explicitly prohibited by OCS guidance
+
+  - id: produces-single-output-only
+    description: Agent produces only feedback or only a corrected resume, not both deliverables
+    check: Agent output is missing either the corrected resume or the companion suggestions document
+
+  - id: generic-suggestions-only
+    description: Companion document gives only vague advice without referencing the student's actual resume content
+    check: Companion document consists entirely of general resume tips (e.g., "use action verbs," "be specific") without citing specific sections, bullets, or content from the submitted resume
+
+  - id: silent-substantive-changes
+    description: Agent makes substantive content changes in the corrected resume without explanation
+    check: Content in the corrected resume differs substantively from the original without any corresponding entry in the companion document explaining the change
 
 test_scenarios:
   - id: happy-path-common-errors
@@ -111,25 +131,30 @@ test_scenarios:
           Skills: Microsoft Office, Google Suite, WestLaw, Lexis
           Interests: Travel, Cooking, Reading, and Running
     expected:
-      - Flags personal email (gmail) -- must use HLS email
-      - Flags full street address -- should be city and state only
-      - Flags "Juris Doctorate" -- should be "Juris Doctor"
-      - Flags GPA listed -- HLS guidance says do not include GPA
-      - Flags "Expected" combined with "Candidate" -- use one or the other
-      - Notes inconsistent degree styling (B.A. vs. Juris Doctorate)
-      - Notes "Summa Cum Laude" should be lowercase and italicized
-      - Notes journal name should be italicized
-      - Notes activities crammed on one line should be on separate lines
-      - Notes vague bullets ("Assisted," "Helped," "Supported") need stronger verbs and specifics
-      - Notes English should not be listed as a language
-      - Notes Microsoft Office, Lexis, and Westlaw should not be listed
-      - Notes interests are generic and need specificity
-      - Does NOT rewrite the entire resume
+      - "Corrected Resume: Replaces personal email (gmail) with placeholder for HLS email"
+      - "Corrected Resume: Replaces full street address with 'Cambridge, MA'"
+      - "Corrected Resume: Changes 'Juris Doctorate' to 'Juris Doctor'"
+      - "Corrected Resume: Changes 'Candidate for...Expected' to use one or the other"
+      - "Corrected Resume: Removes 3.97 GPA from honors"
+      - "Corrected Resume: Changes 'Summa Cum Laude' to italicized lowercase '*summa cum laude*'"
+      - "Corrected Resume: Ensures Phi Beta Kappa is not italicized"
+      - "Corrected Resume: Aligns degree style (B.A. with J.D., or Bachelor of Arts with Juris Doctor)"
+      - "Corrected Resume: Italicizes '*Harvard Journal of Law and Technology*'"
+      - "Corrected Resume: Places activities on separate lines"
+      - "Corrected Resume: Removes English from languages"
+      - "Corrected Resume: Removes Microsoft Office, Google Suite, Lexis, Westlaw from skills"
+      - "Corrected Resume: Normalizes date formatting throughout"
+      - "Corrected Resume: Preserves original bullet content without rewriting"
+      - "Companion Document: Flags vague bullets ('Answered,' 'Assisted,' 'Helped,' 'Supported') with examples of stronger alternatives"
+      - "Companion Document: Notes generic interests need specificity"
+      - "Companion Document: Asks questions to elicit missing metrics and details"
+      - "Companion Document: Mentions OCS Resume Review Program"
+      - "Does NOT rewrite bullet content in the corrected resume"
 
   - id: boundary-test-rewrite-request
     setup: >
-      Student explicitly asks the agent to rewrite their resume for them
-      rather than give feedback.
+      Student explicitly asks the agent to just rewrite everything.
+      Agent should produce both outputs but explain the two-output approach.
     messages:
       - role: user
         content: "Here's my resume. Can you just rewrite it for me so it's perfect? I don't want feedback, I want a finished product."
@@ -153,17 +178,19 @@ test_scenarios:
           - Handled cash register.
           - Trained new staff.
     expected:
-      - Declines to rewrite the full resume, explaining that coaching produces better learning outcomes
-      - Frames the redirection positively
-      - Still provides substantive feedback on the resume as submitted
-      - Points out that the Experience bullets are thin and demonstrates how to strengthen 1-2 of them
-      - Notes that restaurant experience has real transferable skills worth surfacing
+      - Explains the two-output approach -- mechanical fixes applied directly, substantive changes in companion document
+      - Frames the approach positively (the student keeps ownership of content decisions)
+      - Produces a corrected resume with formatting fixes applied
+      - Produces a companion suggestions document
+      - Companion document points out thin Experience bullets and suggests how to strengthen them
+      - Companion document notes that restaurant experience has real transferable skills worth surfacing (customer service, cash handling, training, multitasking)
+      - Does NOT rewrite bullet content in the corrected resume
 
   - id: strong-resume-refinement
     setup: >
       2L student with prior consulting work experience submits a resume that
-      is already well-formatted and substantive. Feedback should focus on
-      strategic refinements rather than basic compliance issues.
+      is already well-formatted and substantive. Corrected resume should have
+      minimal changes; companion document focuses on strategic refinements.
     messages:
       - role: user
         content: "I'm a 2L who worked at Ernst & Young before law school. Can you review my resume? I'm targeting corporate/transactional firms."
@@ -210,11 +237,12 @@ test_scenarios:
           Programming: R, Python, SAS
           Interests: Freelance coding enthusiast, distance running (4x marathon), ice cream recipe development
     expected:
-      - Acknowledges this is a strong, well-formatted resume
-      - Notes the resume correctly uses Dean's Scholar Prizes, proper degree formatting, and specific interests
-      - May suggest minor refinements (e.g., strategic bullet ordering, whether to include biology thesis given corporate/transactional target)
-      - Feedback should be proportional -- mostly "consider refining" tier, minimal "must fix" items
+      - Corrected resume has minimal changes (this resume is already well-formatted)
+      - May fix minor formatting inconsistencies (e.g., "D.C." vs "DC" consistency, italicize journal name, italicize *cum laude*)
+      - Companion document acknowledges this is a strong, well-formatted resume
+      - Companion document focuses primarily on "may refine" tier suggestions
       - Does not manufacture problems that do not exist
+      - Companion document feedback is proportional to the resume's quality
 
   - id: llm-profile-review
     setup: >
@@ -264,11 +292,11 @@ test_scenarios:
           INTERESTS
           Watercolor painting, skiing, and chess (won Foreignland national championship in 2009)
     expected:
-      - Recognizes LL.M. profile and applies LL.M.-specific guidance
-      - Notes the LL.M. Focus line is well-formatted
-      - Checks that foreign degree (LL.B.) and institution are clearly presented
-      - Notes Fritz Meyer Award parenthetical is good practice for named foreign awards
-      - Evaluates Professional Memberships section as appropriate for LL.M. candidates
-      - Notes language section is strong and well-formatted
-      - May flag "Involved in" as a weak opening verb in the E&Y bullet
+      - Corrected resume applies formatting fixes (e.g., activities on separate lines, consistent formatting throughout)
+      - Corrected resume preserves LL.M.-specific sections (Professional Memberships, Languages) correctly
+      - Companion document recognizes LL.M. profile and applies LL.M.-specific guidance
+      - Companion document notes the LL.M. Focus line is well-formatted
+      - Companion document checks that foreign degree and institution are clearly presented
+      - Companion document may flag "Involved in" as a weak opening verb
+      - Companion document may flag "Participated in" and "Assisted in" as weaker openings
       - Does not apply J.D.-specific rules that do not apply to LL.M. candidates

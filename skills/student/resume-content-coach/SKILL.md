@@ -3,15 +3,17 @@ name: resume-content-coach
 description: >-
   Coaches law students through building resume content from scratch by helping
   them identify transferable skills, craft strong bullet points, and make
-  strategic decisions about what to include. Handles all student profiles (1L,
-  2L/3L, LL.M., military, visiting/transfer, prior work experience, no prior
-  work experience). Use when a law student says "help me build my resume," "I
-  don't know what to put on my resume," "how do I describe my experience for
-  legal employers," "I have no legal experience, what do I write," "help me
-  write my resume bullets," or "I'm starting my resume from scratch."
+  strategic decisions about what to include. Does not produce a finished or
+  corrected resume -- use resume-review for formatting fixes and corrections to
+  an existing resume. Handles all student profiles (1L, 2L/3L, LL.M., military,
+  visiting/transfer, prior work experience, no prior work experience). Use when
+  a law student says "help me build my resume," "I don't know what to put on my
+  resume," "how do I describe my experience for legal employers," "I have no
+  legal experience, what do I write," "help me write my resume bullets," or "I'm
+  starting my resume from scratch."
 status: preview
 metadata:
-  version: 0.1.0
+  version: 0.2.0
 ---
 
 # Resume Content Coach Skill
@@ -67,6 +69,40 @@ Then help the student map their experiences to the resume structure. Specificall
 - What should go in optional sections (Languages, Skills, Interests)?
 
 Explain your reasoning. Do not just dictate the structure -- help the student understand the strategic logic so they can make these decisions going forward.
+
+## Mechanical Rules vs. Substantive Coaching
+
+Throughout every step below, distinguish between **mechanical OCS rules** and **substantive coaching**.
+
+**If there is exactly one correct answer per OCS standards, it is mechanical. State it as a requirement -- not a suggestion or a coaching opportunity.** The student does not need to "decide" whether to include their GPA or how to italicize Latin honors. These are rules.
+
+**If the decision requires the student's judgment, knowledge, or creative input, it is substantive. Coach the student through it.**
+
+### Mechanical -- state as requirements:
+
+| Category | Examples |
+|----------|----------|
+| Prohibited items | Never include GPA, LSAT, personal email notation, full street address, objective statement, basic computer skills (Office, Google Suite, Lexis, Westlaw), English as a language |
+| Terminology | "Juris Doctor" not "Juris Doctorate"; use "Candidate" or "Expected," not both |
+| Degree style consistency | Pick J.D./B.A. or Juris Doctor/Bachelor of Arts and use it for all entries |
+| Formatting normalization | Italicize Latin honors and lowercase them; do not italicize Phi Beta Kappa; italicize journal names; place activities on separate lines |
+| Section ordering | Education before Experience; reverse chronological within sections |
+| Date consistency | Pick one format and use it throughout |
+| Tense | Present tense for current positions, past tense for past |
+| Pronouns | No "I," "my," or "me" in bullets |
+| Structural layout | Employer/location on one line, title/dates on next |
+
+### Substantive -- coach the student through:
+
+| Category | Examples |
+|----------|----------|
+| Bullet content quality | Verb strength, specificity, metrics, framing |
+| What to include or cut | Which experiences earn their space, what to emphasize |
+| Strategic positioning | How the resume tells a story, emphasis allocation |
+| Profile-specific strategy | Activity placement, experience framing, section promotion |
+| Content development | Surfacing transferable skills, estimating impact |
+
+When a mechanical rule comes up during coaching, state it directly: "OCS standards require X" or "Do not include Y -- it is prohibited per OCS rules." Then move on. Save the coaching energy for substantive decisions where the student's input matters.
 
 ## Step 3: Surface Transferable Skills
 
@@ -135,43 +171,87 @@ Repeat this cycle for each major experience section. The student should be doing
 
 ## Step 5: Guide Section-by-Section Decisions
 
-Once the student has drafted bullets for their main experiences, work through the remaining resume sections:
+Once the student has drafted bullets for their main experiences, work through the remaining resume sections. Apply the mechanical/substantive distinction throughout.
+
+### Prohibited Items -- State as Non-Negotiable
+
+If the student asks about including any of the following, tell them it is prohibited per OCS standards. Do not coach them through the decision -- there is no decision to make:
+
+- **GPA** (undergraduate or law school)
+- **LSAT score**
+- **Personal email notation** (use HLS email)
+- **Full street address** (city and state only)
+- **Objective statement**
+- **Basic computer skills** (Microsoft Office, Google Suite, Lexis, Westlaw)
+- **English as a language**
+- **"References available upon request"**
 
 ### Education
 
-- What honors to list and how to format them (refer to `references/hls-resume-standards.md` for the rules on Latin honors, Phi Beta Kappa, named awards, etc.).
-- Whether to include a thesis title (and the implication: you must be ready to discuss it).
-- How to handle study abroad.
-- What activities to list under Education vs. Experience.
+**Mechanical rules -- state these directly:**
+
+- Italicize Latin honors (*magna cum laude*, *summa cum laude*) and lowercase them. Do not italicize Phi Beta Kappa.
+- Use "Juris Doctor" not "Juris Doctorate." Use "Candidate" or "Expected" -- not both.
+- Pick one degree style (J.D./B.A. or Juris Doctor/Bachelor of Arts) and use it consistently for all entries.
+- Education section comes before Experience.
+- Italicize journal names. List activities on separate lines, not run together.
+
+**Substantive coaching -- guide the student:**
+
+- Whether to include a thesis title (and the implication: you must be ready to discuss it in an interview).
+- How to handle study abroad (standalone entry vs. note under the home institution).
+- What activities to list under Education vs. promote to the Experience section.
+- Which honors and awards earn their space vs. which are redundant.
 
 ### Optional Sections
 
-- **Languages**: What languages do they speak? Help them self-assess proficiency levels honestly (native, fluent, proficient, conversational).
-- **Technical skills**: Only list if advanced or relevant to target employers. Coach them to omit Microsoft Office, Lexis, Westlaw.
+- **Languages**: Help the student self-assess proficiency levels honestly (native, fluent, proficient, conversational). Remind them: do not list English -- this is an OCS rule, not a judgment call.
+- **Technical skills**: Only list if advanced or relevant to target employers. State the rule: do not include Microsoft Office, Lexis, or Westlaw. These are expected of all law students and do not differentiate.
 - **Interests**: Help them brainstorm specific, personal, conversation-starting interests. Push past "reading" and "travel" to "dystopian literature," "visited 23 countries," "Ina Garten recipe development," "competitive chess."
 
 ### What to Cut
 
-Help the student identify content that does not earn its space:
+Help the student identify content that does not earn its space. Some cuts are mechanical (prohibited items -- state the rule), others are strategic (coach the student through the reasoning):
 
-- Redundant honors (Dean's List every semester when *summa cum laude* is already listed).
-- Generic skills (Office, Lexis, social media).
+**Mechanical -- state as rules:**
+- Any prohibited item from the list above.
+- Redundant honors (Dean's List every semester when *summa cum laude* is already listed -- the higher honor subsumes the lower).
+
+**Substantive -- coach the student:**
 - Experiences that add nothing new (a third similar internship that duplicates skills already shown).
-- English listed as a language.
+- Content that could be compressed to free space for stronger material.
+- Strategic decisions about which experiences deserve more or fewer bullets.
 
-Frame cutting as strategic, not as diminishing their accomplishments. Every line must earn its place on a one-page document.
+Frame strategic cutting as smart positioning, not as diminishing their accomplishments. Every line must earn its place on a one-page document.
 
 ## Step 6: Review and Coach on the Draft
 
-After the student has assembled a full draft (or revised a partial one), review it holistically:
+After the student has assembled a full draft (or revised a partial one), review it in two passes.
+
+### Pass 1: Mechanical Compliance
+
+Check the draft against OCS rules. For any violations, state the correction directly -- these are not coaching topics:
+
+- **Prohibited items**: Any GPA, LSAT, objective statement, basic computer skills, English as a language, full street address still present?
+- **Formatting consistency**: Are dates in one format? Is degree style consistent (J.D./B.A. or Juris Doctor/Bachelor of Arts, not mixed)? Are Latin honors italicized and lowercased? Are journal names italicized?
+- **Tense**: Present tense for current positions, past tense for past?
+- **Pronouns**: Any "I," "my," or "me" in bullets?
+- **Section ordering**: Education before Experience? Reverse chronological within sections?
+- **Structural layout**: Employer/location on one line, title/dates on the next?
+
+Tell the student exactly what to fix and why it is required. Do not frame these as suggestions.
+
+### Pass 2: Substantive Coaching
+
+Then coach on the qualitative dimensions:
 
 - **Does it fit one page?** If not, help them identify what to trim.
-- **Is it consistent?** Formatting, bullet style, date format, degree style -- spot inconsistencies.
 - **Is the narrative coherent?** Does the resume tell a clear story about this person's path to law?
 - **Is the emphasis right?** Are the most relevant and recent experiences given the most space?
 - **Would a 5-10 second scan surface the strengths?** What jumps out on a quick pass?
+- **Are the bullets strong?** Revisit verb strength, specificity, and impact.
 
-Give feedback. Have the student make revisions.
+Give feedback on these items as coaching -- ask questions, suggest alternatives, explain the reasoning. Have the student make revisions.
 
 ### Refinement Cap
 
