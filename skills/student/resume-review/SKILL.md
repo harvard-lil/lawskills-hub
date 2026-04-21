@@ -33,6 +33,7 @@ Before evaluating, load these reference documents:
 
 - `references/hls-resume-standards.md` -- the universal OCS formatting and content rules. This is your evaluation baseline.
 - `references/profile-guidance.md` -- profile-specific tips. Load the section(s) matching the student's profile after Step 2.
+- `assets/` -- student profile templates for corrected resume structure (e.g., `hls-template-general.md`, `hls-template-1l-no-experience.md`, `hls-template-llm.md`, `hls-template-military.md`).
 
 ## Step 1: Gather the Resume and Context
 
@@ -101,41 +102,15 @@ Categorize every issue as either **mechanical** (apply directly in Step 4) or **
 
 Apply all mechanical fixes to the resume and output a clean, formatted document. Follow these rules:
 
-1. **Apply every mechanical fix identified in Step 3.** Do not ask permission for OCS rule corrections -- they are not judgment calls.
-2. **Insert bracketed placeholders** where a fix requires information you do not have. Use the format `[PLACEHOLDER: description]`. Examples:
-   - `[your-hls-email@jd28.law.harvard.edu]` when replacing a personal email
-   - `[PLACEHOLDER: city and state only]` when you cannot determine the correct city/state from a full address
-3. **Preserve all of the student's original content.** Do not rewrite bullets, remove experience entries, or alter the substance of any description. Only change formatting, structure, terminology, and prohibited items.
-4. **Use consistent markdown formatting** for the resume output as shown below.
-
-### Corrected Resume Output Format
-
-```
-# STUDENT NAME
-City, ST | (phone) | email
-
-## EDUCATION
-
-**Institution Name**, City, ST
-Degree, Date
-*Honors:* ...
-*Activities:*
-- Activity 1
-- Activity 2
-
-## EXPERIENCE
-
-**Employer Name**, City, ST
-Title, Dates
-- Bullet 1
-- Bullet 2
-
-## SKILLS AND INTERESTS
-Languages: ...
-Interests: ...
-```
-
-Adapt the template to match the student's actual sections. Include all sections present in the original resume (e.g., Professional Memberships, Languages, Certifications) formatted consistently.
+1. **Select the appropriate template** from the `assets/` folder based on the profile(s) identified in Step 2:
+   - **General/2L/3L/Transfer:** `hls-template-general.md`
+   - **1L / No Prior Experience:** `hls-template-1l-no-experience.md`
+   - **LL.M. Candidate:** `hls-template-llm.md`
+   - **Military Experience:** `hls-template-military.md`
+2. **Apply every mechanical fix identified in Step 3.** Do not ask permission for OCS rule corrections -- they are not judgment calls.
+3. **Insert bracketed placeholders** where a fix requires information you do not have. Use the format `[PLACEHOLDER: description]`.
+4. **Preserve all of the student's original content.** Only change formatting, structure, terminology (e.g., "Juris Doctor"), and prohibited items.
+5. **Output the corrected resume** using the markdown structure provided in the selected template.
 
 ## Step 5: Produce the Companion Suggestions Document
 

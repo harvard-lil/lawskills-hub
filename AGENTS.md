@@ -52,13 +52,13 @@ skills/<persona>/<skill-name>/
 ├── SKILL.md              # Required: metadata + step-by-step instructions
 ├── references/           # Optional: documents the agent reads when needed (style guides, protocols, schemas)
 ├── rubric.yaml           # Optional: test scenarios, criteria, and anti-patterns for the test harness
-└── assets/               # Optional: raw materials consumed by scripts, NOT loaded by the agent
+└── assets/               # Optional: templates, images, data files, and other static resources
 ```
 
 **Progressive disclosure governs what goes where:**
 - `SKILL.md` body: Instructions the agent always needs when the skill is active (~100-5000 tokens).
 - `references/`: Material the agent loads on demand (e.g., `syllabus-research-protocol.md`). Keep references one level deep from SKILL.md -- no nested reference chains.
-- `assets/`: Files consumed by scripts during execution. The agent should never read these directly.
+- `assets/`: Static resources such as templates, images, and data files. Loaded by the agent only when required during execution.
 
 ### Writing the `description` Field
 
