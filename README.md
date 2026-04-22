@@ -14,13 +14,15 @@ For additional options, see [Delivery](#delivery) below for more information.
 
 Skills will be triggered automatically based on the language in your prompts to any AI agent -- just describe your desired task as you normally would, and the [skill](#skills-in-this-collection) or [meta-skill](#meta-skills-making-the-collection-sticky) will contextually load, depending on your preferences. 
 
-For example, if you have the Instructor meta-skill invoked or have installed the *Syllabus Traditional* skill, prompting "creating an environmental law syllabus with updated Supreme Court decisions" will cause the appropriate skill to be employed. 
+For example, if you have the Instructor meta-skill invoked or have installed the *Syllabus Traditional* skill, prompting "create an environmental law syllabus with updated Supreme Court decisions" will cause the appropriate skill to be employed. 
+
+Are you an educator, law librarian, or practicing lawyer? Check out our [Contributor Guidelines](CONTRIBUTING.md) to submit a skill to the Skills Hub.
 
 ## Why This Exists
 
-People are already using AI to teach and learn the law -- to prepare for class, study for exams, understand legal issues, build professional skills. Much of that use, especially for students, happens without pedagogical guidance: the AI helps, but we need to think about *how* it should help for a given educational context.
+People are already using AI to teach and learn the law -- to prepare for class, study for exams, understand legal issues, and build professional skills. Much of that use, especially for students, happens without pedagogical guidance: the AI helps, but we need to think about *how* it should help for a given educational context.
 
-This project explores what it looks like to bring sound pedagogy to AI-assisted legal education. The vehicle is **agent skills** -- modular capabilities you install into an AI coding or writing assistant. Each skill encodes a pedagogical approach: not just "help me with X," but "help me with X in a way that builds understanding / develops capability / orients me toward the right resources."
+This project explores what it looks like to bring sound pedagogy to AI-assisted legal education. The vehicle is **agent skills** -- modular capabilities you install into an AI coding or writing assistant. Each skill is built with learning in mind: not just "help me with X," but "help me with X in a way that builds understanding / develops capability / orients me toward the right resources."
 
 ### Skills as markdown, not software
 
