@@ -1,11 +1,12 @@
 # Contributing to the LIL Skills Hub
 
-We welcome contributions from experienced practitioners, clinical faculty, academic labs, and law firms. If you have pedagogical expertise you want to encode into a skill -- or if you see room to improve an existing one -- this guide is for you.
+We welcome contributions from experienced practitioners in law and education, clinical faculty, academic labs, and law firms. If you have expertise you want to encode into a skill -- or if you see room to improve an existing one -- this guide is for you.
 
 Because skills are markdown files, **you do not need to be a software engineer to contribute.** Writing a skill is closer to writing a lesson plan than writing code. The sections below walk through everything you need to get started.
 
 ## Table of Contents
 
+- [What is the Skill Hub for?](#what-is-the-skills-hub-for)
 - [LIL values](#lil-values)
 - [What we are looking for](#what-we-are-looking-for)
 - [Before you start](#before-you-start)
@@ -17,6 +18,12 @@ Because skills are markdown files, **you do not need to be a software engineer t
 - [Design principles](#design-principles)
 
 ---
+## What is the Skills Hub for?
+
+The purpose of the LIL Skills Hub is to offer high quality agent skills created by subject matter experts that facilitate learning and critical thinking in the law school classroom. This can encompass many kinds of skills, from those that help faculty build their curricula to those that help students reflect on class readings. 
+
+> All skills in the Skills Hub should *support* learning and critical thinking, never replace it. 
+
 
 ## LIL values
 
