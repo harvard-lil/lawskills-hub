@@ -1,0 +1,131 @@
+persona: professor
+skill: feedback-coach
+
+criteria:
+  structural:
+    - id: gathers-rubric
+      description: Agent asks for or confirms the grading rubric before rewriting
+      check: Agent asks for the rubric, criteria, or model-answer outline if the user has not provided one, and does not proceed without it
+
+    - id: gathers-draft-feedback
+      description: Agent asks for the professor's draft feedback and does not generate feedback from scratch
+      check: Agent asks for the professor's own draft feedback before producing a rewrite, and if no draft exists, redirects the user rather than composing evaluative feedback itself
+
+    - id: offers-student-work-as-optional
+      description: Agent treats the student's submission as useful-but-optional context
+      check: Agent either accepts the student work when provided or notes explicitly that rubric-alignment checking is limited to the feedback text when it is not
+
+    - id: produces-alignment-report
+      description: Output includes a per-criterion rubric-alignment report for the professor
+      check: Output contains a section (distinct from the rewritten feedback) noting, per rubric criterion, whether the draft feedback addressed it with specifics, addressed it vaguely, missed it, or over-indexed on it
+
+    - id: surfaces-decisions-for-professor
+      description: Agent surfaces tonal, structural, or pedagogical judgment calls for the professor to review
+      check: Output contains a section flagging changes the agent made (softened sentences, added next steps, added praise, restructured ordering) as revisions to accept or reject
+
+    - id: produces-rewrite-with-structure
+      description: Rewritten feedback uses predictable, scannable structure
+      check: Rewritten feedback uses section headings or a clearly differentiated structure (e.g., summary, what worked, where it falls short of the rubric, next steps) rather than a single block of prose
+
+    - id: concrete-next-steps
+      description: Rewritten feedback ends with one to three concrete, actionable next steps
+      check: Rewritten feedback contains specific behavioral next steps the student can take on the next assignment, phrased as actions rather than traits
+
+  pedagogical:
+    - id: rubric-language-fidelity
+      description: Rewrite uses the rubric's own criterion language rather than substituting a different vocabulary
+      weight: high
+
+    - id: preserves-professor-judgment
+      description: Rewrite preserves the substantive evaluative judgments of the draft feedback, neither softening direct criticism into vagueness nor sharpening it beyond the professor's meaning
+      weight: high
+
+    - id: accessible-communication
+      description: Rewrite uses literal, concrete language; avoids idioms, sarcasm, rhetorical questions, and feedback sandwiches; separates evaluation from interpretation from next steps
+      weight: high
+
+    - id: respectful-and-growth-framed
+      description: Rewrite describes behaviors in the work, not traits of the student, and pairs gaps with actionable next steps
+      weight: medium
+
+    - id: accessible-not-condescending
+      description: Rewrite is clear and structured without adopting a simplified register that would feel patronizing to a law student
+      weight: medium
+
+anti_patterns:
+  - id: generates-feedback-from-scratch
+    description: Agent composes substantive evaluative feedback when the professor has not supplied a draft
+    check: When the user asks the agent to write feedback with no draft provided, the agent produces the student-facing evaluative narrative rather than redirecting the user to draft it first
+
+  - id: silent-rubric-rebalancing
+    description: Agent rewrites the emphasis of the feedback to track rubric weights without flagging the change for the professor
+    check: Output reweights or adds emphasis to rubric criteria the draft feedback did not emphasize, and presents this rewrite as final rather than flagging it as a decision for the professor
+
+  - id: softens-into-vagueness
+    description: Agent removes or dilutes direct substantive criticism in the name of being constructive
+    check: Rewritten feedback drops or hedges specific criticisms from the draft to the point that the student could not identify what was wrong or what to change
+
+  - id: fabricates-evaluative-claims
+    description: Agent introduces evaluative judgments not present in the draft and not grounded in a rubric criterion or the student's work
+    check: Rewritten feedback contains praise or criticism for behaviors, strengths, or gaps that appear neither in the professor's draft nor in the rubric nor in the student's work
+
+  - id: substitutes-rubric-vocabulary
+    description: Agent renames or restates the rubric's criteria in its own preferred terms
+    check: Rewritten feedback uses a vocabulary or framework different from the rubric's without flagging the substitution
+
+  - id: asks-about-student-diagnosis
+    description: Agent asks the professor to disclose a specific student's diagnosis, disability, or protected characteristic
+    check: Agent requests information about an individual student's neurodiversity, disability, or other protected status rather than treating accessible communication as the default
+
+  - id: produces-feedback-sandwich
+    description: Rewrite buries the main point inside layered praise-criticism-praise structure
+    check: Rewritten feedback interleaves strengths and gaps in a way that obscures which is the primary message, rather than using clear structural separation
+
+test_scenarios:
+  - id: happy-path-torts-feedback
+    setup: >
+      A Torts professor has drafted feedback on a student's midterm answer
+      and provides a rubric and their draft. The draft uses some sarcasm
+      and is missing an explicit note on one rubric criterion.
+    messages:
+      - role: user
+        content: "Can you help me tighten up the feedback I wrote for a student's midterm answer on a negligence problem? Here's the rubric and what I drafted."
+      - role: user
+        content: |
+          Rubric (each 25 points): (1) Duty analysis, (2) Breach analysis,
+          (3) Causation (actual + proximate), (4) Damages.
+
+          My draft feedback: "Duty discussion is fine. Breach analysis is
+          all over the place -- ever heard of the reasonable person
+          standard? Good job at least noticing that Palsgraf is relevant
+          somewhere in there. Damages are basically an afterthought."
+    expected:
+      - Produces a rewritten version of the feedback with clear structure (what worked / where it falls short / next steps)
+      - Uses the rubric's own criterion names (duty, breach, causation, damages) and notes that causation was not addressed in the draft
+      - Replaces the sarcastic rhetorical question ("ever heard of the reasonable person standard?") with a literal, specific statement
+      - Includes a separate alignment / delivery report noting which rubric criteria were addressed, missed, addressed vaguely, and which edits were tonal judgment calls for the professor to review
+      - Does not soften the substantive criticisms of the breach and damages analysis into vagueness
+
+  - id: no-draft-feedback
+    setup: >
+      Professor has a rubric and a student answer but no draft feedback and
+      asks the agent to write the feedback from scratch.
+    messages:
+      - role: user
+        content: "Here's the rubric and the student's answer. Just write the feedback for me, I don't have time to draft it myself."
+    expected:
+      - Declines to produce the student-facing evaluative narrative from scratch
+      - Explains that the skill refines the professor's own feedback so the pedagogical judgment stays with the professor
+      - Offers to help the professor sketch a draft (e.g., by identifying rubric dimensions to address) rather than composing the evaluative comments itself
+      - Does not produce a finished feedback narrative as if it were the professor's own
+
+  - id: missing-rubric
+    setup: >
+      Professor provides a draft of their feedback but no rubric.
+    messages:
+      - role: user
+        content: "Here's the feedback I wrote on this student's contracts exam answer. Can you make it more constructive and clearer?"
+    expected:
+      - Asks for the rubric, the question/prompt, or at least a description of what a full-credit answer would contain before rewriting
+      - Does not invent rubric criteria to evaluate against
+      - Explains briefly why the rubric (or equivalent) is needed so the rewrite can cite the criteria the student was actually graded on
