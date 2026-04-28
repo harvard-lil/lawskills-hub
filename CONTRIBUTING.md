@@ -24,10 +24,9 @@ The purpose of the LIL Skills Hub is to offer high quality agent skills created 
 
 > All skills in the Skills Hub should *support* learning and critical thinking, never replace it. 
 
-
 ## LIL values
 
-Every skill in this collection should reflect the Library Innovation Lab's core commitments. These are not checklists -- they are design sensibilities that should be visible in the choices you make about what a skill does, what it refuses to do, and how it communicates.
+Every skill in this collection should reflect the Library Innovation Lab's core values, principles, and practices. These are not checklists -- they are design sensibilities that should be visible in the choices you make about what a skill does, what it refuses to do, and how it communicates.
 
 **Empower human agency.** Skills should build the user's own capacity, not substitute for it. A student skill that produces a finished exam answer has failed. A student skill that coaches the student to articulate their own reasoning has succeeded.
 
