@@ -16,7 +16,7 @@ Skills will be triggered automatically based on the language in your prompts to 
 
 For example, if you have the Instructor meta-skill invoked or have installed the *Syllabus Traditional* skill, prompting "create an environmental law syllabus with updated Supreme Court decisions" will cause the appropriate skill to be employed. 
 
-Are you an educator, law librarian, or practicing lawyer? Check out our [Contributor Guidelines](CONTRIBUTING.md) to submit a skill to the Skills Hub.
+> Are you an educator, law librarian, or practicing lawyer? An expert in something else that can benefit legal education? Check out our [Contributor Guidelines](CONTRIBUTING.md) to submit a skill to the Skills Hub.
 
 ## Why This Exists
 
