@@ -12,13 +12,24 @@ Source: HLS OCS "Resumes for the Private Sector" page, the 1L Resume Tutorial, a
 
 ## General Formatting
 
-- **One page only.** No exceptions.
+- **One page is the target.** Aim for one page in every case. A resume that spills just a few lines onto a second page is acceptable **only if** the student has already applied every reasonable condensing technique (see below) and still cannot fit the content on one page without cutting substantive experience. A resume that is well over a page, or that is two pages because the student has not yet tried to condense, should be flagged for tightening in the companion document.
 - **Font size:** 10.5pt minimum (10-11pt range). Name can be 14pt.
 - **Margins:** 0.5 inches minimum on all sides.
+- **Blank-line spacing trick:** Body text stays at 10-11pt, but the *empty lines between entries* can be sized down to 4-8pt (preferably 6-8pt so the eye still gets a break). This is a standard OCS-endorsed space-saving technique and is usually the first thing to try before cutting content. Flag it as a suggestion in the companion document whenever the resume is running long.
 - **Consistency is paramount:** font, bullet style, spacing, alignment, capitalization, italics, and date formatting must be uniform throughout.
 - **Simplicity:** Clean lines, symmetry. No fancy graphics, colors, or decorative elements.
 - **Print-friendly:** Adequate margins so nothing is cut off when printed.
 - **No objective or personal summary statement.**
+
+### Condensing Techniques (Apply in This Order Before Cutting Content)
+
+When a resume runs over one page, suggest these techniques in the companion document in roughly this order:
+
+1. **Reduce blank-line spacing** between entries to 6-8pt (keeping body text at 10-11pt).
+2. **Tighten language** -- remove filler articles ("the," "a," "an"), collapse compound phrasing, and eliminate hanging lines (single words wrapping to a new line).
+3. **Rebalance bullet counts** -- trim older or less relevant entries to 1-2 bullets; keep the most recent and most substantive positions at 3-5.
+4. **Consolidate minor honors and activities** onto single lines separated by semicolons.
+5. **Only as a last resort, cut an entry.** If the resume is still over one page after the above, raise this as a substantive question in the companion document and let the student decide what to drop -- do not cut for them.
 
 ## Header
 
@@ -32,8 +43,9 @@ Source: HLS OCS "Resumes for the Private Sector" page, the 1L Resume Tutorial, a
 
 ### Order and Structure
 
-- Reverse chronological: law school first, then graduate school (if any), then undergraduate. **No high school.**
+- Reverse chronological: law school first, then graduate school (if any), then undergraduate, then any prior post-secondary institutions (associate / A.A. / A.S. from a community college, for example). **No high school.**
 - For each institution: institution name and location on one line; degree, honors, major, and graduation date on the next.
+- **Include every post-secondary degree**, including associate degrees from community colleges. Do **not** treat an A.A. or A.S. as optional. Including it signals perseverance, which law firms -- working from limited information early in the recruiting cycle -- actively look for. It also prevents confusion when employers request college transcripts and see an institution that is not on the resume. If the student has an A.A. or similar credential and has not listed it, add it back in (use a placeholder for any missing details) and note in the companion document why it belongs on the resume.
 
 ### Degree Formatting
 
@@ -161,7 +173,7 @@ The rules above represent the shared HLS baseline and OCS-specific standards. Wh
 ### Page Length
 
 - **Two pages are acceptable** if the candidate has substantial pre-law public interest, government, or community service experience that is directly relevant to their target positions. Do not flag a resume longer than one page as a critical error when the additional content demonstrates a meaningful commitment narrative.
-- If the student's experience does not justify two pages, one page remains the standard.
+- If the student's experience does not justify two pages, one page remains the standard. Apply the same condensing techniques listed under "General Formatting" (blank-line spacing at 6-8pt, tightening language, rebalancing bullet counts) before concluding that a second page is justified.
 
 ### Header
 
@@ -171,6 +183,12 @@ The rules above represent the shared HLS baseline and OCS-specific standards. Wh
 
 - Clinical work and SPOs should be listed under **Experience**, not under Activities, to maximize their impact. These entries demonstrate hands-on advocacy, client interaction, and substantive legal work -- all of which are central to public interest hiring.
 - Give clinical entries the same bullet-point treatment as any other experience entry (3-5 bullets with action verbs, specificity, and outcomes).
+
+### Single Unified Experience Section
+
+- Use one **"Experience"** section covering all roles, reverse chronological, regardless of whether the role was legal, policy, advocacy, or pre-law professional work.
+- Do **not** split roles into separate "Legal Experience" and "Other Professional Experience" (or similarly titled) sections. This is true even for alumni / recent-graduate resumes, 2L/3L government resumes, and resumes from students with substantial pre-law careers. A unified section lets the reader see the full arc of the candidate's experience and avoids implying that pre-law work is second-tier.
+- If a resume already splits these sections, merge them into a single "Experience" section as a mechanical fix and preserve every entry in reverse chronological order.
 
 ### Relevant Coursework
 

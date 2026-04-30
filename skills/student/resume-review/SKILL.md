@@ -12,7 +12,7 @@ description: >-
   "apply the formatting rules to my resume and tell me what else to improve."
 status: preview
 metadata:
-  version: 0.3.0
+  version: 0.3.2
 ---
 
 # Resume Review Skill
@@ -86,7 +86,7 @@ Load the corresponding section(s) from `references/profile-guidance.md`. A stude
 
 Perform a single comprehensive pass evaluating the resume against `references/hls-resume-standards.md` (including the OPIA overrides section if on the OPIA pathway) and the applicable profile guidance. Assess:
 
-- **Formatting compliance**: page length (one page for OCS; up to two pages for OPIA if justified), font/margins (if detectable), header format, consistency, section ordering, degree formatting, honors formatting, journal/activity formatting, date formatting, prohibited items.
+- **Formatting compliance**: page length (target one page for OCS; a slight overflow is acceptable only when the student has already applied every condensing technique -- see below -- and up to two pages for OPIA if justified by substantive commitment-narrative content), font/margins (if detectable), blank-line spacing between entries (flag if the resume is over one page and body-size blank lines are still being used), header format, consistency, section ordering, degree formatting (including inclusion of associate / A.A. / A.S. degrees, which are **not** optional), honors formatting, journal/activity formatting, date formatting, prohibited items.
 - **Content quality**: bullet strength (action verbs appropriate to the pathway -- see `references/hls-action-verbs.md`), specificity, metrics, experience scope, language issues (pronouns, articles, tense), optional sections (languages, skills, interests).
 - **Strategic positioning**: narrative coherence, emphasis allocation, profile-specific structural choices, keyword density, interview readiness.
 - **Pathway-specific checks** (OPIA only): commitment narrative visibility, clinic/SPO placement under Experience, relevant coursework presence, advocacy-oriented verb usage, community service or pro bono headers.
@@ -110,7 +110,9 @@ Categorize every issue as either **mechanical** (apply directly in Step 4) or **
 | Tense correction | Present tense for current positions, past tense for past |
 | Pronoun removal | Remove "I," "my," "me" from bullets |
 | Structural layout | Employer/location on one line, title/dates on next |
+| Associate degree inclusion | If the student has an A.A., A.S., or similar post-secondary degree and it is missing from Education, add it back in (use a placeholder for any missing details). Do not treat it as optional. |
 | OPIA: Clinic/SPO placement | Move clinical work and Student Practice Organizations from Activities to Experience (OPIA pathway only) |
+| OPIA: Unified Experience section | Merge any "Legal Experience" / "Other Professional Experience" split into a single reverse-chronological "Experience" section (OPIA pathway only). Preserve every entry. |
 
 #### Substantive -- route to companion document:
 
@@ -119,6 +121,7 @@ Categorize every issue as either **mechanical** (apply directly in Step 4) or **
 | Bullet content quality | Weak verbs ("Assisted," "Helped"), vague descriptions, missing metrics |
 | Missing information | Gaps the student could fill (quantifiable results, specific legal terms, outcomes) |
 | Strategic choices | What to emphasize, compress, or cut |
+| Page-length condensing | When the resume runs over one page, suggest the OCS-endorsed sequence: (1) reduce blank-line spacing between entries to 6-8pt while keeping body text at 10-11pt; (2) tighten language; (3) rebalance bullet counts on older entries; (4) only as a last resort, cut an entry -- and let the student decide which. |
 | Narrative and positioning | How the resume tells a story, interview readiness, keyword density |
 | Profile-specific strategy | Two-address format, activity placement, experience framing |
 | Content additions | Transferable skills the student may be underselling |
@@ -140,19 +143,21 @@ Apply all mechanical fixes to the resume and output a clean, formatted document.
    **OPIA pathway templates:**
    - **1L (public interest):** `hls-template-opia-1l.md` -- 1L students with limited legal experience, targeting public interest summer positions. Features a Pro Bono & Community Service section and Relevant Coursework line.
    - **2L/3L (upper-level public interest):** `hls-template-opia-upper-level.md` -- upper-level students with clinic, SPO, and summer public interest experience. Clinics and SPOs appear under Experience with full bullet treatment.
-   - **Prior professional experience (public interest):** `hls-template-opia-experienced.md` -- students with substantial pre-law careers (nonprofit, government, advocacy, or other professional work). Includes a Legal Experience section, a separate section for pre-law roles, and optional Publications & Presentations.
+   - **Prior professional experience (public interest):** `hls-template-opia-experienced.md` -- students with substantial pre-law careers (nonprofit, government, advocacy, or other professional work). Uses a single unified Experience section covering legal and pre-law professional roles, and includes optional Publications & Presentations.
    - **LL.M. (public interest):** `hls-template-opia-llm.md` -- LL.M. candidates from foreign jurisdictions targeting U.S. public interest or human rights work. Leads with Bar Admissions/Licensure and features a Pro Bono & Community Service section.
    - **Fellowship applicant:** `hls-template-opia-fellowship.md` -- students applying for post-graduate public interest fellowships (e.g., Skadden, Equal Justice Works, Soros). Includes a Proposed Fellowship Project section and Publications & Research section.
-   - **Recent graduate (public interest):** `hls-template-opia-graduate.md` -- HLS alumni applying to public interest or government positions post-graduation. Leads with Bar Admissions and separates Legal Experience from Other Professional Experience.
+   - **Recent graduate (public interest):** `hls-template-opia-graduate.md` -- HLS alumni applying to public interest or government positions post-graduation. Leads with Bar Admissions and uses a single unified Experience section covering legal and pre-law professional roles.
 2. **Apply every mechanical fix identified in Step 3.** Do not ask permission for HLS rule corrections -- they are not judgment calls.
 3. **Insert bracketed placeholders** where a fix requires information you do not have. Use the format `[PLACEHOLDER: description]`.
 4. **Preserve all of the student's original content.** Only change formatting, structure, terminology (e.g., "Juris Doctor"), and prohibited items.
-5. **Apply OPIA-specific structural adjustments** (OPIA pathway only):
+5. **Do not drop any post-secondary degree** the student listed, and if an A.A., A.S., or similar community-college credential is present in the student's history but missing from the Education section, add it back in. Use placeholders for any details you do not have (e.g., `[PLACEHOLDER: graduation month/year]`). Do not treat associate degrees as optional.
+6. **Apply OPIA-specific structural adjustments** (OPIA pathway only):
    - Move clinical work and SPOs from Activities into the Experience section with full bullet-point treatment.
+   - **Use a single unified "Experience" section** covering legal and pre-law professional roles in reverse chronological order. If the original resume splits roles into "Legal Experience" and "Other Professional Experience" (or similarly named sub-sections), merge them into one "Experience" section -- preserving every entry. This applies even to alumni / recent-graduate resumes and 2L/3L government resumes.
    - Add a "Relevant Coursework" line under the HLS Education entry if the student has taken courses signaling their area of focus and one does not already exist. Use a placeholder if you do not know the specific courses: `[PLACEHOLDER: list relevant coursework, e.g., Immigration Law, Criminal Justice Reform]`.
    - Do **not** flag a resume longer than one page as a critical error if the second page contains substantive, relevant public interest experience. OPIA permits up to two pages in these cases.
    - If the student has a permanent/home address that signals geographic ties to a target public interest market, retain or suggest the two-address format.
-6. **Output the corrected resume** using the markdown structure provided in the selected template.
+7. **Output the corrected resume** using the markdown structure provided in the selected template.
 
 ## Step 5: Produce the Companion Suggestions Document
 

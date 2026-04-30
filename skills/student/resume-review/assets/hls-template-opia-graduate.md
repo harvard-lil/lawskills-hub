@@ -14,7 +14,9 @@ Juris Doctor, [Month Year]
 **[UNDERGRADUATE INSTITUTION]**, [City, ST]
 [Degree], [Latin honors], [Month Year]
 
-## LEGAL EXPERIENCE
+## EXPERIENCE
+
+List all roles -- legal and pre-law professional -- in a single reverse-chronological Experience section. Do **not** split into "Legal Experience" and "Other Professional Experience"; OPIA prefers a unified Experience section.
 
 **[CURRENT/MOST RECENT LEGAL ROLE]**, [City, ST]
 [Title (e.g., Staff Attorney or Associate)], [Dates]
@@ -24,8 +26,6 @@ Juris Doctor, [Month Year]
 **[PREVIOUS LEGAL ROLE]**, [City, ST]
 [Title], [Dates]
 - [Action Verb] [Substantive legal responsibility]
-
-## OTHER PROFESSIONAL EXPERIENCE
 
 **[PRE-LAW CAREER ROLE]**, [City, ST]
 [Title], [Dates]

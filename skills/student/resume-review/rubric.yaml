@@ -36,6 +36,14 @@ criteria:
       check: Companion document uses a tiered structure (must address / should consider / may refine or equivalent)
 
   pedagogical:
+    - id: suggests-condensing-techniques-before-cutting
+      description: When a resume is at or over one page, the companion document suggests OCS-endorsed condensing techniques (reduce blank-line spacing to 6-8pt, tighten language, rebalance bullet counts) before recommending that the student cut substantive experience
+      weight: high
+
+    - id: preserves-associate-degrees
+      description: Agent retains any associate degree (A.A., A.S.) the student listed and does not describe it as optional; if an associate degree is present in the student's history but missing from the resume, the agent raises adding it
+      weight: high
+
     - id: explains-the-why
       description: Companion document explains the principle or standard behind each suggestion
       weight: high
@@ -84,6 +92,18 @@ anti_patterns:
   - id: silent-substantive-changes
     description: Agent makes substantive content changes in the corrected resume without explanation
     check: Content in the corrected resume differs substantively from the original without any corresponding entry in the companion document explaining the change
+
+  - id: drops-associate-degree
+    description: Agent removes the student's associate degree (A.A., A.S., or similar community-college credential) from the Education section, or tells the student it is optional to include
+    check: Corrected resume omits an associate degree that appeared in the student's original resume, or the companion document advises the student that listing an A.A./A.S. is optional or unnecessary
+
+  - id: hard-one-page-rule
+    description: Agent flags a resume that is only slightly over one page as a critical error without first recommending OCS condensing techniques (reduced blank-line spacing at 6-8pt, language tightening, bullet-count rebalancing)
+    check: Companion document treats a small overflow onto a second page as a must-fix-by-cutting issue without first suggesting spacing reduction and language tightening, OR the agent strips substantive experience from the corrected resume to force one page
+
+  - id: splits-opia-experience-section
+    description: On an OPIA pathway resume, the agent splits experience into separate "Legal Experience" and "Other Professional Experience" (or similarly named) sections instead of using a single unified "Experience" section
+    check: Corrected resume for an OPIA pathway student uses two or more differently-titled experience sections (e.g., "Legal Experience" and "Other Professional Experience"), OR the companion document recommends creating such a split rather than consolidating
 
 test_scenarios:
   - id: happy-path-common-errors
@@ -300,3 +320,132 @@ test_scenarios:
       - Companion document may flag "Involved in" as a weak opening verb
       - Companion document may flag "Participated in" and "Assisted in" as weaker openings
       - Does not apply J.D.-specific rules that do not apply to LL.M. candidates
+
+  - id: slight-overflow-with-aa-degree
+    setup: >
+      2L student with a community-college A.A. degree in their background
+      submits a resume that runs a few lines onto a second page. Agent should
+      (a) keep the A.A. and treat it as a required inclusion, not an optional
+      one, and (b) recommend OCS-endorsed condensing techniques (reduced
+      blank-line spacing at 6-8pt, language tightening, bullet rebalancing)
+      before recommending that the student cut substantive experience.
+    messages:
+      - role: user
+        content: "I'm a 2L targeting BigLaw. My resume is running about 5 lines onto a second page and I'm not sure what to cut. Can you review it?"
+      - role: user
+        content: |
+          ALEX MORGAN
+          Cambridge, MA | (617) 555-9090 | amorgan@jd27.law.harvard.edu
+
+          EDUCATION
+          Harvard Law School, Cambridge, MA
+          Juris Doctor, Expected May 2027
+          Honors: Dean's Scholar Prize in Civil Procedure
+          Activities: Harvard Law Review, Articles Editor; Harvard Defenders, Member
+
+          University of Texas at Austin, Austin, TX
+          B.A. in Government, magna cum laude, May 2022
+          Honors: Phi Beta Kappa; Dean's Honor List (all semesters)
+          Thesis: Federalism and the Administrative State
+
+          Austin Community College, Austin, TX
+          A.A. in Liberal Arts, May 2020
+
+          EXPERIENCE
+          Wachtell, Lipton, Rosen & Katz, New York, NY
+          Summer Associate, May 2026 - August 2026
+          - Drafted memoranda analyzing Delaware corporate governance issues for M&A matters
+          - Researched appellate procedure questions for pro bono immigration case
+          - Attended client meetings and depositions with partners across three practice areas
+          - Presented research findings to litigation team on second-circuit antitrust precedent
+
+          Office of the Attorney General of Texas, Austin, TX
+          Legal Intern, May 2025 - August 2025
+          - Researched state consumer protection statutes for ongoing enforcement actions
+          - Drafted sections of motions to dismiss in complex multi-defendant litigation
+          - Prepared witness preparation materials for senior trial attorneys
+          - Observed oral arguments at the Fifth Circuit Court of Appeals
+
+          Teach for America, San Antonio, TX
+          High School Social Studies Teacher, August 2022 - May 2024
+          - Designed curriculum for 120 students across four sections of U.S. Government
+          - Led school-wide debate program and coached team to regional championship
+          - Mentored new teachers as grade-level instructional lead in final year
+          - Collaborated with administration on data-driven improvements to literacy outcomes
+
+          Target, Austin, TX
+          Cashier and Shift Lead, June 2019 - August 2022
+          - Trained new cashiers on point-of-sale systems and customer service protocols
+          - Managed shift operations including cash reconciliation and customer escalations
+          - Recognized as Employee of the Month on three separate occasions
+
+          SKILLS AND INTERESTS
+          Languages: Spanish (conversational)
+          Interests: competitive Scrabble (nationally ranked), urban sketching, Tex-Mex cookery
+    expected:
+      - Corrected resume retains the Austin Community College A.A. entry (does NOT remove it and does NOT label it optional)
+      - Companion document does not tell the student the A.A. is optional to include
+      - Companion document suggests reducing blank-line spacing between entries to 6-8pt as a first-line condensing technique
+      - Companion document suggests tightening language and/or rebalancing bullet counts (e.g., compressing the older Target cashier entry) before cutting a substantive entry
+      - Companion document does not treat the slight overflow as a critical error requiring substantive cuts as the first move
+      - Agent does not silently cut any substantive experience entry from the corrected resume to force one page
+      - If the agent does suggest cutting an entry, it frames this as a last resort and lets the student decide which entry to drop
+
+  - id: opia-2l-government-unified-experience
+    setup: >
+      2L student targeting government / public-interest positions submits a
+      resume that splits experience into "Legal Experience" and "Other
+      Professional Experience" sections. Agent should recognize the OPIA
+      pathway, merge the two sections into a single unified "Experience"
+      section in the corrected resume (preserving every entry in reverse
+      chronological order), and not recommend re-splitting.
+    messages:
+      - role: user
+        content: "I'm a 2L targeting DOJ Honors and state AG offices. Can you review my resume?"
+      - role: user
+        content: |
+          JORDAN RIVERA
+          Cambridge, MA | (617) 555-4422 | jrivera@jd27.law.harvard.edu
+
+          EDUCATION
+          Harvard Law School, Cambridge, MA
+          Juris Doctor, Expected May 2027
+          Honors: Dean's Scholar Prize in Criminal Law
+          Activities: Harvard Defenders, Student Attorney; Harvard Prison Legal Assistance Project, Member
+
+          University of Michigan, Ann Arbor, MI
+          B.A. in Political Science, magna cum laude, May 2022
+
+          LEGAL EXPERIENCE
+          U.S. Attorney's Office, District of Massachusetts, Boston, MA
+          Legal Intern, Criminal Division, May 2026 - August 2026
+          - Drafted sentencing memoranda for narcotics and firearms cases
+          - Researched Fourth Amendment suppression issues for AUSAs
+          - Observed grand jury proceedings and federal trials
+
+          Harvard Defenders, Cambridge, MA
+          Student Attorney, September 2025 - Present
+          - Represented indigent clients in show-cause hearings in Massachusetts district courts
+          - Negotiated with police prosecutors to secure dismissal of criminal complaints
+
+          OTHER PROFESSIONAL EXPERIENCE
+          City of Detroit, Office of the Mayor, Detroit, MI
+          Policy Fellow, June 2022 - July 2024
+          - Drafted policy memoranda on criminal justice reform initiatives for senior staff
+          - Coordinated community listening sessions with 200+ residents across three districts
+          - Managed implementation timeline for diversion program pilot serving 150 participants
+
+          AmeriCorps VISTA, Flint, MI
+          Community Outreach Coordinator, June 2020 - May 2022
+          - Built volunteer pipeline of 40+ community members for water crisis response
+          - Coordinated legal clinics with pro bono attorneys serving 120+ residents
+
+          SKILLS AND INTERESTS
+          Languages: Spanish (proficient)
+          Interests: prison abolition literature, trail running, community radio DJ
+    expected:
+      - Agent recognizes the OPIA pathway (government / criminal justice / public interest)
+      - Corrected resume uses a single unified "Experience" section rather than separate "Legal Experience" and "Other Professional Experience" sections
+      - All experience entries are preserved and listed in reverse chronological order within the unified section
+      - Companion document does not recommend re-splitting experience into separate legal / non-legal sections
+      - Agent applies OPIA-specific adjustments (e.g., places Harvard Defenders under Experience, may suggest a Relevant Coursework line under HLS Education)

@@ -16,7 +16,7 @@ Juris Doctor, Expected May [Year]
 - [Action Verb] [Proposed goal: e.g., "Establish a medical-legal partnership..."]
 - [Action Verb] [Specific task: e.g., "Provide direct representation to veterans..."]
 
-## LEGAL EXPERIENCE
+## EXPERIENCE
 
 **[HLS CLINIC NAME]**, Cambridge, MA
 Student Attorney, [Dates]

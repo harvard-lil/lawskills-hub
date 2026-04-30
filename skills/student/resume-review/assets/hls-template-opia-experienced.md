@@ -9,7 +9,9 @@
 - Admitted to practice in [Jurisdiction/Country]
 - [Optional: Intend to sit for NY Bar, July 20XX]
 
-## LEGAL EXPERIENCE
+## EXPERIENCE
+
+List all roles -- legal and pre-law professional -- in a single reverse-chronological Experience section. Do **not** split into "Legal Experience" and "Other Professional Experience"; OPIA prefers a unified Experience section.
 
 **[MOST RECENT LEGAL ROLE]**, [City, ST]
 [Title], [Dates]

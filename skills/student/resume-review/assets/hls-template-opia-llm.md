@@ -17,7 +17,7 @@ LL.M. Candidate, May [Year]
 *Honors:* [e.g., Named Prize (top 1% of class)]
 *Thesis:* "[Title of Thesis or Research Project]"
 
-## LEGAL EXPERIENCE
+## EXPERIENCE
 
 **[HLS CLINIC NAME]**, Cambridge, MA
 Student Attorney, [Dates]
