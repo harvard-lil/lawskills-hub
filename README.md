@@ -4,7 +4,7 @@ A collection of AI agent skills for legal education, built by the [Harvard Law S
 
 ## Quickstart
 
-All skills in this repo are in the [Agent Skills](https://agentskills.org/) format and are compatible with the following:
+All skills in this repo are in the [Agent Skills](https://agentskills.io/home/) format and are compatible with the following:
 
 * [Claude Code Desktop](https://code.claude.com/docs/en/desktop-quickstart)
 * [OpenAI's Codex](https://chatgpt.com/codex)
@@ -14,19 +14,17 @@ For additional options, see [Delivery](#delivery) below for more information.
 
 Skills will be triggered automatically based on the language in your prompts to any AI agent -- just describe your desired task as you normally would, and the [skill](#skills-in-this-collection) or [meta-skill](#meta-skills-making-the-collection-sticky) will contextually load, depending on your preferences. 
 
-For example, if you have the Instructor meta-skill invoked or have installed the *Syllabus Traditional* skill, prompting "create an environmental law syllabus with updated Supreme Court decisions" will cause the appropriate skill to be employed. 
-
-> Are you an educator, law librarian, or practicing lawyer? An expert in something else that can benefit legal education? Check out our [Contributor Guidelines](CONTRIBUTING.md) to submit a skill to the Skills Hub.
+For example, if you have invoked the Instructor meta-skill or have installed the *Syllabus Traditional* skill, prompting "create an environmental law syllabus with updated Supreme Court decisions" will cause the appropriate skill to be employed. 
 
 ## Why This Exists
 
 People are already using AI to teach and learn the law -- to prepare for class, study for exams, understand legal issues, and build professional skills. Much of that use, especially for students, happens without pedagogical guidance: the AI helps, but we need to think about *how* it should help for a given educational context.
 
-This project explores what it looks like to bring sound pedagogy to AI-assisted legal education. The vehicle is **agent skills** -- modular capabilities you install into an AI coding or writing assistant. Each skill is built with learning in mind: not just "help me with X," but "help me with X in a way that builds understanding / develops capability / orients me toward the right resources."
+This project explores what it looks like to bring sound pedagogy to AI-assisted legal education. What would it mean to lean in and help others make sense of the varied and practical ways AI is and can be used? The vehicle is **agent skills** -- modular capabilities you install into an AI coding or writing assistant. Each skill is built with learning in mind: not just "help me with X," but "help me with X in a way that builds understanding / develops capability / orients me toward the right resources." While the basis is AI, the focus is recentering user agency and growth.
 
 ### Skills as markdown, not software
 
-A skill is a markdown file. It contains instructions that shape how an AI agent approaches a task -- what questions to ask, what steps to follow, what tone to use, what to avoid. Writing a skill is closer to writing a lesson plan than writing code.
+A skill is a markdown file. It contains instructions that shape how an AI agent approaches a task -- what questions to ask, what steps to follow, what tone to use, what actions to avoid. Writing a skill is closer to writing a lesson plan than writing code.
 
 This matters because the people who know how law should be taught -- professors, clinical faculty, librarians, practitioners -- are mostly not software developers. By structuring legal edtech as markdown files with clear conventions, subject matter experts can create, review, and iterate on AI-assisted educational tools directly, without writing code or depending on engineers.
 
@@ -40,19 +38,19 @@ Each skill is a self-contained experiment in AI-assisted pedagogy. You can write
 
 Skills are organized by **persona** -- the role someone occupies when using them. Each persona is associated with a **pedagogical objective** that shapes every skill in the collection: not just what the skills do, but how they do it.
 
-| Persona | Skill Objective | Key constraint |
-|---------|-----------|----------------|
-| **Instructor** | Design high-quality learning experiences and legal education curricula; improve the quality of legal education | Do not produce a student-facing work product |
-| **Student** | Coach, encourage, and check understanding | Never produce finished work product the student would submit |
-| **Pro Se** | Orient and connect | Never give legal advice; teach, orient, and empower |
-| **CLE** | Coach and build skills | Build the attorney's own capabilities, not do work for them |
-| **Skill Developer** | Help SMEs create effective pedagogical AI skills | Honor domain expertise; handle format and conventions |
+| Persona | Framing Objective |
+|---------|-----------|
+| **Instructor** | Design high-quality learning experiences and legal education curricula; improve the quality of legal education |
+| **Student** | Coach, encourage, and check understanding |
+| **Pro Se** | Orient and connect |
+| **CLE** | Coach and build skills |
+| **Skill Developer** | Help SMEs create effective pedagogical AI skills |
 
-The pedagogical objectives are design constraints, not labels. A pro-se skill should never do legal research *for* the user; it should teach them how to find relevant information and connect them with professional help. A student skill should coach rather than produce finished answers. These constraints are defined in `skills/personas.yaml` alongside design principles, tone guidance, and success criteria for each persona.
+The pedagogical objectives are instructional parameters, not labels. A pro-se skill should never do legal research *for* the user; it should teach them how to find relevant information and connect them with professional counsel. A student skill should coach rather than produce finished answers. These constraints are defined in `skills/personas.yaml` alongside design principles, tone guidance, and success criteria for each persona.
 
 ### Meta skills: making the collection sticky
 
-Individual skills do one job well, but they're forgettable -- you have to remember they exist and go find them. A **meta skill** solves this by acting as an ambient capability layer for an entire persona.
+Individual skills do one job well, but they're forgettable -- you have to remember a specific one exists and go find it. A **meta skill** solves this by acting as an ambient capability layer for an entire persona and its associated skillset.
 
 You install one meta skill for your role. From that point on:
 
@@ -103,9 +101,9 @@ Skills are labeled **Official** (tested and stable) or **Preview** (experimental
 
 ## Delivery
 
-The core of this project is the `skills/` directory: markdown files in the [Agent Skills](https://agentskills.org/) format. But not every chat client makes agent skills easy or convenient to install, and keeping a full collection up to date is harder still. Skills are a simple concept -- progressive context management (load a list of descriptions, load a SKILL.md, load references) -- and that's easy to replicate in lots of ways.
+The core of this project is the `skills/` directory: markdown files in the [Agent Skills](https://agentskills.io/home/) format. Skills are a simple concept -- progressive context management (load a list of descriptions, load a SKILL.md, load references) -- and that's easy to replicate in lots of ways.  But not every chat client makes agent skills easy or convenient to install, and keeping a full collection up to date is harder still.
 
-So we use a flexible build approach that meets people where they're at:
+So we use a flexible build approach that meets people and chat clients where they're at:
 
 - **ChatGPT**: We build a static JSON API with an [OpenAPI spec](https://developers.openai.com/docs/actions/introduction) that a Custom GPT can use as an Action. The GPT calls the API to discover and load skills on demand.
 - **Claude Desktop**: We build a `.mcpb` [Desktop Extension](https://www.anthropic.com/engineering/desktop-extensions) that packages a lightweight MCP server. Double-click to install; the server fetches skills from the same static API.
