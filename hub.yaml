@@ -1,0 +1,47 @@
+# Site configuration for skills-hub-builder.
+#
+# Group metadata (label, headline, pitch, design) lives in
+# skills/<group>/group.yaml, one file per persona.
+
+site:
+  title: LIL Agent Skills Hub
+  subtitle: A collection of AI Agent Skills for legal education, created by the Harvard Law School Library Innovation Lab.
+  org_name: Library Innovation Lab
+  org_url: https://lil.law.harvard.edu/
+  org_parent: Harvard Law School
+
+theme:
+  # Persona accent colors. website/js/app.js resolves these through the
+  # matching CSS custom properties in website/css/styles.css.
+  accent_colors:
+    professor: "#F0D0FF"   # --accent-purple
+    student: "#A7E2FF"     # --accent-blue
+    pro-se: "#FFF069"      # --accent-yellow
+    cle: "#8AAFBA"         # --accent-green
+    skill-developer: "#8AAFBA"
+  exclude: []
+
+outputs:
+  site: true
+  skill_packages: true
+  # _site/actions/ — the static API a ChatGPT Custom GPT calls.
+  gpt_actions: true
+  # _site/packages/mcpb/ — built from templates/mcpb/.
+  claude_extension: true
+
+# Naming for the GPT Actions API. The Custom GPT is published as the Legal Ed
+# Skills Hub, which is not the site title, so both are stated here.
+actions:
+  title: Legal Ed Skills Hub
+  description: "Progressively discover and load pedagogical AI skills for legal education. Start with the personas list, drill into a persona for its skill inventory, then fetch individual skill instructions and reference materials as needed."
+
+nav:
+  - label: Skills
+    href: "#personas"
+  - label: Training
+    href: "#training"
+  - label: Traces
+    href: "traces/"
+  - label: GitHub
+    href: "{{ repo_url }}"
+    external: true

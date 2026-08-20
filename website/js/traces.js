@@ -34,11 +34,13 @@ function fmtVersion(v) {
 function groupTraces(traces) {
     const personas = {};
     for (const t of traces) {
-        if (!personas[t.persona]) personas[t.persona] = {};
-        if (!personas[t.persona][t.skill]) {
-            personas[t.persona][t.skill] = { versions: new Set(), scenarios: {} };
+        // skill-eval writes this key as `group`; older traces use `persona`.
+        const p = t.group || t.persona;
+        if (!personas[p]) personas[p] = {};
+        if (!personas[p][t.skill]) {
+            personas[p][t.skill] = { versions: new Set(), scenarios: {} };
         }
-        const sk = personas[t.persona][t.skill];
+        const sk = personas[p][t.skill];
         sk.versions.add(t.version);
         if (!sk.scenarios[t.scenario_id]) sk.scenarios[t.scenario_id] = {};
         if (!sk.scenarios[t.scenario_id][t.version]) sk.scenarios[t.scenario_id][t.version] = [];
@@ -174,7 +176,7 @@ function renderDetail(data) {
         <dt>Model</dt><dd>${esc(data.config.model_under_test.model)}</dd>
         <dt>Judge</dt><dd>${esc(data.config.judge_model.model)}</dd>
         <dt>Time</dt><dd>${fmtTime(m.timestamp)}</dd>
-        <dt>Persona</dt><dd>${esc(m.persona)}</dd>
+        <dt>Persona</dt><dd>${esc(m.group || m.persona)}</dd>
         <dt>Version</dt><dd>${esc(m.version)}</dd>
     </dl>`;
 

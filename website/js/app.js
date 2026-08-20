@@ -1,10 +1,21 @@
-// Persona accent colors
+// Persona accent colors. Mirrors theme.accent_colors in hub.yaml; the
+// builder does not surface accent colors in the inventory JSON, so the
+// mapping lives here.
 const PERSONA_COLORS = {
     professor: 'var(--accent-purple)',
     student: 'var(--accent-blue)',
     'pro-se': 'var(--accent-yellow)',
     cle: 'var(--accent-green)',
 };
+
+// Display order. skills-hub-builder discovers groups alphabetically by
+// directory name and has no ordering key, so the order is pinned here.
+const PERSONA_ORDER = ['professor', 'student', 'pro-se', 'cle', 'skill-developer'];
+
+function personaRank(id) {
+    const i = PERSONA_ORDER.indexOf(id);
+    return i === -1 ? PERSONA_ORDER.length : i;
+}
 
 // DOM elements
 const filtersContainer = document.querySelector('.filters');
@@ -19,19 +30,23 @@ let repoUrl = '';
 // Fetch inventory data
 async function loadInventory() {
     try {
-        const resp = await fetch('inventory/personas.json');
+        const resp = await fetch('inventory/groups.json');
         if (!resp.ok) throw new Error(resp.statusText);
         const index = await resp.json();
 
+        const personas = [...index.groups].sort(
+            (a, b) => personaRank(a.id) - personaRank(b.id)
+        );
+
         const inventories = await Promise.all(
-            index.personas.map(async (p) => {
+            personas.map(async (p) => {
                 const r = await fetch(p.inventory_url);
                 if (!r.ok) throw new Error(r.statusText);
                 return r.json();
             })
         );
 
-        allData = { index: index.personas, inventories };
+        allData = { index: personas, inventories };
         repoUrl = index.repo_url || '';
         buildFilters();
 
@@ -88,7 +103,7 @@ function render() {
 
     const visible = activeFilter === 'all'
         ? allData.inventories
-        : allData.inventories.filter((inv) => inv.persona === activeFilter);
+        : allData.inventories.filter((inv) => inv.group === activeFilter);
 
     if (visible.length === 0) {
         personasContainer.innerHTML = '<p class="no-results">No skills found.</p>';
@@ -104,13 +119,14 @@ function renderPersona(inv) {
     const section = document.createElement('div');
     section.className = 'persona-section';
 
-    const color = PERSONA_COLORS[inv.persona] || 'var(--accent-green)';
-    const label = inv.label || PERSONA_META_LABELS[inv.persona] || inv.persona;
+    const color = PERSONA_COLORS[inv.group] || 'var(--accent-green)';
+    const label = inv.label || inv.group;
 
-    // Meta skill callout — uses human-facing headline/pitch from persona.yaml
+    // Meta skill callout — uses human-facing headline/pitch from group.yaml
+    // (headline is the group `description`; pitch rides along in `design`).
     if (inv.meta_skill) {
-        const headline = `${label} Pack: ${inv.headline}`;
-        const pitch = inv.pitch || inv.meta_skill.description;
+        const headline = `${label} Pack: ${inv.description}`;
+        const pitch = inv.design?.pitch || inv.meta_skill.description;
         const objective = inv.design?.objective || '';
 
         const metaName = inv.meta_skill.name;

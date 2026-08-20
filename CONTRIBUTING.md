@@ -363,8 +363,9 @@ Three specific tests to run:
 3. **Build the site locally** to confirm the skill is discovered correctly:
 
    ```bash
-   uv run scripts/build.py
-   uv run python -m http.server -d _site
+   uvx --from git+https://github.com/harvard-lil/skills-hub#subdirectory=packages/skills-hub-builder \
+       skills-hub-builder build
+   python -m http.server -d _site
    # Open http://localhost:8000/ and verify your skill appears
    ```
 
@@ -398,7 +399,7 @@ Each persona has a core pedagogical objective that is a hard constraint for ever
 | **CLE** | Coach and build skills | Build the attorney's own capabilities; do not do work for them |
 | **Skill Developer** | Help SMEs create effective pedagogical AI skills | Honor domain expertise; handle format and conventions |
 
-The full persona definitions -- including design principles, tone guidance, and success criteria -- are in [`skills/personas.yaml`](skills/personas.yaml).
+The full persona definitions -- including design principles, tone guidance, and success criteria -- are in a `group.yaml` inside each persona directory, e.g. [`skills/professor/group.yaml`](skills/professor/group.yaml).
 
 ---
 
@@ -418,7 +419,7 @@ These principles apply across all personas and complement the [LIL values](#lil-
 
 **Keep skills focused.** A skill that tries to handle ten different tasks will handle none of them well. It is better to have two focused skills than one sprawling one.
 
-**Tone follows the persona.** A professor skill is collegial and direct. A student skill is encouraging but honest. A pro se skill is calm and plain-spoken. A CLE skill is candid and practical. Match the tone guidance in `skills/personas.yaml`.
+**Tone follows the persona.** A professor skill is collegial and direct. A student skill is encouraging but honest. A pro se skill is calm and plain-spoken. A CLE skill is candid and practical. Match the tone guidance in the persona's `group.yaml`.
 
 **Design for the platform-agnostic case.** Skills follow the [Agent Skills](https://agentskills.io/) open standard and should work across Claude, ChatGPT, Gemini CLI, and other tools. Avoid instructions that assume a specific interface or platform capability.
 

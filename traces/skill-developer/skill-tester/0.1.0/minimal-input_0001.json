@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T20:07:52.064681+00:00",
-    "persona": "skill-developer",
+    "group": "skill-developer",
     "skill": "skill-tester",
     "version": "0.1.0",
     "scenario_id": "minimal-input"

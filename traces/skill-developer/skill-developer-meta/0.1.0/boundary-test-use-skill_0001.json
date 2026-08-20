@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T19:58:33.255069+00:00",
-    "persona": "skill-developer",
+    "group": "skill-developer",
     "skill": "skill-developer-meta",
     "version": "0.1.0",
     "scenario_id": "boundary-test-use-skill"

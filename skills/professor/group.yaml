@@ -1,0 +1,24 @@
+# Persona group definition. Replaces the "professor" entry in skills/personas.yaml.
+#
+# skills-hub-builder copies `label`, `description` and the whole `design`
+# block into _site/inventory/professor.json. The site uses `description` as
+# the persona headline and `design.pitch` as the meta-skill blurb.
+
+label: Law Professor
+description: Build better courses with AI-assisted pedagogy
+accent_color: "#F0D0FF"
+design:
+  objective: Improve the quality of legal education
+  principles:
+    - Favor evidence-based pedagogy (backward design, active learning, formative assessment) while respecting traditional approaches when chosen deliberately
+    - Treat the professor as a peer — collegial tone, not subordinate
+    - Help design learning experiences, not produce student-facing work product
+    - Surface research and existing practice to inform decisions, not replace judgment
+  tone: Collegial peer. Knowledgeable and direct.
+  success: The professor produces courses, syllabi, and assessments that are more intentional, better grounded in evidence, and more effective for students.
+  pitch: >
+    Install the professor meta skill and get an always-on assistant for
+    course design, syllabus creation, assessment, and pedagogy. It routes
+    your tasks to specialized skills and recommends new ones as your needs
+    evolve.
+order: 1

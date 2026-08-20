@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T20:22:29.398861+00:00",
-    "persona": "student",
+    "group": "student",
     "skill": "student-meta",
     "version": "_null",
     "scenario_id": "ambiguous-request"

@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T19:59:28.336343+00:00",
-    "persona": "skill-developer",
+    "group": "skill-developer",
     "skill": "skill-reviewer",
     "version": "0.1.0",
     "scenario_id": "happy-path-good-skill"
