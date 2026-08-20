@@ -5,10 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "jinja2>=3.1",
-    "python-dotenv>=1.0.0",
-    "pyyaml>=6.0.3",
+    "skill-eval",
     "pytest>=8.0",
     "pytest-xdist>=3.5",
-    "openai>=1.0",
 ]
+
+# The site builder is not a runtime dependency — run it with uvx:
+#   uvx --from git+https://github.com/harvard-lil/skills-hub#subdirectory=packages/skills-hub-builder \
+#       skills-hub-builder build
+[tool.uv.sources]
+skill-eval = { git = "https://github.com/harvard-lil/skills-hub", subdirectory = "packages/skill-eval" }

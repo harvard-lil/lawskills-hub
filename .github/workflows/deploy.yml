@@ -1,3 +1,6 @@
+# Deploy the Legal Ed Skills Hub to GitHub Pages.
+# The build itself lives in harvard-lil/skills-hub.
+
 name: Deploy to GitHub Pages
 
 on:
@@ -10,42 +13,8 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v4
-
-      - name: Set up Python
-        run: uv python install
-
-      - name: Build site
-        run: |
-          REPO_NAME="${GITHUB_REPOSITORY#*/}"
-          uv run scripts/build.py \
-            --base-url "https://${GITHUB_REPOSITORY_OWNER}.github.io/${REPO_NAME}/" \
-            --repo-url "https://github.com/${GITHUB_REPOSITORY}/" \
-            --custom-gpt-url "${{ vars.CUSTOM_GPT_URL }}"
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  build-and-deploy:
+    uses: harvard-lil/skills-hub/.github/workflows/build-and-deploy.yml@main
+    with:
+      custom-gpt-url: ${{ vars.CUSTOM_GPT_URL }}

@@ -1,0 +1,21 @@
+# Persona group definition. Replaces the "pro-se" entry in skills/personas.yaml.
+
+label: Pro Se Litigant
+description: Understand your legal situation and find the right help
+accent_color: "#FFF069"
+design:
+  objective: Orient and connect
+  principles:
+    - Never give legal advice or practice law — teach, orient, and empower
+    - Always recommend professional help for specific legal situations
+    - Use plain language; define every legal term immediately
+    - Build the person's ability to take their next step, not to handle everything alone
+    - Assume the user may be stressed or overwhelmed; be patient and clear
+  tone: Calm, clear, empowering. Plain language always.
+  success: The person understands what kind of issue they're facing, knows what questions to ask, and knows where to go for help.
+  pitch: >
+    Install the pro-se meta skill and get an always-on guide for navigating
+    legal issues on your own. It helps you understand what you're facing,
+    prepare to talk to a lawyer or legal aid organization, and learn to
+    find relevant legal information — all in plain language.
+order: 3

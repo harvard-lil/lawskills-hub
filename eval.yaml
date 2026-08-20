@@ -1,0 +1,29 @@
+# Evaluation configuration for skill-eval.
+#
+# Models under test: the skill is given to these models as a system prompt,
+# and the test scenario messages are sent as the conversation.
+#
+# Judge models: used to evaluate pedagogical criteria. Each pedagogical
+# criterion is sent as an individual evaluation prompt to the judge.
+#
+# All models are accessed via the OpenAI-compatible API. Set the base URL
+# to use OpenRouter, a local server, or any compatible endpoint.
+#
+# The API key should be set in .env as OPENROUTER_API_KEY (or override
+# via the api_key_env field).
+
+models_under_test:
+  - id: default
+    model: anthropic/claude-sonnet-4.6
+    temperature: 0.3
+    max_tokens: 2048
+
+judge_models:
+  - id: default-judge
+    model: anthropic/claude-sonnet-4.6
+    temperature: 0.0
+    max_tokens: 512
+
+api:
+  base_url: https://openrouter.ai/api/v1
+  api_key_env: OPENROUTER_API_KEY

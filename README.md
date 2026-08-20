@@ -46,7 +46,7 @@ Skills are organized by **persona** -- the role someone occupies when using them
 | **CLE** | Coach and build skills | Build the attorney's own capabilities, not do work for them |
 | **Skill Developer** | Help SMEs create effective pedagogical AI skills | Honor domain expertise; handle format and conventions |
 
-The pedagogical objectives are design constraints, not labels. A pro-se skill should never do legal research *for* the user; it should teach them how to find relevant information and connect them with professional help. A student skill should coach rather than produce finished answers. These constraints are defined in `skills/personas.yaml` alongside design principles, tone guidance, and success criteria for each persona.
+The pedagogical objectives are design constraints, not labels. A pro-se skill should never do legal research *for* the user; it should teach them how to find relevant information and connect them with professional help. A student skill should coach rather than produce finished answers. These constraints are defined in `skills/<persona>/group.yaml` alongside design principles, tone guidance, and success criteria for each persona.
 
 ### Meta skills: making the collection sticky
 
@@ -116,18 +116,26 @@ We intend to keep iterating on this to address more clients and offer a smoother
 
 Requires Python 3.12+ and [uv](https://docs.astral.sh/uv/).
 
+The site is built by [`skills-hub-builder`](https://github.com/harvard-lil/skills-hub), shared with other LIL skill collections. There is nothing to install:
+
 ```bash
 # Build the site locally (relative URLs)
-uv run scripts/build.py
+uvx --from git+https://github.com/harvard-lil/skills-hub#subdirectory=packages/skills-hub-builder \
+    skills-hub-builder build
 
 # Build for deployment (absolute URLs)
-uv run scripts/build.py --base-url https://example.github.io/skills-hub-demo/
+uvx --from git+https://github.com/harvard-lil/skills-hub#subdirectory=packages/skills-hub-builder \
+    skills-hub-builder build --base-url https://harvard-lil.github.io/lawskills-hub/
+
+# Show the discovered skill tree without building
+uvx --from git+https://github.com/harvard-lil/skills-hub#subdirectory=packages/skills-hub-builder \
+    skills-hub-builder inspect
 
 # Preview
-uv run python -m http.server -d _site
+python -m http.server -d _site
 ```
 
-The build script reads `skills/` and produces `_site/` containing `.skill` zip files, JSON inventories, the Claude Desktop extension (`.mcpb`), GPT Actions API, and the static website. HTML pages use Jinja2 templates (in `website/`) with a shared `_base.html` layout. The website is deployed to GitHub Pages automatically on push to `main`.
+The builder reads `hub.yaml` (site title, theme, outputs, nav) and `skills/` (a `group.yaml` per persona, a `SKILL.md` per skill) and produces `_site/` containing `.skill` zip files, JSON inventories, and the static website. HTML pages use Jinja2 templates: anything in `website/` overrides the builder's default theme, and this repo overrides all of it via a shared `_base.html` layout. The website is deployed to GitHub Pages automatically on push to `main` by a workflow that calls the shared `build-and-deploy.yml`.
 
 ### Testing skills
 
@@ -163,7 +171,7 @@ uv run pytest tests/ -v -s --rerun
 
 **Null baselines.** Every scenario also runs with no skill installed -- just a bare "You are a helpful assistant." prompt. These null traces (stored at version `_null`) show what the model does on its own, so you can see what value the skill is actually adding. Null baselines never fail the test suite; they're purely for comparison.
 
-Test configuration (models, API endpoint) is in `tests/test_config.yaml`.
+Test configuration (models, API endpoint) is in `eval.yaml`. The harness itself is the shared [`skill-eval`](https://github.com/harvard-lil/skills-hub) package; `tests/test_skills.py` just re-exports it.
 
 ### Viewing traces
 
