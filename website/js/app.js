@@ -8,15 +8,6 @@ const PERSONA_COLORS = {
     cle: 'var(--accent-green)',
 };
 
-// Display order. skills-hub-builder discovers groups alphabetically by
-// directory name and has no ordering key, so the order is pinned here.
-const PERSONA_ORDER = ['professor', 'student', 'pro-se', 'cle', 'skill-developer'];
-
-function personaRank(id) {
-    const i = PERSONA_ORDER.indexOf(id);
-    return i === -1 ? PERSONA_ORDER.length : i;
-}
-
 // DOM elements
 const filtersContainer = document.querySelector('.filters');
 const personasContainer = document.getElementById('personas-container');
@@ -34,9 +25,7 @@ async function loadInventory() {
         if (!resp.ok) throw new Error(resp.statusText);
         const index = await resp.json();
 
-        const personas = [...index.groups].sort(
-            (a, b) => personaRank(a.id) - personaRank(b.id)
-        );
+        const personas = index.groups;
 
         const inventories = await Promise.all(
             personas.map(async (p) => {
