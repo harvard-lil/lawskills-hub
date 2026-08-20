@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T18:46:27.232821+00:00",
-    "persona": "student",
+    "group": "student",
     "skill": "understanding-check",
     "version": "0.1.0",
     "scenario_id": "minimal-input"

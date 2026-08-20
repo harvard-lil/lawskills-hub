@@ -2,7 +2,7 @@
   "traces": [
     {
       "path": "student/understanding-check/0.1.0/happy-path-con-law_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "understanding-check",
       "version": "0.1.0",
       "scenario_id": "happy-path-con-law",
@@ -13,7 +13,7 @@
     },
     {
       "path": "student/understanding-check/0.1.0/boundary-test-write-outline_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "understanding-check",
       "version": "0.1.0",
       "scenario_id": "boundary-test-write-outline",
@@ -24,7 +24,7 @@
     },
     {
       "path": "student/understanding-check/0.1.0/minimal-input_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "understanding-check",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -35,7 +35,7 @@
     },
     {
       "path": "student/understanding-check/0.1.0/strong-student_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "understanding-check",
       "version": "0.1.0",
       "scenario_id": "strong-student",
@@ -46,7 +46,7 @@
     },
     {
       "path": "student/understanding-check/_null/happy-path-con-law_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "understanding-check",
       "version": "_null",
       "scenario_id": "happy-path-con-law",
@@ -57,7 +57,7 @@
     },
     {
       "path": "student/understanding-check/_null/boundary-test-write-outline_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "understanding-check",
       "version": "_null",
       "scenario_id": "boundary-test-write-outline",
@@ -68,7 +68,7 @@
     },
     {
       "path": "student/understanding-check/_null/minimal-input_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "understanding-check",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -79,7 +79,7 @@
     },
     {
       "path": "student/understanding-check/_null/strong-student_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "understanding-check",
       "version": "_null",
       "scenario_id": "strong-student",
@@ -90,7 +90,7 @@
     },
     {
       "path": "cle/development-plan/0.1.0/boundary-test-do-work_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "0.1.0",
       "scenario_id": "boundary-test-do-work",
@@ -101,7 +101,7 @@
     },
     {
       "path": "cle/topic-curriculum/0.1.0/urgent-timeline_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "0.1.0",
       "scenario_id": "urgent-timeline",
@@ -112,7 +112,7 @@
     },
     {
       "path": "cle/client-email-coach/0.1.0/boundary-test-write-for-me_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "0.1.0",
       "scenario_id": "boundary-test-write-for-me",
@@ -123,7 +123,7 @@
     },
     {
       "path": "pro-se/pro-se-meta/0.1.0/boundary-test-legal-advice_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "pro-se-meta",
       "version": "0.1.0",
       "scenario_id": "boundary-test-legal-advice",
@@ -134,7 +134,7 @@
     },
     {
       "path": "cle/development-plan/0.1.0/minimal-input_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -145,7 +145,7 @@
     },
     {
       "path": "pro-se/issue-interview/0.1.0/boundary-test-legal-advice_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "0.1.0",
       "scenario_id": "boundary-test-legal-advice",
@@ -156,7 +156,7 @@
     },
     {
       "path": "pro-se/issue-interview/0.1.0/complex-overlapping-issues_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "0.1.0",
       "scenario_id": "complex-overlapping-issues",
@@ -167,7 +167,7 @@
     },
     {
       "path": "cle/development-plan/0.1.0/solo-practitioner_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "0.1.0",
       "scenario_id": "solo-practitioner",
@@ -178,7 +178,7 @@
     },
     {
       "path": "cle/cle-meta/0.1.0/ambiguous-request_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "cle-meta",
       "version": "0.1.0",
       "scenario_id": "ambiguous-request",
@@ -189,7 +189,7 @@
     },
     {
       "path": "cle/client-email-coach/0.1.0/minimal-context_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "0.1.0",
       "scenario_id": "minimal-context",
@@ -200,7 +200,7 @@
     },
     {
       "path": "cle/topic-curriculum/0.1.0/minimal-input_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -211,7 +211,7 @@
     },
     {
       "path": "pro-se/pro-se-meta/0.1.0/overwhelmed-user_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "pro-se-meta",
       "version": "0.1.0",
       "scenario_id": "overwhelmed-user",
@@ -222,7 +222,7 @@
     },
     {
       "path": "pro-se/research-coach/0.1.0/happy-path-tenant-rights_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "research-coach",
       "version": "0.1.0",
       "scenario_id": "happy-path-tenant-rights",
@@ -233,7 +233,7 @@
     },
     {
       "path": "professor/professor-meta/0.1.0/ambiguous-request_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "professor-meta",
       "version": "0.1.0",
       "scenario_id": "ambiguous-request",
@@ -244,7 +244,7 @@
     },
     {
       "path": "cle/topic-curriculum/0.1.0/happy-path-data-privacy_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "0.1.0",
       "scenario_id": "happy-path-data-privacy",
@@ -255,7 +255,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/0.1.0/happy-path-review_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "0.1.0",
       "scenario_id": "happy-path-review",
@@ -266,7 +266,7 @@
     },
     {
       "path": "professor/syllabus-evidence-based/0.1.0/compares-to-traditional_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-evidence-based",
       "version": "0.1.0",
       "scenario_id": "compares-to-traditional",
@@ -277,7 +277,7 @@
     },
     {
       "path": "cle/development-plan/0.1.0/happy-path-associate_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "0.1.0",
       "scenario_id": "happy-path-associate",
@@ -288,7 +288,7 @@
     },
     {
       "path": "pro-se/pro-se-meta/0.1.0/happy-path-landlord-tenant_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "pro-se-meta",
       "version": "0.1.0",
       "scenario_id": "happy-path-landlord-tenant",
@@ -299,7 +299,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/0.1.0/boundary-test-use-skill_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "0.1.0",
       "scenario_id": "boundary-test-use-skill",
@@ -310,7 +310,7 @@
     },
     {
       "path": "cle/client-email-coach/0.1.0/happy-path-status-update_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "0.1.0",
       "scenario_id": "happy-path-status-update",
@@ -321,7 +321,7 @@
     },
     {
       "path": "skill-developer/skill-tester/0.1.0/existing-partial-rubric_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-tester",
       "version": "0.1.0",
       "scenario_id": "existing-partial-rubric",
@@ -332,7 +332,7 @@
     },
     {
       "path": "professor/syllabus-evidence-based/0.1.0/minimal-input_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-evidence-based",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -343,7 +343,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/0.1.0/ambiguous-request_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "0.1.0",
       "scenario_id": "ambiguous-request",
@@ -354,7 +354,7 @@
     },
     {
       "path": "skill-developer/skill-creator/0.1.0/boundary-violation-proposal_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-creator",
       "version": "0.1.0",
       "scenario_id": "boundary-violation-proposal",
@@ -365,7 +365,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/0.1.0/happy-path-create_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "0.1.0",
       "scenario_id": "happy-path-create",
@@ -376,7 +376,7 @@
     },
     {
       "path": "student/socratic-tutor/0.1.0/boundary-test-give-answer_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "0.1.0",
       "scenario_id": "boundary-test-give-answer",
@@ -387,7 +387,7 @@
     },
     {
       "path": "skill-developer/skill-reviewer/0.1.0/persona-violation_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-reviewer",
       "version": "0.1.0",
       "scenario_id": "persona-violation",
@@ -398,7 +398,7 @@
     },
     {
       "path": "professor/syllabus-evidence-based/0.1.0/happy-path-con-law_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-evidence-based",
       "version": "0.1.0",
       "scenario_id": "happy-path-con-law",
@@ -409,7 +409,7 @@
     },
     {
       "path": "skill-developer/skill-reviewer/0.1.0/minimal-input_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-reviewer",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -420,7 +420,7 @@
     },
     {
       "path": "student/socratic-tutor/0.1.0/minimal-input_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -431,7 +431,7 @@
     },
     {
       "path": "skill-developer/skill-reviewer/0.1.0/happy-path-good-skill_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-reviewer",
       "version": "0.1.0",
       "scenario_id": "happy-path-good-skill",
@@ -442,7 +442,7 @@
     },
     {
       "path": "student/exam-answer-eval/0.1.0/happy-path-contracts_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "exam-answer-eval",
       "version": "0.1.0",
       "scenario_id": "happy-path-contracts",
@@ -453,7 +453,7 @@
     },
     {
       "path": "student/student-meta/0.1.0/happy-path-study-help_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "student-meta",
       "version": "0.1.0",
       "scenario_id": "happy-path-study-help",
@@ -464,7 +464,7 @@
     },
     {
       "path": "student/socratic-tutor/0.1.0/happy-path-case-prep_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "0.1.0",
       "scenario_id": "happy-path-case-prep",
@@ -475,7 +475,7 @@
     },
     {
       "path": "cle/cle-meta/_null/happy-path-skill-building_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "cle-meta",
       "version": "_null",
       "scenario_id": "happy-path-skill-building",
@@ -486,7 +486,7 @@
     },
     {
       "path": "cle/cle-meta/_null/boundary-test-draft-brief_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "cle-meta",
       "version": "_null",
       "scenario_id": "boundary-test-draft-brief",
@@ -497,7 +497,7 @@
     },
     {
       "path": "student/exam-answer-eval/0.1.0/strong-answer_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "exam-answer-eval",
       "version": "0.1.0",
       "scenario_id": "strong-answer",
@@ -508,7 +508,7 @@
     },
     {
       "path": "cle/client-email-coach/_null/boundary-test-write-for-me_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "_null",
       "scenario_id": "boundary-test-write-for-me",
@@ -519,7 +519,7 @@
     },
     {
       "path": "cle/cle-meta/_null/ambiguous-request_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "cle-meta",
       "version": "_null",
       "scenario_id": "ambiguous-request",
@@ -530,7 +530,7 @@
     },
     {
       "path": "cle/client-email-coach/_null/bad-news-email_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "_null",
       "scenario_id": "bad-news-email",
@@ -541,7 +541,7 @@
     },
     {
       "path": "cle/client-email-coach/_null/happy-path-status-update_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "_null",
       "scenario_id": "happy-path-status-update",
@@ -552,7 +552,7 @@
     },
     {
       "path": "cle/client-email-coach/_null/minimal-context_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "_null",
       "scenario_id": "minimal-context",
@@ -563,7 +563,7 @@
     },
     {
       "path": "cle/development-plan/_null/boundary-test-do-work_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "_null",
       "scenario_id": "boundary-test-do-work",
@@ -574,7 +574,7 @@
     },
     {
       "path": "cle/development-plan/_null/happy-path-associate_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "_null",
       "scenario_id": "happy-path-associate",
@@ -585,7 +585,7 @@
     },
     {
       "path": "cle/development-plan/0.1.0/boundary-test-do-work_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "0.1.0",
       "scenario_id": "boundary-test-do-work",
@@ -596,7 +596,7 @@
     },
     {
       "path": "cle/topic-curriculum/0.1.0/urgent-timeline_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "0.1.0",
       "scenario_id": "urgent-timeline",
@@ -607,7 +607,7 @@
     },
     {
       "path": "pro-se/issue-interview/0.1.0/boundary-test-legal-advice_0002.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "0.1.0",
       "scenario_id": "boundary-test-legal-advice",
@@ -618,7 +618,7 @@
     },
     {
       "path": "pro-se/pro-se-meta/0.1.0/boundary-test-legal-advice_0002.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "pro-se-meta",
       "version": "0.1.0",
       "scenario_id": "boundary-test-legal-advice",
@@ -629,7 +629,7 @@
     },
     {
       "path": "cle/development-plan/0.1.0/minimal-input_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -640,7 +640,7 @@
     },
     {
       "path": "pro-se/issue-interview/0.1.0/complex-overlapping-issues_0002.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "0.1.0",
       "scenario_id": "complex-overlapping-issues",
@@ -651,7 +651,7 @@
     },
     {
       "path": "cle/topic-curriculum/0.1.0/partial-familiarity_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "0.1.0",
       "scenario_id": "partial-familiarity",
@@ -662,7 +662,7 @@
     },
     {
       "path": "cle/cle-meta/0.1.0/happy-path-skill-building_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "cle-meta",
       "version": "0.1.0",
       "scenario_id": "happy-path-skill-building",
@@ -673,7 +673,7 @@
     },
     {
       "path": "pro-se/issue-interview/0.1.0/minimal-input_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -684,7 +684,7 @@
     },
     {
       "path": "cle/topic-curriculum/0.1.0/minimal-input_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -695,7 +695,7 @@
     },
     {
       "path": "cle/client-email-coach/0.1.0/minimal-context_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "0.1.0",
       "scenario_id": "minimal-context",
@@ -706,7 +706,7 @@
     },
     {
       "path": "pro-se/research-coach/0.1.0/happy-path-tenant-rights_0002.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "research-coach",
       "version": "0.1.0",
       "scenario_id": "happy-path-tenant-rights",
@@ -717,7 +717,7 @@
     },
     {
       "path": "professor/professor-meta/0.1.0/ambiguous-request_0002.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "professor-meta",
       "version": "0.1.0",
       "scenario_id": "ambiguous-request",
@@ -728,7 +728,7 @@
     },
     {
       "path": "pro-se/pro-se-meta/0.1.0/overwhelmed-user_0002.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "pro-se-meta",
       "version": "0.1.0",
       "scenario_id": "overwhelmed-user",
@@ -739,7 +739,7 @@
     },
     {
       "path": "professor/professor-meta/0.1.0/happy-path-course-design_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "professor-meta",
       "version": "0.1.0",
       "scenario_id": "happy-path-course-design",
@@ -750,7 +750,7 @@
     },
     {
       "path": "cle/cle-meta/0.1.0/boundary-test-draft-brief_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "cle-meta",
       "version": "0.1.0",
       "scenario_id": "boundary-test-draft-brief",
@@ -761,7 +761,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/0.1.0/happy-path-review_0002.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "0.1.0",
       "scenario_id": "happy-path-review",
@@ -772,7 +772,7 @@
     },
     {
       "path": "pro-se/research-coach/0.1.0/boundary-test-just-answer_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "research-coach",
       "version": "0.1.0",
       "scenario_id": "boundary-test-just-answer",
@@ -783,7 +783,7 @@
     },
     {
       "path": "pro-se/pro-se-meta/0.1.0/happy-path-landlord-tenant_0002.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "pro-se-meta",
       "version": "0.1.0",
       "scenario_id": "happy-path-landlord-tenant",
@@ -794,7 +794,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/0.1.0/boundary-test-use-skill_0002.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "0.1.0",
       "scenario_id": "boundary-test-use-skill",
@@ -805,7 +805,7 @@
     },
     {
       "path": "professor/syllabus-traditional/0.1.0/specific-constraints_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-traditional",
       "version": "0.1.0",
       "scenario_id": "specific-constraints",
@@ -816,7 +816,7 @@
     },
     {
       "path": "skill-developer/skill-tester/0.1.0/existing-partial-rubric_0002.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-tester",
       "version": "0.1.0",
       "scenario_id": "existing-partial-rubric",
@@ -827,7 +827,7 @@
     },
     {
       "path": "professor/professor-meta/0.1.0/boundary-test-student-work_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "professor-meta",
       "version": "0.1.0",
       "scenario_id": "boundary-test-student-work",
@@ -838,7 +838,7 @@
     },
     {
       "path": "skill-developer/skill-tester/0.1.0/minimal-input_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-tester",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -849,7 +849,7 @@
     },
     {
       "path": "professor/syllabus-evidence-based/0.1.0/happy-path-con-law_0002.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-evidence-based",
       "version": "0.1.0",
       "scenario_id": "happy-path-con-law",
@@ -860,7 +860,7 @@
     },
     {
       "path": "skill-developer/skill-creator/0.1.0/happy-path-case-briefing_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-creator",
       "version": "0.1.0",
       "scenario_id": "happy-path-case-briefing",
@@ -871,7 +871,7 @@
     },
     {
       "path": "skill-developer/skill-reviewer/0.1.0/persona-violation_0002.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-reviewer",
       "version": "0.1.0",
       "scenario_id": "persona-violation",
@@ -882,7 +882,7 @@
     },
     {
       "path": "skill-developer/skill-tester/0.1.0/happy-path-create-rubric_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-tester",
       "version": "0.1.0",
       "scenario_id": "happy-path-create-rubric",
@@ -893,7 +893,7 @@
     },
     {
       "path": "skill-developer/skill-reviewer/0.1.0/minimal-input_0002.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-reviewer",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -904,7 +904,7 @@
     },
     {
       "path": "professor/syllabus-traditional/0.1.0/happy-path-torts_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-traditional",
       "version": "0.1.0",
       "scenario_id": "happy-path-torts",
@@ -915,7 +915,7 @@
     },
     {
       "path": "skill-developer/skill-tester/0.1.0/evaluate-trace_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-tester",
       "version": "0.1.0",
       "scenario_id": "evaluate-trace",
@@ -926,7 +926,7 @@
     },
     {
       "path": "student/socratic-tutor/0.1.0/minimal-input_0002.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -937,7 +937,7 @@
     },
     {
       "path": "professor/syllabus-traditional/0.1.0/minimal-input_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-traditional",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -948,7 +948,7 @@
     },
     {
       "path": "student/exam-answer-eval/0.1.0/boundary-test-rewrite_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "exam-answer-eval",
       "version": "0.1.0",
       "scenario_id": "boundary-test-rewrite",
@@ -959,7 +959,7 @@
     },
     {
       "path": "student/socratic-tutor/0.1.0/advanced-student_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "0.1.0",
       "scenario_id": "advanced-student",
@@ -970,7 +970,7 @@
     },
     {
       "path": "student/exam-answer-eval/0.1.0/strong-answer_0002.json",
-      "persona": "student",
+      "group": "student",
       "skill": "exam-answer-eval",
       "version": "0.1.0",
       "scenario_id": "strong-answer",
@@ -981,7 +981,7 @@
     },
     {
       "path": "student/student-meta/0.1.0/ambiguous-request_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "student-meta",
       "version": "0.1.0",
       "scenario_id": "ambiguous-request",
@@ -992,7 +992,7 @@
     },
     {
       "path": "student/student-meta/0.1.0/happy-path-study-help_0002.json",
-      "persona": "student",
+      "group": "student",
       "skill": "student-meta",
       "version": "0.1.0",
       "scenario_id": "happy-path-study-help",
@@ -1003,7 +1003,7 @@
     },
     {
       "path": "student/socratic-tutor/0.1.0/boundary-test-give-answer_0002.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "0.1.0",
       "scenario_id": "boundary-test-give-answer",
@@ -1014,7 +1014,7 @@
     },
     {
       "path": "cle/cle-meta/_null/boundary-test-draft-brief_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "cle-meta",
       "version": "_null",
       "scenario_id": "boundary-test-draft-brief",
@@ -1025,7 +1025,7 @@
     },
     {
       "path": "student/student-meta/0.1.0/boundary-test-write-memo_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "student-meta",
       "version": "0.1.0",
       "scenario_id": "boundary-test-write-memo",
@@ -1036,7 +1036,7 @@
     },
     {
       "path": "cle/cle-meta/_null/ambiguous-request_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "cle-meta",
       "version": "_null",
       "scenario_id": "ambiguous-request",
@@ -1047,7 +1047,7 @@
     },
     {
       "path": "cle/development-plan/_null/boundary-test-do-work_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "_null",
       "scenario_id": "boundary-test-do-work",
@@ -1058,7 +1058,7 @@
     },
     {
       "path": "cle/client-email-coach/_null/bad-news-email_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "_null",
       "scenario_id": "bad-news-email",
@@ -1069,7 +1069,7 @@
     },
     {
       "path": "cle/client-email-coach/_null/happy-path-status-update_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "_null",
       "scenario_id": "happy-path-status-update",
@@ -1080,7 +1080,7 @@
     },
     {
       "path": "cle/client-email-coach/_null/boundary-test-write-for-me_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "_null",
       "scenario_id": "boundary-test-write-for-me",
@@ -1091,7 +1091,7 @@
     },
     {
       "path": "cle/client-email-coach/_null/minimal-context_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "_null",
       "scenario_id": "minimal-context",
@@ -1102,7 +1102,7 @@
     },
     {
       "path": "cle/development-plan/_null/happy-path-associate_0002.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "_null",
       "scenario_id": "happy-path-associate",
@@ -1113,7 +1113,7 @@
     },
     {
       "path": "cle/topic-curriculum/_null/minimal-input_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -1124,7 +1124,7 @@
     },
     {
       "path": "cle/development-plan/_null/solo-practitioner_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "_null",
       "scenario_id": "solo-practitioner",
@@ -1135,7 +1135,7 @@
     },
     {
       "path": "cle/topic-curriculum/_null/urgent-timeline_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "_null",
       "scenario_id": "urgent-timeline",
@@ -1146,7 +1146,7 @@
     },
     {
       "path": "pro-se/issue-interview/_null/boundary-test-legal-advice_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "_null",
       "scenario_id": "boundary-test-legal-advice",
@@ -1157,7 +1157,7 @@
     },
     {
       "path": "cle/topic-curriculum/_null/partial-familiarity_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "_null",
       "scenario_id": "partial-familiarity",
@@ -1168,7 +1168,7 @@
     },
     {
       "path": "pro-se/issue-interview/_null/minimal-input_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -1179,7 +1179,7 @@
     },
     {
       "path": "pro-se/issue-interview/_null/complex-overlapping-issues_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "_null",
       "scenario_id": "complex-overlapping-issues",
@@ -1190,7 +1190,7 @@
     },
     {
       "path": "pro-se/pro-se-meta/_null/boundary-test-legal-advice_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "pro-se-meta",
       "version": "_null",
       "scenario_id": "boundary-test-legal-advice",
@@ -1201,7 +1201,7 @@
     },
     {
       "path": "pro-se/pro-se-meta/_null/overwhelmed-user_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "pro-se-meta",
       "version": "_null",
       "scenario_id": "overwhelmed-user",
@@ -1212,7 +1212,7 @@
     },
     {
       "path": "pro-se/research-coach/_null/boundary-test-just-answer_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "research-coach",
       "version": "_null",
       "scenario_id": "boundary-test-just-answer",
@@ -1223,7 +1223,7 @@
     },
     {
       "path": "pro-se/research-coach/_null/happy-path-tenant-rights_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "research-coach",
       "version": "_null",
       "scenario_id": "happy-path-tenant-rights",
@@ -1234,7 +1234,7 @@
     },
     {
       "path": "pro-se/research-coach/_null/minimal-input_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "research-coach",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -1245,7 +1245,7 @@
     },
     {
       "path": "pro-se/research-coach/_null/reading-help_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "research-coach",
       "version": "_null",
       "scenario_id": "reading-help",
@@ -1256,7 +1256,7 @@
     },
     {
       "path": "professor/professor-meta/_null/happy-path-course-design_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "professor-meta",
       "version": "_null",
       "scenario_id": "happy-path-course-design",
@@ -1267,7 +1267,7 @@
     },
     {
       "path": "professor/professor-meta/_null/boundary-test-student-work_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "professor-meta",
       "version": "_null",
       "scenario_id": "boundary-test-student-work",
@@ -1278,7 +1278,7 @@
     },
     {
       "path": "professor/professor-meta/_null/ambiguous-request_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "professor-meta",
       "version": "_null",
       "scenario_id": "ambiguous-request",
@@ -1289,7 +1289,7 @@
     },
     {
       "path": "professor/syllabus-evidence-based/_null/happy-path-con-law_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-evidence-based",
       "version": "_null",
       "scenario_id": "happy-path-con-law",
@@ -1300,7 +1300,7 @@
     },
     {
       "path": "professor/syllabus-evidence-based/_null/compares-to-traditional_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-evidence-based",
       "version": "_null",
       "scenario_id": "compares-to-traditional",
@@ -1311,7 +1311,7 @@
     },
     {
       "path": "professor/syllabus-traditional/_null/minimal-input_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-traditional",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -1322,7 +1322,7 @@
     },
     {
       "path": "professor/syllabus-traditional/_null/specific-constraints_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-traditional",
       "version": "_null",
       "scenario_id": "specific-constraints",
@@ -1333,7 +1333,7 @@
     },
     {
       "path": "skill-developer/skill-creator/_null/happy-path-case-briefing_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-creator",
       "version": "_null",
       "scenario_id": "happy-path-case-briefing",
@@ -1344,7 +1344,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/_null/happy-path-review_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "_null",
       "scenario_id": "happy-path-review",
@@ -1355,7 +1355,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/_null/ambiguous-request_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "_null",
       "scenario_id": "ambiguous-request",
@@ -1366,7 +1366,7 @@
     },
     {
       "path": "skill-developer/skill-tester/_null/minimal-input_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-tester",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -1377,7 +1377,7 @@
     },
     {
       "path": "skill-developer/skill-creator/_null/minimal-input_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-creator",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -1388,7 +1388,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/_null/boundary-test-use-skill_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "_null",
       "scenario_id": "boundary-test-use-skill",
@@ -1399,7 +1399,7 @@
     },
     {
       "path": "skill-developer/skill-tester/_null/evaluate-trace_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-tester",
       "version": "_null",
       "scenario_id": "evaluate-trace",
@@ -1410,7 +1410,7 @@
     },
     {
       "path": "student/socratic-tutor/_null/happy-path-case-prep_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "_null",
       "scenario_id": "happy-path-case-prep",
@@ -1421,7 +1421,7 @@
     },
     {
       "path": "skill-developer/skill-reviewer/_null/happy-path-good-skill_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-reviewer",
       "version": "_null",
       "scenario_id": "happy-path-good-skill",
@@ -1432,7 +1432,7 @@
     },
     {
       "path": "skill-developer/skill-reviewer/_null/persona-violation_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-reviewer",
       "version": "_null",
       "scenario_id": "persona-violation",
@@ -1443,7 +1443,7 @@
     },
     {
       "path": "student/socratic-tutor/_null/boundary-test-give-answer_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "_null",
       "scenario_id": "boundary-test-give-answer",
@@ -1454,7 +1454,7 @@
     },
     {
       "path": "student/socratic-tutor/_null/minimal-input_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -1465,7 +1465,7 @@
     },
     {
       "path": "student/exam-answer-eval/_null/happy-path-contracts_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "exam-answer-eval",
       "version": "_null",
       "scenario_id": "happy-path-contracts",
@@ -1476,7 +1476,7 @@
     },
     {
       "path": "skill-developer/skill-creator/0.1.0/non-standard-persona_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-creator",
       "version": "0.1.0",
       "scenario_id": "non-standard-persona",
@@ -1487,7 +1487,7 @@
     },
     {
       "path": "skill-developer/skill-developer-meta/_null/happy-path-create_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-developer-meta",
       "version": "_null",
       "scenario_id": "happy-path-create",
@@ -1498,7 +1498,7 @@
     },
     {
       "path": "pro-se/pro-se-meta/_null/happy-path-landlord-tenant_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "pro-se-meta",
       "version": "_null",
       "scenario_id": "happy-path-landlord-tenant",
@@ -1509,7 +1509,7 @@
     },
     {
       "path": "student/exam-answer-eval/_null/strong-answer_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "exam-answer-eval",
       "version": "_null",
       "scenario_id": "strong-answer",
@@ -1520,7 +1520,7 @@
     },
     {
       "path": "skill-developer/skill-tester/_null/happy-path-create-rubric_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-tester",
       "version": "_null",
       "scenario_id": "happy-path-create-rubric",
@@ -1531,7 +1531,7 @@
     },
     {
       "path": "skill-developer/skill-creator/0.1.0/minimal-input_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-creator",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -1542,7 +1542,7 @@
     },
     {
       "path": "pro-se/research-coach/0.1.0/reading-help_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "research-coach",
       "version": "0.1.0",
       "scenario_id": "reading-help",
@@ -1553,7 +1553,7 @@
     },
     {
       "path": "professor/syllabus-evidence-based/_null/minimal-input_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-evidence-based",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -1564,7 +1564,7 @@
     },
     {
       "path": "pro-se/research-coach/0.1.0/minimal-input_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "research-coach",
       "version": "0.1.0",
       "scenario_id": "minimal-input",
@@ -1575,7 +1575,7 @@
     },
     {
       "path": "student/student-meta/_null/boundary-test-write-memo_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "student-meta",
       "version": "_null",
       "scenario_id": "boundary-test-write-memo",
@@ -1586,7 +1586,7 @@
     },
     {
       "path": "student/socratic-tutor/_null/advanced-student_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "socratic-tutor",
       "version": "_null",
       "scenario_id": "advanced-student",
@@ -1597,7 +1597,7 @@
     },
     {
       "path": "student/exam-answer-eval/_null/boundary-test-rewrite_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "exam-answer-eval",
       "version": "_null",
       "scenario_id": "boundary-test-rewrite",
@@ -1608,7 +1608,7 @@
     },
     {
       "path": "cle/client-email-coach/0.1.0/bad-news-email_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "client-email-coach",
       "version": "0.1.0",
       "scenario_id": "bad-news-email",
@@ -1619,7 +1619,7 @@
     },
     {
       "path": "professor/syllabus-traditional/_null/happy-path-torts_0001.json",
-      "persona": "professor",
+      "group": "professor",
       "skill": "syllabus-traditional",
       "version": "_null",
       "scenario_id": "happy-path-torts",
@@ -1630,7 +1630,7 @@
     },
     {
       "path": "cle/topic-curriculum/_null/happy-path-data-privacy_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "topic-curriculum",
       "version": "_null",
       "scenario_id": "happy-path-data-privacy",
@@ -1641,7 +1641,7 @@
     },
     {
       "path": "student/student-meta/_null/ambiguous-request_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "student-meta",
       "version": "_null",
       "scenario_id": "ambiguous-request",
@@ -1652,7 +1652,7 @@
     },
     {
       "path": "skill-developer/skill-creator/_null/non-standard-persona_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-creator",
       "version": "_null",
       "scenario_id": "non-standard-persona",
@@ -1663,7 +1663,7 @@
     },
     {
       "path": "skill-developer/skill-creator/_null/boundary-violation-proposal_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-creator",
       "version": "_null",
       "scenario_id": "boundary-violation-proposal",
@@ -1674,7 +1674,7 @@
     },
     {
       "path": "student/exam-answer-eval/0.1.0/missing-question_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "exam-answer-eval",
       "version": "0.1.0",
       "scenario_id": "missing-question",
@@ -1685,7 +1685,7 @@
     },
     {
       "path": "skill-developer/skill-tester/_null/existing-partial-rubric_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-tester",
       "version": "_null",
       "scenario_id": "existing-partial-rubric",
@@ -1696,7 +1696,7 @@
     },
     {
       "path": "student/student-meta/_null/happy-path-study-help_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "student-meta",
       "version": "_null",
       "scenario_id": "happy-path-study-help",
@@ -1707,7 +1707,7 @@
     },
     {
       "path": "pro-se/issue-interview/_null/happy-path-eviction_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "_null",
       "scenario_id": "happy-path-eviction",
@@ -1718,7 +1718,7 @@
     },
     {
       "path": "pro-se/issue-interview/0.1.0/happy-path-eviction_0001.json",
-      "persona": "pro-se",
+      "group": "pro-se",
       "skill": "issue-interview",
       "version": "0.1.0",
       "scenario_id": "happy-path-eviction",
@@ -1729,7 +1729,7 @@
     },
     {
       "path": "cle/development-plan/_null/minimal-input_0001.json",
-      "persona": "cle",
+      "group": "cle",
       "skill": "development-plan",
       "version": "_null",
       "scenario_id": "minimal-input",
@@ -1740,7 +1740,7 @@
     },
     {
       "path": "student/exam-answer-eval/_null/missing-question_0001.json",
-      "persona": "student",
+      "group": "student",
       "skill": "exam-answer-eval",
       "version": "_null",
       "scenario_id": "missing-question",
@@ -1751,7 +1751,7 @@
     },
     {
       "path": "skill-developer/skill-reviewer/_null/minimal-input_0001.json",
-      "persona": "skill-developer",
+      "group": "skill-developer",
       "skill": "skill-reviewer",
       "version": "_null",
       "scenario_id": "minimal-input",

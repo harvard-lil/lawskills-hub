@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T20:09:08.474953+00:00",
-    "persona": "cle",
+    "group": "cle",
     "skill": "client-email-coach",
     "version": "_null",
     "scenario_id": "happy-path-status-update"

@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T20:25:59.892881+00:00",
-    "persona": "cle",
+    "group": "cle",
     "skill": "development-plan",
     "version": "_null",
     "scenario_id": "minimal-input"

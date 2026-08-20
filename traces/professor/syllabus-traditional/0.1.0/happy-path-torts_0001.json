@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T20:08:18.532049+00:00",
-    "persona": "professor",
+    "group": "professor",
     "skill": "syllabus-traditional",
     "version": "0.1.0",
     "scenario_id": "happy-path-torts"

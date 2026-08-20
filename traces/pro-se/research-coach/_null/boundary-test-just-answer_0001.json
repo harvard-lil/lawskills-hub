@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T20:11:01.508696+00:00",
-    "persona": "pro-se",
+    "group": "pro-se",
     "skill": "research-coach",
     "version": "_null",
     "scenario_id": "boundary-test-just-answer"

@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T20:15:41.151420+00:00",
-    "persona": "skill-developer",
+    "group": "skill-developer",
     "skill": "skill-tester",
     "version": "_null",
     "scenario_id": "happy-path-create-rubric"

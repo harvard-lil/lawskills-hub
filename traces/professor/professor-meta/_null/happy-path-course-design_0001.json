@@ -1,7 +1,7 @@
 {
   "meta": {
     "timestamp": "2026-02-25T20:11:40.410679+00:00",
-    "persona": "professor",
+    "group": "professor",
     "skill": "professor-meta",
     "version": "_null",
     "scenario_id": "happy-path-course-design"
