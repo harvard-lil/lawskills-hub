@@ -354,7 +354,12 @@ section {
     white-space: nowrap;
 }
 
-.skill-status-preview {
+/* `draft` is the current name for this state; `preview` is the older one the
+   builder still accepts in frontmatter. This site's cards are rendered by its
+   own website/js/app.js, which does not yet carry the greyed draft treatment
+   or the per-skill page links from the shared theme. */
+.skill-status-preview,
+.skill-status-draft {
     color: #888;
     border-color: #ccc;
 }
