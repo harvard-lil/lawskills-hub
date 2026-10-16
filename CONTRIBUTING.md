@@ -40,7 +40,7 @@ Every skill in this collection should reflect the Library Innovation Lab's core 
 
 **Improvements to existing skills** -- Refined instructions, better step sequences, corrected pedagogical guidance, or additional reference materials for a skill already in the collection.
 
-**New rubrics or test scenarios** -- Even if you don't change a skill's instructions, adding a `rubric.yaml` or new scenarios to an existing one helps us evaluate quality over time.
+**New rubrics or test scenarios** -- Even if you don't change a skill's instructions, adding a `_hub/rubric.yaml` or new scenarios to an existing one helps us evaluate quality over time.
 
 **New personas** -- If you represent a practitioner type not covered (e.g., legal clinic supervisors, law librarians), propose a new persona with a clearly articulated pedagogical objective. Open an issue first to discuss scope before building.
 
@@ -75,7 +75,8 @@ skills/<persona>/<skill-name>/
 ├── scripts/          # Optional: executable scripts the agent runs
 ├── references/       # Optional: documents the agent reads when needed
 ├── assets/           # Optional: templates and data files consumed by scripts
-└── rubric.yaml       # Optional: test criteria and scenarios
+└── _hub/             # Optional: files read by the hub and test harness, not packaged
+    └── rubric.yaml   # Optional: test criteria and scenarios
 ```
 
 Use lowercase, hyphenated names for the skill folder:
@@ -169,9 +170,9 @@ Then tell them what they did well and what to watch for in similar cases.
 
 ### 4. Optionally add a rubric
 
-A `rubric.yaml` lets you define what good performance looks like and write test scenarios. This is optional but strongly encouraged -- it helps reviewers understand your intent and lets the test harness evaluate the skill over time.
+A rubric at `_hub/rubric.yaml` in the skill folder lets you define what good performance looks like and write test scenarios. The `_hub/` directory is left out of the `.skill` package, so the rubric is not installed with the skill. This is optional but strongly encouraged -- it helps reviewers understand your intent and lets the test harness evaluate the skill over time.
 
-See the [rubric schema reference](skills/skill-developer/skill-tester/references/rubric-schema.md) and look at existing rubrics in the collection (e.g., `skills/professor/syllabus-traditional/rubric.yaml`) for the expected format.
+See the [rubric schema reference](skills/skill-developer/skill-tester/references/rubric-schema.md) and look at existing rubrics in the collection (e.g., `skills/professor/syllabus-traditional/_hub/rubric.yaml`) for the expected format.
 
 A rubric has three sections:
 
@@ -299,7 +300,7 @@ If a script needs static data -- templates, lookup tables, schemas -- put those 
 
 If you want to refine an existing skill:
 
-1. Read the current `SKILL.md` and `rubric.yaml` carefully.
+1. Read the current `SKILL.md` and `_hub/rubric.yaml` carefully.
 2. Run the existing test scenarios locally (see [How to test your skill](#how-to-test-your-skill)) to understand current behavior before making changes.
 3. Make your edits. If you change behavior significantly, bump the version in the frontmatter (e.g., `0.1.0` → `0.2.0`).
 4. Update the rubric if your changes affect what the skill should or should not do.

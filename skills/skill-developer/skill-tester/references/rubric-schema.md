@@ -1,6 +1,6 @@
 # Rubric Schema Reference
 
-A rubric file (`rubric.yaml`) lives alongside a skill's `SKILL.md` and defines how to evaluate
+A rubric file (`_hub/rubric.yaml`) lives in a `_hub/` directory beside a skill's `SKILL.md` and defines how to evaluate
 whether the skill is working well. Rubrics support both automated evaluation (via the test harness)
 and manual evaluation (via the skill-tester skill).
 

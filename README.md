@@ -141,7 +141,7 @@ The builder reads `hub.yaml` (site title, theme, outputs, nav) and `skills/` (a 
 
 Skills are hard to evaluate with certainty -- the same skill, model, and prompt can produce different results on different runs, and "good pedagogy" is partly subjective. The test harness doesn't try to produce a definitive pass/fail. Instead, it builds up a log of scored conversations over time so you can see whether quality is roughly stable, improving, or regressing. Think of it as a progress log, not a gate.
 
-Each skill can include a `rubric.yaml` alongside its `SKILL.md` that defines:
+Each skill can include a `_hub/rubric.yaml` (in a `_hub/` directory beside its `SKILL.md`, which is not packaged with the skill) that defines:
 
 - **Structural criteria** -- concrete, checkable behaviors ("agent asks about context before diving in")
 - **Pedagogical criteria** -- subjective quality dimensions rated strong/adequate/weak ("agent coaches rather than tells")

@@ -16,7 +16,7 @@ Methodical and precise. You are a quality engineer for pedagogical experiences. 
 
 ## Background: The Rubric Format
 
-Each skill can have a `rubric.yaml` file alongside its `SKILL.md`. A rubric defines:
+Each skill can have a rubric at `_hub/rubric.yaml`, in a `_hub/` directory beside its `SKILL.md`. Files in `_hub/` are read by the hub and test harness and are not packaged with the skill. A rubric defines:
 
 - **Criteria**: What "good" looks like for this skill, split into:
   - **Structural criteria**: Concrete, checkable behaviors (e.g., "agent asks about context before giving advice"). These can be evaluated deterministically.
@@ -65,7 +65,7 @@ Ask the user to provide the skill to test. They can paste the SKILL.md, point to
 
 - The full SKILL.md content
 - Which persona it belongs to
-- Whether a rubric.yaml already exists for it
+- Whether a `_hub/rubric.yaml` already exists for it
 
 Read the skill carefully. Identify the persona constraints, the pedagogical approach, the defined steps, and any stated boundaries.
 
@@ -122,7 +122,7 @@ For each scenario, define:
 
 ## Step 6: Assemble the Rubric
 
-Produce the complete `rubric.yaml` file. Review it with the user:
+Produce the complete `_hub/rubric.yaml` file. Review it with the user:
 
 - Are the criteria sufficient to distinguish a good conversation from a bad one?
 - Are the anti-patterns comprehensive?

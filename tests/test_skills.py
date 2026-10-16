@@ -1,7 +1,7 @@
 """Skill evaluation tests.
 
 This file re-exports the generic test module from skill-eval. Discovery and
-parametrization (rubric.yaml files under skills/, scenarios, null baselines)
+parametrization (_hub/rubric.yaml files under skills/, scenarios, null baselines)
 are handled by skill_eval's pytest plugin; configuration comes from eval.yaml.
 
 Run with:
